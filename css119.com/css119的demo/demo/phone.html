@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+<div id="test"></div>
+<script type="text/javascript">
+function changeUrl(){
+	if(/AppleWebKit.*mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))){
+	    if(window.location.href.indexOf("?mobile")<0){
+	        try{
+	            if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)){
+	                //window.location.href="手机页面";
+					document.getElementById("test").innerHTML="你是用手机访问此页面的";
+	            }else if(/iPad/i.test(navigator.userAgent)){
+	                //window.location.href="平板页面";
+					document.getElementById("test").innerHTML="你是用平板电脑访问此页面的";
+	            }else{
+	                //window.location.href="其他移动端页面";
+					document.getElementById("test").innerHTML="你是用其他终端访问此页面的";
+	            }
+	        }catch(e){}
+	    }
+	}
+	else{
+		//window.location.href="电脑端页面";
+		document.getElementById("test").innerHTML="你是用电脑访问此页面的";
+	}
+}
+changeUrl();
+</script>
+<!-- css199.com Baidu tongji analytics -->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ff93bd5d8aa4917a86cd8e59a65783744' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</body>
+</html>

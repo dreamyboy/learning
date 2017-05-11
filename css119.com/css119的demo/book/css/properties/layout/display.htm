@@ -1,0 +1,269 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>display</title>
+<meta name="Description" content="" />
+<meta name="Keywords" content="" />
+<meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com" />
+<meta name="copyright" content="www.doyoe.com" />
+<meta name="robots" content="all" />
+<!--[if lte IE 8]>
+<script src="http://www.css119.com/iehtml5.js"></script>
+<![endif]-->
+<link rel="stylesheet" href="../../skin/article.css" tppabs="http://css.doyoe.com/skin/article.css" />
+</head>
+<body>
+<nav id="guide">
+	<div class="from">
+		<a href="../../index.htm" tppabs="http://css.doyoe.com/" target="_blank">CSS参考手册</a>
+		<span>&#187;</span>
+		<a href="../index.htm" tppabs="http://css.doyoe.com/properties/index.htm">属性列表</a>
+		<span>&#187;</span>
+		<a href="index.htm" tppabs="http://css.doyoe.com/properties/layout/index.htm">布局属性</a>
+		<span>&#187;</span>
+	</div>
+	<div class="to">
+		<span class="label">相关内容：</span>
+		<div id="topages" class="gcombobox">
+			<a href="display.htm-.htm" tppabs="http://css.doyoe.com/properties/layout/display.htm?" class="target">
+				<strong>其它布局属性参考</strong>
+				<span>选择其它项<!--[if lte IE 7]><ins>IE7 and earlier, Get to die</ins><![endif]--></span>
+			</a>
+			<div class="list ghide">
+				<ul>
+					<li><a href="display.htm" tppabs="http://css.doyoe.com/properties/layout/display.htm">display</a></li>
+					<li><a href="float.htm" tppabs="http://css.doyoe.com/properties/layout/float.htm">float</a></li>
+					<li><a href="clear.htm" tppabs="http://css.doyoe.com/properties/layout/clear.htm">clear</a></li>
+					<li><a href="visibility.htm" tppabs="http://css.doyoe.com/properties/layout/visibility.htm">visibility</a></li>
+					<li><a href="clip.htm" tppabs="http://css.doyoe.com/properties/layout/clip.htm">clip</a></li>
+					<li><a href="overflow.htm" tppabs="http://css.doyoe.com/properties/layout/overflow.htm">overflow</a></li>
+					<li><a href="overflow-x.htm" tppabs="http://css.doyoe.com/properties/layout/overflow-x.htm">overflow-x</a></li>
+					<li><a href="overflow-y.htm" tppabs="http://css.doyoe.com/properties/layout/overflow-y.htm">overflow-y</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</nav>
+<header id="hd">
+	<h1 class="tit">display</h1>
+	<ul class="info">
+		<li><strong>版本：CSS1/CSS2/CSS3</strong></li>
+		<li>继承性：无</li>
+	</ul>
+	<div id="browser" class="browser"><iframe id="top-browser" frameborder="0" allowtransparency="true" src="../../global-browser.htm" tppabs="http://css.doyoe.com/global-browser.htm"></iframe></div>
+</header>
+<section id="bd">
+	<section id="syntax" class="gmodule gattr">
+		<h2 class="tit">语法：</h2>
+		<div class="cont">
+			<p><strong>display</strong>：none | inline | block | list-item | inline-block | table | inline-table | table-caption | table-cell | table-row | table-row-group | table-column | table-column-group | table-footer-group | table-header-group | compact | run-in | ruby | ruby-base | ruby-text | ruby-base-group | ruby-text-group | box | inline-box</p>
+		</div>
+	</section>
+	<section id="value" class="gmodule gattr">
+		<h2 class="tit">取值：</h2>
+		<div class="cont">
+			<dl>
+				<dt>none：</dt>
+				<dd>隐藏对象。与<a href="visibility.htm" tppabs="http://css.doyoe.com/properties/layout/visibility.htm">visibility</a>属性的hidden值不同，其不为被隐藏的对象保留其物理空间</dd>
+				<dt>inline：</dt>
+				<dd>指定对象为内联元素。</dd>
+				<dt>block：</dt>
+				<dd>指定对象为块元素。</dd>
+				<dt>list-item：</dt>
+				<dd>指定对象为列表项目。</dd>
+				<dt>inline-block：</dt>
+				<dd>指定对象为内联块元素。（CSS2）</dd>
+				<dt>table：</dt>
+				<dd>指定对象作为块元素级的表格。类同于html标签&lt;table&gt;（CSS2）</dd>
+				<dt>inline-table：</dt>
+				<dd>指定对象作为内联元素级的表格。类同于html标签&lt;table&gt;（CSS2）</dd>
+				<dt>table-caption：</dt>
+				<dd>指定对象作为表格标题。类同于html标签&lt;caption&gt;（CSS2）</dd>
+				<dt>table-cell：</dt>
+				<dd>指定对象作为表格单元格。类同于html标签&lt;td&gt;（CSS2）</dd>
+				<dt>table-row：</dt>
+				<dd>指定对象作为表格行。类同于html标签&lt;tr&gt;（CSS2）</dd>
+				<dt>table-row-group：</dt>
+				<dd>指定对象作为表格行组。类同于html标签&lt;tbody&gt;（CSS2）</dd>
+				<dt>table-column：</dt>
+				<dd>指定对象作为表格列。类同于html标签&lt;col&gt;（CSS2）</dd>
+				<dt>table-column-group：</dt>
+				<dd>指定对象作为表格列组显示。类同于html标签&lt;colgroup&gt;（CSS2）</dd>
+				<dt>table-header-group：</dt>
+				<dd>指定对象作为表格标题组。类同于html标签&lt;thead&gt;（CSS2）</dd>
+				<dt>table-footer-group：</dt>
+				<dd>指定对象作为表格脚注组。类同于html标签&lt;tfoot&gt;（CSS2）</dd>
+				
+				<dt>compact：</dt>
+				<dd>分配对象为块对象或基于内容之上的内联对象（CSS3）</dd>
+				<dt>run-in：</dt>
+				<dd>分配对象为块对象或基于内容之上的内联对象（CSS3）</dd>
+				
+				<dt>ruby：</dt>
+				<dd>将对象作为表格脚注组显示（CSS3）</dd>
+				<dt>ruby-base：</dt>
+				<dd>将对象作为表格脚注组显示（CSS3）</dd>
+				<dt>ruby-text：</dt>
+				<dd>将对象作为表格脚注组显示（CSS3）</dd>
+				<dt>ruby-base-group：</dt>
+				<dd>将对象作为表格脚注组显示（CSS3）</dd>
+				<dt>ruby-text-group：</dt>
+				<dd>将对象作为表格脚注组显示（CSS3）</dd>
+				
+				<dt>box：</dt>
+				<dd>将对象作为弹性盒模型显示（CSS3）</dd>
+				<dt>inline-box：</dt>
+				<dd>将对象作为内联块级弹性盒模型显示（CSS3）</dd>
+			</dl>
+		</div> 
+	</section>
+	<section id="intro" class="gmodule gattr">
+		<h2 class="tit">说明：</h2>
+		<div class="cont">
+			<strong>设置或检索对象是否及如何显示。</strong>
+			<ul>
+				<li><em class="glight">IE7及以下浏览器不支持table相关的参数值</em>，如：table, inline-table, table-caption, table-cell, table-row, table-row-group, table-column, table-column-group, table-footer-group, table-header-group</li>
+				<li><em class="glight">写本文档时尚无浏览器支持ruby相关的参数值</em>，如：ruby, ruby-base, ruby-text, ruby-base-group, ruby-text-group</li>
+				<li>对应的脚本特性为<strong>display</strong>。</li>
+			</ul>
+		</div>
+	</section>
+	<section id="compatible" class="gmodule gattr">
+		<h2 class="tit">兼容性：</h2>
+		<div class="cont">
+			<ul class="support-type">
+				<li><span class="support">浅绿</span> = 支持</li>
+				<li><span class="unsupport">红色</span> = 不支持</li>
+				<li><span class="partsupport">墨绿</span> = 部分支持</li>
+				<li><span class="experimentsupport">橙色</span> = 实验性质</li>
+			</ul>
+			<table class="gdataform">
+				<thead>
+					<tr>
+						<th><a href="#browser" title="查看本文档测试时所用浏览器版本">支持版本</a>\类型</th>
+						<th><span class="browser-ie">IE</span></th>
+						<th><span class="browser-firefox">Firefox</span></th>
+						<th><span class="browser-safari">Safari</span></th>
+						<th><span class="browser-chrome">Chrome</span></th>
+						<th><span class="browser-opera">Opera</span></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>较早版本</th>
+						<td class="partsupport">6.0-7.0 <sup><a href="#support1">#1</a></sup></td>
+						<td class="partsupport" rowspan="3">4.0-6.0 <sup><a href="#support2">#2</a></sup></td>
+						<td class="partsupport" rowspan="3">5.1 <sup><a href="#support3">#3</a></sup></td>
+						<td class="partsupport" rowspan="3">13.0 <sup><a href="#support4">#4</a></sup></td>
+						<td class="partsupport" rowspan="3">11.50-11.51 <sup><a href="#support5">#5</a></sup></td>
+					</tr>
+					<tr>
+						<th>较新版本</th>
+						<td class="partsupport">8.0 <sup><a href="#support6">#6</a></sup></td>
+					</tr>
+					<tr>
+						<th>最近版本</th>
+						<td class="partsupport">9.0 <sup><a href="#support7">#7</a></sup></td>
+					</tr>
+				</tbody>
+			</table>
+			<ol class="support-info">
+				<li id="support1">IE7及更早浏览器只支持none | inline | block | inline-block | list-item参数值。</li>
+				<li id="support2">Firefox4.0-6.0不支持所有的CSS3新增属性值。</li>
+				<li id="support3">Safari5.1不支持CSS3新增属性值：ruby | ruby-base | ruby-text | ruby-base-group | ruby-text-group。</li>
+				<li id="support4">Chrome13.0不支持CSS3新增属性值：ruby | ruby-base | ruby-text | ruby-base-group | ruby-text-group。</li>
+				<li id="support5">Opera10.50-10.51不支持CSS3新增属性值：ruby | ruby-base | ruby-text | ruby-base-group | ruby-text-group | box | inline-box。</li>
+				<li id="support6">IE8不支持CSS3新增属性值：compact | ruby | ruby-base | ruby-text | ruby-base-group | ruby-text-group | box | inline-box。</li>
+				<li id="support7">IE9不支持compact | box | inline-box属性值。</li>
+			</ol>
+		</div>
+	</section>
+	<section id="example" class="gmodule gattr">
+		<h2 class="tit">示例：</h2>
+		<div class="cont">
+			<textarea cols="90" rows="10">
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>display_CSS参考手册_web前端开发参考手册系列</title>
+<meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com" />
+<meta name="copyright" content="www.doyoe.com" />
+<style>
+body{font:14px/1.5 georgia,simsun,arial;}
+h1{margin:10px 0;font-size:20px;}
+ul{margin:0;padding:0;list-style:none;}
+.table{display:table;border-collapse:collapse;border:1px solid #ccc;}
+.table-caption{display:table-caption;margin:0;padding:0;font-size:16px;}
+.table-column-group{display:table-column-group;}
+.table-column{display:table-column;width:100px;}
+.table-row-group{display:table-row-group;}
+.table-row{display:table-row;}
+.table-row-group .table-row:hover,.table-footer-group .table-row:hover{background:#f6f6f6;}
+.table-cell{display:table-cell;padding:0 5px;border:1px solid #ccc;}
+.table-header-group{display:table-header-group;background:#eee;font-weight:bold;}
+.table-footer-group{display:table-footer-group;}
+</style>
+</head>
+<body>
+<h1>display构造的table小例子，IE7及以下浏览器不支持本示例</h1>
+<div class="table">
+	<h2 class="table-caption">花名册：</h2>
+	<div class="table-column-group">
+		<div class="table-column"></div>
+		<div class="table-column"></div>
+		<div class="table-column"></div>
+	</div>
+	<div class="table-header-group">
+		<ul class="table-row">
+			<li class="table-cell">序号</li>
+			<li class="table-cell">姓名</li>
+			<li class="table-cell">年龄</li>
+		</ul>
+	</div>
+	<div class="table-footer-group">
+		<ul class="table-row">
+			<li class="table-cell">footer</li>
+			<li class="table-cell">footer</li>
+			<li class="table-cell">footer</li>
+		</ul>
+	</div>
+	<div class="table-row-group">
+		<ul class="table-row">
+			<li class="table-cell">1</li>
+			<li class="table-cell">John</li>
+			<li class="table-cell">19</li>
+		</ul>
+		<ul class="table-row">
+			<li class="table-cell">2</li>
+			<li class="table-cell">Mark</li>
+			<li class="table-cell">21</li>
+		</ul>
+		<ul class="table-row">
+			<li class="table-cell">3</li>
+			<li class="table-cell">Kate</li>
+			<li class="table-cell">26</li>
+		</ul>
+	</div>
+</div>
+<!-- css199.com Baidu tongji analytics -->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ff93bd5d8aa4917a86cd8e59a65783744' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</body>
+</html>
+			</textarea>
+			<p><input type="button" value="运行" class="gbtn btn-sure" /></p>
+		</div>
+	</section>
+</section>
+<aside id="ft">
+	<div class="browser"><iframe id="bot-browser" frameborder="0" allowtransparency="true" src="../../global-browser.htm" tppabs="http://css.doyoe.com/global-browser.htm"></iframe></div>
+	
+</aside>
+<script src="../../js/doyoe.js" tppabs="http://css.doyoe.com/js/doyoe.js"></script>
+<script src="../../js/style.js" tppabs="http://css.doyoe.com/js/style.js"></script>
+</body>
+</html>

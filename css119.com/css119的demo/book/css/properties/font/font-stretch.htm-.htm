@@ -1,0 +1,216 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>font-stretch</title>
+<meta name="Description" content="" />
+<meta name="Keywords" content="" />
+<meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com" />
+<meta name="copyright" content="www.doyoe.com" />
+<meta name="robots" content="all" />
+<!--[if lte IE 8]>
+<script src="http://www.css119.com/iehtml5.js"></script>
+<![endif]-->
+<link rel="stylesheet" href="../../skin/article.css" tppabs="http://css.doyoe.com/skin/article.css" />
+</head>
+<body>
+<nav id="guide">
+	<div class="from">
+		<a href="../../index.htm" tppabs="http://css.doyoe.com/" target="_blank">CSS参考手册</a>
+		<span>&#187;</span>
+		<a href="../index.htm" tppabs="http://css.doyoe.com/properties/index.htm">属性列表</a>
+		<span>&#187;</span>
+		<a href="index.htm" tppabs="http://css.doyoe.com/properties/font/index.htm">字体属性</a>
+		<span>&#187;</span>
+	</div>
+	<div class="to">
+		<span class="label">相关内容：</span>
+		<div id="topages" class="gcombobox">
+			<a href="font-stretch.htm-.htm" tppabs="http://css.doyoe.com/properties/font/font-stretch.htm?" class="target">
+				<strong>其它字体属性参考</strong>
+				<span>选择其它项<!--[if lte IE 7]><ins>IE7 and earlier, Get to die</ins><![endif]--></span>
+			</a>
+			<div class="list ghide">
+				<ul>
+					<li><a href="font.htm" tppabs="http://css.doyoe.com/properties/font/font.htm">font</a></li>
+					<li><a href="font-style.htm" tppabs="http://css.doyoe.com/properties/font/font-style.htm">font-style</a></li>
+					<li><a href="font-variant.htm" tppabs="http://css.doyoe.com/properties/font/font-variant.htm">font-variant</a></li>
+					<li><a href="font-weight.htm" tppabs="http://css.doyoe.com/properties/font/font-weight.htm">font-weight</a></li>
+					<li><a href="font-size.htm" tppabs="http://css.doyoe.com/properties/font/font-size.htm">font-size</a></li>
+					<li><a href="font-family.htm" tppabs="http://css.doyoe.com/properties/font/font-family.htm">font-family</a></li>
+					<li><a href="font-stretch.htm" tppabs="http://css.doyoe.com/properties/font/font-stretch.htm">font-stretch</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</nav>
+<header id="hd">
+	<h1 class="tit">font-stretch</h1>
+	<ul class="info">
+		<li><strong>版本：CSS3</strong></li>
+		<li>继承性：有</li>
+	</ul>
+	<div id="browser" class="browser"><iframe id="top-browser" frameborder="0" allowtransparency="true" src="../../global-browser.htm" tppabs="http://css.doyoe.com/global-browser.htm"></iframe></div>
+</header>
+<section id="bd">
+	<section id="syntax" class="gmodule gattr">
+		<h2 class="tit">语法：</h2>
+		<div class="cont">
+			<p><strong>font-stretch</strong>：ultra-condensed | extra-condensed | condensed | semi-condensed | normal | semi-expanded | expanded | extra-expanded | ultra-expanded</p>
+			<p><strong>默认值</strong>：<mark class="defaultvalue">normal</mark></p>
+		</div>
+	</section>
+	<section id="value" class="gmodule gattr">
+		<h2 class="tit">取值：</h2>
+		<div class="cont">
+			<dl>
+				<dt>ultra-condensed：</dt>
+				<dd>比正常文字宽度窄4个基数。</dd>
+				<dt>extra-condensed：</dt>
+				<dd>比正常文字宽度窄3个基数。</dd>
+				<dt>condensed：</dt>
+				<dd>比正常文字宽度窄2个基数。</dd>
+				<dt>semi-condensed：</dt>
+				<dd>比正常文字宽度窄1个基数。</dd>
+				<dt>normal：</dt>
+				<dd>正常文字宽度</dd>
+				<dt>semi-expanded：</dt>
+				<dd>比正常文字宽度宽1个基数。</dd>
+				<dt>expanded：</dt>
+				<dd>比正常文字宽度宽2个基数。</dd>
+				<dt>extra-expanded：</dt>
+				<dd>比正常文字宽度宽3个基数。</dd>
+				<dt>ultra-expanded：</dt>
+				<dd>比正常文字宽度宽4个基数。</dd>
+			</dl>
+		</div>
+	</section>
+	<section id="intro" class="gmodule gattr">
+		<h2 class="tit">说明：</h2>
+		<div class="cont">
+			<strong>设置或检索对象中的文字是否横向拉伸变形。</strong>
+			<ul>
+				<li>文字的拉伸是相对于浏览器显示的字体的正常宽度。</li>
+				<li>对应的脚本特性为<strong>fontStretch</strong>。</li>
+			</ul>
+		</div>
+	</section>
+	<section id="compatible" class="gmodule gattr">
+		<h2 class="tit">兼容性：</h2>
+		<div class="cont">
+			<ul class="support-type">
+				<li><span class="support">浅绿</span> = 支持</li>
+				<li><span class="unsupport">红色</span> = 不支持</li>
+				<li><span class="partsupport">墨绿</span> = 部分支持</li>
+				<li><span class="experimentsupport">橙色</span> = 实验性质</li>
+			</ul>
+			<table class="gdataform">
+				<thead>
+					<tr>
+						<th><a href="#browser" title="查看本文档测试时所用浏览器版本">支持版本</a>\类型</th>
+						<th><span class="browser-ie">IE</span></th>
+						<th><span class="browser-firefox">Firefox</span></th>
+						<th><span class="browser-safari">Safari</span></th>
+						<th><span class="browser-chrome">Chrome</span></th>
+						<th><span class="browser-opera">Opera</span></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>版本</th>
+						<td class="partsupport">6.0-9.0 <sup><a href="#support1">#1</a></sup></td>
+						<td class="partsupport">4.0-6.0 <sup><a href="#support1">#1</a></sup></td>
+						<td class="unsupport">5.1</td>
+						<td class="unsupport">13.0</td>
+						<td class="unsupport">11.50-11.51</td>
+					</tr>
+				</tbody>
+			</table>
+			<ol class="support-info">
+				<li id="support1">IE及Firefox已支持font-stretch，但显示效果与正常文字并无不同。</li>
+			</ol>
+		</div>
+	</section>
+	<section id="example" class="gmodule gattr">
+		<h2 class="tit">示例：</h2>
+		<div class="cont">
+			<textarea cols="90" rows="10">
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>font-stretch_CSS参考手册_web前端开发参考手册系列</title>
+<meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com" />
+<meta name="copyright" content="www.doyoe.com" />
+<style>
+p{margin:0;font-size:80px;font-weight:bold;background:#ddd;width:30px;}
+.test .normal p{font-stretch:normal;}
+.test .condensed p{font-stretch:condensed;}
+.test .ultra-condensed p{font-stretch:ultra-condensed;}
+.test .extra-condensed p{font-stretch:extra-condensed;}
+.test .semi-expanded p{font-stretch:semi-expanded;}
+.test .expanded p{font-stretch:expanded;}
+.test .ultra-expanded p{font-stretch:ultra-expanded;}
+.test .extra-expanded p{font-stretch:extra-expanded;}
+.test .semi-condensed p{font-stretch:semi-condensed;}
+</style>
+</head>
+<body>
+<ul class="test">
+	<li class="normal">
+		<strong>normal</strong>
+		<p>a</p>
+	</li>
+	<li class="condensed">
+		<strong>condensed</strong>
+		<p>a</p>
+	</li>
+	<li class="ultra-condensed">
+		<strong>ultra-condensed</strong>
+		<p>a</p>
+	</li>
+	<li class="extra-condensed">
+		<strong>extra-condensed</strong>
+		<p>a</p>
+	</li>
+	<li class="semi-expanded">
+		<strong>semi-expanded</strong>
+		<p>a</p>
+	</li>
+	<li class="expanded">
+		<strong>expanded</strong>
+		<p>a</p>
+	</li>
+	<li class="ultra-expanded">
+		<strong>ultra-expanded</strong>
+		<p>a</p>
+	</li>
+	<li class="extra-expanded">
+		<strong>extra-expanded</strong>
+		<p>a</p>
+	</li>
+	<li class="semi-condensed">
+		<strong>semi-condensed</strong>
+		<p>a</p>
+	</li>
+</ul>
+<!-- css199.com Baidu tongji analytics -->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ff93bd5d8aa4917a86cd8e59a65783744' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</body>
+</html>
+			</textarea>
+			<p><input type="button" value="运行" class="gbtn btn-sure" /></p>
+		</div>
+	</section>
+</section>
+<aside id="ft">
+	<div class="browser"><iframe id="bot-browser" frameborder="0" allowtransparency="true" src="../../global-browser.htm" tppabs="http://css.doyoe.com/global-browser.htm"></iframe></div>
+	
+</aside>
+<script src="../../js/doyoe.js" tppabs="http://css.doyoe.com/js/doyoe.js"></script>
+<script src="../../js/style.js" tppabs="http://css.doyoe.com/js/style.js"></script>
+</body>
+</html>

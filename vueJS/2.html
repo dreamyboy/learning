@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="app">
+		<ul v-for="(item,index) in items">
+			<li>{{item}},{{index}}</li>
+		</ul>
+	</div>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<script type="text/javascript">
+		var vm=new Vue({
+			el:'#app',
+			data:{
+				items:[
+					'a',
+					'b',
+					'c'
+				]
+			}
+		})
+	</script>
+</body>
+</html>

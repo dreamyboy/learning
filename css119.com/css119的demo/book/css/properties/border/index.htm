@@ -1,0 +1,276 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>Border index</title>
+<meta name="Description" content="CSS边框属性" />
+<meta name="Keywords" content="CSS Border Properties,border,border-width,border-style,border-color,border-image,border-radius,box-shadow" />
+<meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com" />
+<meta name="copyright" content="www.doyoe.com" />
+<meta name="robots" content="all" />
+<!--[if lte IE 8]>
+<script src="http://www.css119.com/iehtml5.js"></script>
+<![endif]-->
+<link rel="stylesheet" href="../../skin/article.css" tppabs="http://css.doyoe.com/skin/article.css" />
+</head>
+<body>
+<nav id="guide">
+	<div class="from">
+		<a href="../../index.htm" tppabs="http://css.doyoe.com/" target="_blank">CSS参考手册</a>
+		<span>&#187;</span>
+		<a href="../index.htm" tppabs="http://css.doyoe.com/properties/index.htm">属性列表</a>
+		<span>&#187;</span>
+		边框属性
+	</div>
+	<div class="to">
+		<span class="label">相关内容：</span>
+		<div id="topages" class="gcombobox">
+			<a href="index.htm-.htm" tppabs="http://css.doyoe.com/properties/border/index.htm?" class="target">
+				<strong>其它边框属性参考</strong>
+				<span>选择其它项<!--[if lte IE 7]><ins>IE7 and earlier, Get to die</ins><![endif]--></span>
+			</a>
+			<div class="list ghide">
+				<ul>
+					<li><a href="border.htm" tppabs="http://css.doyoe.com/properties/border/border.htm">border</a></li>
+					<li><a href="border-width.htm" tppabs="http://css.doyoe.com/properties/border/border-width.htm">border-width</a></li>
+					<li><a href="border-style.htm" tppabs="http://css.doyoe.com/properties/border/border-style.htm">border-style</a></li>
+					<li><a href="border-color.htm" tppabs="http://css.doyoe.com/properties/border/border-color.htm">border-color</a></li>
+					<li><a href="border-top.htm" tppabs="http://css.doyoe.com/properties/border/border-top.htm">border-top</a></li>
+					<li><a href="border-top-width.htm" tppabs="http://css.doyoe.com/properties/border/border-top-width.htm">border-top-width</a></li>
+					<li><a href="border-top-style.htm" tppabs="http://css.doyoe.com/properties/border/border-top-style.htm">border-top-style</a></li>
+					<li><a href="border-top-color.htm" tppabs="http://css.doyoe.com/properties/border/border-top-color.htm">border-top-color</a></li>
+					<li><a href="border-right.htm" tppabs="http://css.doyoe.com/properties/border/border-right.htm">border-right</a></li>
+					<li><a href="border-right-width.htm" tppabs="http://css.doyoe.com/properties/border/border-right-width.htm">border-right-width</a></li>
+					<li><a href="border-right-style.htm" tppabs="http://css.doyoe.com/properties/border/border-right-style.htm">border-right-style</a></li>
+					<li><a href="border-right-color.htm" tppabs="http://css.doyoe.com/properties/border/border-right-color.htm">border-right-color</a></li>
+					<li><a href="border-bottom.htm" tppabs="http://css.doyoe.com/properties/border/border-bottom.htm">border-bottom</a></li>
+					<li><a href="border-bottom-width.htm" tppabs="http://css.doyoe.com/properties/border/border-bottom-width.htm">border-bottom-width</a></li>
+					<li><a href="border-bottom-style.htm" tppabs="http://css.doyoe.com/properties/border/border-bottom-style.htm">border-bottom-style</a></li>
+					<li><a href="border-bottom-color.htm" tppabs="http://css.doyoe.com/properties/border/border-bottom-color.htm">border-bottom-color</a></li>
+					<li><a href="border-left.htm" tppabs="http://css.doyoe.com/properties/border/border-left.htm">border-left</a></li>
+					<li><a href="border-left-width.htm" tppabs="http://css.doyoe.com/properties/border/border-left-width.htm">border-left-width</a></li>
+					<li><a href="border-left-style.htm" tppabs="http://css.doyoe.com/properties/border/border-left-style.htm">border-left-style</a></li>
+					<li><a href="border-left-color.htm" tppabs="http://css.doyoe.com/properties/border/border-left-color.htm">border-left-color</a></li>
+					<li><a href="border-image.htm" tppabs="http://css.doyoe.com/properties/border/border-image.htm">border-image</a></li>
+					<li><a href="border-radius.htm" tppabs="http://css.doyoe.com/properties/border/border-radius.htm">border-radius</a></li>
+					<li><a href="border-top-left-radius.htm" tppabs="http://css.doyoe.com/properties/border/border-top-left-radius.htm">border-top-left-radius</a></li>
+					<li><a href="border-top-right-radius.htm" tppabs="http://css.doyoe.com/properties/border/border-top-right-radius.htm">border-top-right-radius</a></li>
+					<li><a href="border-bottom-right-radius.htm" tppabs="http://css.doyoe.com/properties/border/border-bottom-right-radius.htm">border-bottom-right-radius</a></li>
+					<li><a href="border-bottom-left-radius.htm" tppabs="http://css.doyoe.com/properties/border/border-bottom-left-radius.htm">border-bottom-left-radius</a></li>
+					<li><a href="box-shadow.htm" tppabs="http://css.doyoe.com/properties/border/box-shadow.htm">box-shadow</a></li>
+					<li><a href="box-reflect.htm" tppabs="http://css.doyoe.com/properties/border/box-reflect.htm">box-reflect</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</nav>
+<header id="hd">
+	<h1 class="tit">CSS Border Properties</h1>
+	<ul class="info">
+		<li>边框属性</li>
+	</ul>
+	<div id="browser" class="browser"><iframe id="top-browser" frameborder="0" allowtransparency="true" src="../../global-browser.htm" tppabs="http://css.doyoe.com/global-browser.htm"></iframe></div>
+</header>
+<section id="bd">
+	<section id="border-listing" class="gmodule gattr">
+		<h2 class="tit">边框 Border</h2>
+		<div class="cont">
+			<table class="gdataform">
+				<thead>
+					<tr>
+						<th>Properties<br />属性</th>
+						<th>CSS Version<br />版本</th>
+						<th>Inherit From Parent<br />继承性</th>
+						<th>Description<br />简介</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><a href="border.htm" tppabs="http://css.doyoe.com/properties/border/border.htm">border</a></th>
+						<td>CSS1</td>
+						<td>无</td>
+						<td>复合属性。设置对象边框的特性</td>
+					</tr>
+					<tr>
+						<td><a href="border-width.htm" tppabs="http://css.doyoe.com/properties/border/border-width.htm">border-width</a></td>
+						<td>CSS1</td>
+						<td>无</td>
+						<td>设置或检索对象边框宽度</td>
+					</tr>
+					<tr>
+						<td><a href="border-style.htm" tppabs="http://css.doyoe.com/properties/border/border-style.htm">border-style</a></td>
+						<td>CSS1</td>
+						<td>无</td>
+						<td>设置或检索对象边框样式</td>
+					</tr>
+					<tr>
+						<td><a href="border-color.htm" tppabs="http://css.doyoe.com/properties/border/border-color.htm">border-color</a></td>
+						<td>CSS1</td>
+						<td>无</td>
+						<td>设置或检索对象边框颜色</td>
+					</tr>
+					<tr>
+						<td><a href="border-top.htm" tppabs="http://css.doyoe.com/properties/border/border-top.htm">border-top</a></td>
+						<td>CSS1</td>
+						<td>无</td>
+						<td>复合属性。设置对象顶边的特性</td>
+					</tr>
+					<tr>
+						<td><a href="border-top-width.htm" tppabs="http://css.doyoe.com/properties/border/border-top-width.htm">border-top-width</a></td>
+						<td>CSS1</td>
+						<td>无</td>
+						<td>设置或检索对象顶边宽度</td>
+					</tr>
+					<tr>
+						<td><a href="border-top-style.htm" tppabs="http://css.doyoe.com/properties/border/border-top-style.htm">border-top-style</a></td>
+						<td>CSS1</td>
+						<td>无</td>
+						<td>设置或检索对象顶边样式</td>
+					</tr>
+					<tr>
+						<td><a href="border-top-color.htm" tppabs="http://css.doyoe.com/properties/border/border-top-color.htm">border-top-color</a></td>
+						<td>CSS1</td>
+						<td>无</td>
+						<td>设置或检索对象顶边颜色</td>
+					</tr>
+					<tr>
+						<td><a href="border-right.htm" tppabs="http://css.doyoe.com/properties/border/border-right.htm">border-right</a></td>
+						<td>CSS1</td>
+						<td>无</td>
+						<td>复合属性。设置对象右边的特性</td>
+					</tr>
+					<tr>
+						<td><a href="border-right-width.htm" tppabs="http://css.doyoe.com/properties/border/border-right-width.htm">border-right-width</a></td>
+						<td>CSS1</td>
+						<td>无</td>
+						<td>设置或检索对象右边宽度</td>
+					</tr>
+					<tr>
+						<td><a href="border-right-style.htm" tppabs="http://css.doyoe.com/properties/border/border-right-style.htm">border-right-style</a></td>
+						<td>CSS1</td>
+						<td>无</td>
+						<td>设置或检索对象右边样式</td>
+					</tr>
+					<tr>
+						<td><a href="border-right-color.htm" tppabs="http://css.doyoe.com/properties/border/border-right-color.htm">border-right-color</a></td>
+						<td>CSS1</td>
+						<td>无</td>
+						<td>设置或检索对象右边颜色</td>
+					</tr>
+					<tr>
+						<td><a href="border-bottom.htm" tppabs="http://css.doyoe.com/properties/border/border-bottom.htm">border-bottom</a></td>
+						<td>CSS1</td>
+						<td>无</td>
+						<td>复合属性。设置对象底边的特性</td>
+					</tr>
+					<tr>
+						<td><a href="border-bottom-width.htm" tppabs="http://css.doyoe.com/properties/border/border-bottom-width.htm">border-bottom-width</a></td>
+						<td>CSS1</td>
+						<td>无</td>
+						<td>设置或检索对象底边宽度</td>
+					</tr>
+					<tr>
+						<td><a href="border-bottom-style.htm" tppabs="http://css.doyoe.com/properties/border/border-bottom-style.htm">border-bottom-style</a></td>
+						<td>CSS1</td>
+						<td>无</td>
+						<td>设置或检索对象底边样式</td>
+					</tr>
+					<tr>
+						<td><a href="border-bottom-color.htm" tppabs="http://css.doyoe.com/properties/border/border-bottom-color.htm">border-bottom-color</a></td>
+						<td>CSS1</td>
+						<td>无</td>
+						<td>设置或检索对象底边颜色</td>
+					</tr>
+					<tr>
+						<td><a href="border-left.htm" tppabs="http://css.doyoe.com/properties/border/border-left.htm">border-left</a></td>
+						<td>CSS1</td>
+						<td>无</td>
+						<td>复合属性。置对象左边的特性</td>
+					</tr>
+					<tr>
+						<td><a href="border-left-width.htm" tppabs="http://css.doyoe.com/properties/border/border-left-width.htm">border-left-width</a></td>
+						<td>CSS1</td>
+						<td>无</td>
+						<td>设置或检索对象左边宽度</td>
+					</tr>
+					<tr>
+						<td><a href="border-left-style.htm" tppabs="http://css.doyoe.com/properties/border/border-left-style.htm">border-left-style</a></td>
+						<td>CSS1</td>
+						<td>无</td>
+						<td>设置或检索对象左边样式</td>
+					</tr>
+					<tr>
+						<td><a href="border-left-color.htm" tppabs="http://css.doyoe.com/properties/border/border-left-color.htm">border-left-color</a></td>
+						<td>CSS1</td>
+						<td>无</td>
+						<td>设置或检索对象左边颜色</td>
+					</tr>
+					<tr>
+						<td><a href="border-image.htm" tppabs="http://css.doyoe.com/properties/border/border-image.htm" class="linkcss3">border-image</a></td>
+						<td>CSS3</td>
+						<td>无</td>
+						<td>设置或检索对象的边框使用图像来填充</td>
+					</tr>
+					<tr>
+						<td><a href="border-radius.htm" tppabs="http://css.doyoe.com/properties/border/border-radius.htm" class="linkcss3">border-radius</a></td>
+						<td>CSS3</td>
+						<td>无</td>
+						<td>设置或检索对象使用圆角边框</td>
+					</tr>
+					<tr>
+						<td><a href="border-top-left-radius.htm" tppabs="http://css.doyoe.com/properties/border/border-top-left-radius.htm" class="linkcss3">border-top-left-radius</a></td>
+						<td>CSS3</td>
+						<td>无</td>
+						<td>设置或检索对象左上角圆角边框</td>
+					</tr>
+					<tr>
+						<td><a href="border-top-right-radius.htm" tppabs="http://css.doyoe.com/properties/border/border-top-right-radius.htm" class="linkcss3">border-top-right-radius</a></td>
+						<td>CSS3</td>
+						<td>无</td>
+						<td>设置或检索对象右上角圆角边框</td>
+					</tr>
+					<tr>
+						<td><a href="border-bottom-right-radius.htm" tppabs="http://css.doyoe.com/properties/border/border-bottom-right-radius.htm" class="linkcss3">border-bottom-right-radius</a></td>
+						<td>CSS3</td>
+						<td>无</td>
+						<td>设置或检索对象右下角圆角边框</td>
+					</tr>
+					<tr>
+						<td><a href="border-bottom-left-radius.htm" tppabs="http://css.doyoe.com/properties/border/border-bottom-left-radius.htm" class="linkcss3">border-bottom-left-radius</a></td>
+						<td>CSS3</td>
+						<td>无</td>
+						<td>设置或检索对象左下角圆角边框</td>
+					</tr>
+					<tr>
+						<td><a href="box-shadow.htm" tppabs="http://css.doyoe.com/properties/border/box-shadow.htm" class="linkcss3">box-shadow</a></td>
+						<td>CSS3</td>
+						<td>无</td>
+						<td>设置或检索对象阴影</td>
+					</tr>
+					<tr>
+						<td><a href="box-reflect.htm" tppabs="http://css.doyoe.com/properties/border/box-reflect.htm" class="linkcss3">box-reflect</a></td>
+						<td>CSS3</td>
+						<td>无</td>
+						<td>设置或检索对象的倒影</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="related">
+			<p><strong class="linkcss3">这种颜色</strong> 的链接表示是CSS3属性或原属性被CSS3修改并增加了新的属性值</p>
+		</div>
+	</section>
+</section>
+<aside id="ft">
+	<div class="browser"><iframe id="bot-browser" frameborder="0" allowtransparency="true" src="../../global-browser.htm" tppabs="http://css.doyoe.com/global-browser.htm"></iframe></div>
+	
+</aside>
+<script src="../../js/doyoe.js" tppabs="http://css.doyoe.com/js/doyoe.js"></script>
+<script src="../../js/style.js" tppabs="http://css.doyoe.com/js/style.js"></script>
+<!-- css199.com Baidu tongji analytics -->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ff93bd5d8aa4917a86cd8e59a65783744' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</body>
+</html>

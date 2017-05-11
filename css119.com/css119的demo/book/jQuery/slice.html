@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>slice(start, [end])</title>
+<meta name="Keywords" content="jQuery中文参考手册,jQuery速查手册,jQuery最新版CHM下载,jQuery最新中文版,jQuery最新中文参考手册" />
+<meta name="Description" content="jQuery 1.7.2 CHM下载,jQuery中文参考手册,jQuery中文版1.7.2参考手册,jQuery 1.7.2 速查表,jQuery中文参考手册"/>
+<link type="text/css" rel="stylesheet" href="style/style.css" tppabs="http://www.css119.com/jquery/style/style.css"  />
+</head>
+<body id="split">
+<div id="content">
+  
+  <div rel="slice">
+    <h2><span>返回值:jQuery</span>slice(start, <em class="optional">[end]</em>)</h2>
+    <h3>概述</h3>
+    <div class="desc">
+      <p>选取一个匹配的子集</p>
+      <div class="longdesc">
+        <p>与原来的slice方法类似</p>
+      </div>
+    </div>
+    <h3>参数</h3>
+    <div>
+      <h4><strong>start</strong><span>Integer</span><em>V1.1.4</em></h4>
+      <p>开始选取子集的位置。第一个元素是0.如果是负数，则可以从集合的尾部开始选起。</p>
+      <h4><strong>end<em> </em></strong><span>Integer</span><em>V1.1.4</em></h4>
+      <p>结束选取自己的位置，如果不指定，则就是本身的结尾。</p>
+    </div>
+    <div class="example">
+      <h3>示例</h3>
+      <span id="f_ad2"></span>
+      <h4>描述:</h4>
+      <p>选择第一个p元素</p>
+      <h5>HTML 代码:</h5>
+      <pre><code>&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;cruel&lt;/p&gt;&lt;p&gt;World&lt;/p&gt;</code></pre>
+      <h5>jQuery 代码:</h5>
+      <pre><code>$("p").slice(0, 1).wrapInner("&lt;b&gt;&lt;/b&gt;");</code></pre>
+      <h5>结果:</h5>
+      <pre><code>[ &lt;p&gt;&lt;b&gt;Hello&lt;/b&gt;&lt;/p&gt; ]</code></pre>
+      <h4>描述:</h4>
+      <p>选择前两个p元素</p>
+      <h5>HTML 代码:</h5>
+      <pre><code>&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;cruel&lt;/p&gt;&lt;p&gt;World&lt;/p&gt;</code></pre>
+      <h5>jQuery 代码:</h5>
+      <pre><code>$("p").slice(0, 2).wrapInner("&lt;b&gt;&lt;/b&gt;");</code></pre>
+      <h5>结果:</h5>
+      <pre><code>[ &lt;p&gt;&lt;b&gt;Hello&lt;/b&gt;&lt;/p&gt;,&lt;p&gt;&lt;b&gt;cruel&lt;/b&gt;&lt;/p&gt; ]</code></pre>
+      <h4>描述:</h4>
+      <p>只选取第二个p元素</p>
+      <h5>HTML 代码:</h5>
+      <pre><code>&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;cruel&lt;/p&gt;&lt;p&gt;World&lt;/p&gt;</code></pre>
+      <h5>jQuery 代码:</h5>
+      <pre><code>$("p").slice(1, 2).wrapInner("&lt;b&gt;&lt;/b&gt;");</code></pre>
+      <h5>结果:</h5>
+      <pre><code>[ &lt;p&gt;&lt;b&gt;cruel&lt;/b&gt;&lt;/p&gt; ]</code></pre>
+      <h4>描述:</h4>
+      <p>只选取第二第三个p元素</p>
+      <h5>HTML 代码:</h5>
+      <pre><code>&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;cruel&lt;/p&gt;&lt;p&gt;World&lt;/p&gt;</code></pre>
+      <h5>jQuery 代码:</h5>
+      <pre><code>$("p").slice(1).wrapInner("&lt;b&gt;&lt;/b&gt;");</code></pre>
+      <h5>结果:</h5>
+      <pre><code>[ &lt;p&gt;&lt;b&gt;cruel&lt;/b&gt;&lt;/p&gt;, &lt;p&gt;&lt;b&gt;World&lt;/b&gt;&lt;/p&gt; ]</code></pre>
+      <h4>描述:</h4>
+      <p>选取第最后一个p元素</p>
+      <h5>HTML 代码:</h5>
+      <pre><code>&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;cruel&lt;/p&gt;&lt;p&gt;World&lt;/p&gt;</code></pre>
+      <h5>jQuery 代码:</h5>
+      <pre><code>$("p").slice(-1).wrapInner("&lt;b&gt;&lt;/b&gt;");</code></pre>
+      <h5>结果:</h5>
+      <pre><code>[ &lt;p&gt;&lt;b&gt;World&lt;/b&gt;&lt;/p&gt; ]</code></pre>
+    </div>
+  </div>
+</div>
+<!-- css199.com Baidu tongji analytics -->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ff93bd5d8aa4917a86cd8e59a65783744' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</body>
+</html>

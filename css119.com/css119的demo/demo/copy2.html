@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+.box{margin-top:20px}
+</style>
+</head>
+
+<body>
+<div class="box">
+	<span>11</span>
+    <a href="javasript:;" class="btn">复制</a>
+</div>
+<div class="box">
+	<span>22</span>
+    <a href="javasript:;" class="btn">复制</a>
+</div>
+<div class="box">
+	<span>33</span>
+    <a href="javasript:;" class="btn">复制</a>
+</div>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="jquery.zclip.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	//http://www.steamdev.com/zclip/#download
+	function copyFun(obj){
+		obj.zclip({
+	  		path:"/demo/ZeroClipboard.swf",
+	  		copy:function(){return $(this).prev().text()},
+	  		afterCopy:function(){
+	  			alert("复制成功");
+	  		}
+	  	});	
+	}
+	copyFun($(".btn"));
+})
+
+
+</script>
+</body>
+</html>

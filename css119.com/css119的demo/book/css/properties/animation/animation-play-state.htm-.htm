@@ -1,0 +1,282 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>animation-play-state</title>
+<meta name="Description" content="CSS3 animation-play-state属性用于检索或设置对象动画的状态" />
+<meta name="Keywords" content="css,css3,animation,animation-play-state" />
+<meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com" />
+<meta name="copyright" content="www.doyoe.com" />
+<meta name="robots" content="all" />
+<!--[if lte IE 8]>
+<script src="http://www.css119.com/iehtml5.js"></script>
+<![endif]-->
+<link rel="stylesheet" href="../../skin/article.css" tppabs="http://css.doyoe.com/skin/article.css" />
+</head>
+<body>
+<nav id="guide">
+	<div class="from">
+		<a href="../../index.htm" tppabs="http://css.doyoe.com/" target="_blank">CSS参考手册</a>
+		<span>&#187;</span>
+		<a href="../index.htm" tppabs="http://css.doyoe.com/properties/index.htm">属性列表</a>
+		<span>&#187;</span>
+		<a href="index.htm" tppabs="http://css.doyoe.com/properties/animation/index.htm">动画属性</a>
+		<span>&#187;</span>
+	</div>
+	<div class="to">
+		<span class="label">相关内容：</span>
+		<div id="topages" class="gcombobox">
+			<a href="animation-play-state.htm-.htm" tppabs="http://css.doyoe.com/properties/animation/animation-play-state.htm?" class="target">
+				<strong>其它动画属性参考</strong>
+				<span>选择其它项<!--[if lte IE 7]><ins>IE7 and earlier, Get to die</ins><![endif]--></span>
+			</a>
+			<div class="list ghide">
+				<ul>
+					<li><a href="animation.htm" tppabs="http://css.doyoe.com/properties/animation/animation.htm">animation</a></li>
+					<li><a href="animation-name.htm" tppabs="http://css.doyoe.com/properties/animation/animation-name.htm">animation-name</a></li>
+					<li><a href="animation-duration.htm" tppabs="http://css.doyoe.com/properties/animation/animation-duration.htm">animation-duration</a></li>
+					<li><a href="animation-timing-function.htm" tppabs="http://css.doyoe.com/properties/animation/animation-timing-function.htm">animation-timing-function</a></li>
+					<li><a href="animation-delay.htm" tppabs="http://css.doyoe.com/properties/animation/animation-delay.htm">animation-delay</a></li>
+					<li><a href="animation-iteration-count.htm" tppabs="http://css.doyoe.com/properties/animation/animation-iteration-count.htm">animation-iteration-count</a></li>
+					<li><a href="animation-direction.htm" tppabs="http://css.doyoe.com/properties/animation/animation-direction.htm">animation-direction</a></li>
+					<li><a href="animation-play-state.htm" tppabs="http://css.doyoe.com/properties/animation/animation-play-state.htm">animation-play-state</a></li>
+					<li><a href="animation-fill-mode.htm" tppabs="http://css.doyoe.com/properties/animation/animation-fill-mode.htm">animation-fill-mode</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</nav>
+<header id="hd">
+	<h1 class="tit">animation-play-state</h1>
+	<ul class="info">
+		<li><strong>版本：CSS3</strong></li>
+		<li>继承性：无</li>
+	</ul>
+	<div id="browser" class="browser"><iframe id="top-browser" frameborder="0" allowtransparency="true" src="../../global-browser.htm" tppabs="http://css.doyoe.com/global-browser.htm"></iframe></div>
+</header>
+<section id="bd">
+	<section id="syntax" class="gmodule gattr">
+		<h2 class="tit">语法：</h2>
+		<div class="cont">
+			<p><strong>animation-play-state</strong>：running | paused [ , running | paused ]*</p>
+			<p><strong>默认值</strong>：<mark class="defaultvalue">running</mark></p>
+		</div>
+	</section>
+	<section id="value" class="gmodule gattr">
+		<h2 class="tit">取值：</h2>
+		<div class="cont">
+			<dl>
+				<dt>running：</dt>
+				<dd>运动</dd>
+				<dt>paused：</dt>
+				<dd>暂停</dd>
+			</dl>
+		</div>
+	</section>
+	<section id="intro" class="gmodule gattr">
+		<h2 class="tit">说明：</h2>
+		<div class="cont">
+			<strong>检索或设置对象动画的状态</strong>
+			<ul>
+				<li>如果提供多个属性值，以逗号进行分隔。</li>
+				<li>对应的脚本特性为<strong>animationPlayState</strong>。</li>
+			</ul>
+		</div>
+	</section>
+	<section id="compatible" class="gmodule gattr">
+		<h2 class="tit">兼容性：</h2>
+		<div class="cont">
+			<ul class="support-type">
+				<li><span class="support">浅绿</span> = 支持</li>
+				<li><span class="unsupport">红色</span> = 不支持</li>
+				<li><span class="partsupport">墨绿</span> = 部分支持</li>
+				<li><span class="experimentsupport">橙色</span> = 实验性质</li>
+			</ul>
+			<table class="gdataform">
+				<thead>
+					<tr>
+						<th><a href="#browser" title="查看本文档测试时所用浏览器版本">支持版本</a>\类型</th>
+						<th><span class="browser-ie">IE</span></th>
+						<th><span class="browser-firefox">Firefox</span></th>
+						<th><span class="browser-safari">Safari</span></th>
+						<th><span class="browser-chrome">Chrome</span></th>
+						<th><span class="browser-opera">Opera</span></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>版本</th>
+						<td class="unsupport">6.0-9.0</td>
+						<td class="unsupport">4.0</td>
+						<td rowspan="2" class="experimentsupport">5.1</td>
+						<td rowspan="2" class="experimentsupport">13.0-16.0</td>
+						<td rowspan="2" class="unsupport">11.50-11.60</td>
+					</tr>
+					<tr>
+						<th>版本</th>
+						<td class="experimentsupport">10.0</td>
+						<td class="experimentsupport">5.0-9.0</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+	<section id="way" class="gmodule gattr">
+		<h2 class="tit">写法：</h2>
+		<div class="cont">
+			<table class="gdataform">
+				<thead>
+					<tr>
+						<th>内核类型</th>
+						<th>写法</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>Webkit(Chrome/Safari)</th>
+						<td>-webkit-animation-play-state</td>
+					</tr>
+					<tr>
+						<th>Gecko(Firefox)</th>
+						<td>-moz-animation-play-state</td>
+					</tr>
+					<tr>
+						<th>Presto(Opera)</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Trident(IE)</th>
+						<td>-ms-animation-play-state</td>
+					</tr>
+					<tr>
+						<th>W3C</th>
+						<td>animation-play-state</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+	<section id="example" class="gmodule gattr">
+		<h2 class="tit">示例：</h2>
+		<div class="cont">
+			<textarea cols="90" rows="10">
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>animation-play-state_CSS参考手册_web前端开发参考手册系列</title>
+<meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com" />
+<meta name="copyright" content="www.doyoe.com" />
+<style>
+h1{font-size:16px;}
+p{overflow:hidden;height:1px;margin:302px 0 0;background:#ddd;}
+div{width:100px;height:100px;padding:10px;border-radius:61px;box-shadow:0 0 10px rgba(204,102,0,.8);background:#F6D66E;background:-moz-linear-gradient(top,#fff,#F6D66E);background:-webkit-linear-gradient(top,#fff,#F6D66E);background:-o-linear-gradient(top,#fff,#F6D66E);background:-ms-linear-gradient(top,#fff,#F6D66E);background:linear-gradient(top,#fff,#F6D66E);
+	-moz-transform:translate(280px,300px);
+	-webkit-transform:translate(280px,300px);
+	-o-transform:translate(280px,300px);
+	-ms-transform:translate(280px,300px);
+	transform:translate(280px,300px);
+	-moz-animation:animations 6s linear;
+	-webkit-animation:animations 6s linear;
+	-o-animation:animations 1.5s linear
+	-ms-animation:animations 1.5s linear;
+	animation:animations 1.5s linear;
+}
+div:hover{
+	-moz-animation-play-state:paused;
+	-webkit-animation-play-state:paused;
+	-o-animation-play-state:paused;
+	-ms-animation-play-state:paused;
+	animation-play-state:paused;
+}
+@-webkit-keyframes animations{
+	0%{-webkit-transform:translate(0,0);}
+	10%{-webkit-transform:translate(0,300px);}
+	20%{-webkit-transform:translate(60px,60px);}
+	30%{-webkit-transform:translate(60px,300px);}
+	40%{-webkit-transform:translate(120px,120px);}
+	50%{-webkit-transform:translate(120px,300px);}
+	60%{-webkit-transform:translate(180px,180px);}
+	70%{-webkit-transform:translate(180px,300px);}
+	80%{-webkit-transform:translate(240px,240px);}
+	90%{-webkit-transform:translate(240px,300px);}
+	100%{-webkit-transform:translate(280px,300px);}
+}
+@-moz-keyframes animations{
+	0%{-moz-transform:translate(0,0);}
+	10%{-moz-transform:translate(0,300px);}
+	20%{-moz-transform:translate(60px,60px);}
+	30%{-moz-transform:translate(60px,300px);}
+	40%{-moz-transform:translate(120px,120px);}
+	50%{-moz-transform:translate(120px,300px);}
+	60%{-moz-transform:translate(180px,180px);}
+	70%{-moz-transform:translate(180px,300px);}
+	80%{-moz-transform:translate(240px,240px);}
+	90%{-moz-transform:translate(240px,300px);}
+	100%{-moz-transform:translate(280px,300px);}
+}
+@-o-keyframes animations{
+	0%{-o-transform:translate(0,0);}
+	10%{-o-transform:translate(0,300px);}
+	20%{-o-transform:translate(60px,60px);}
+	30%{-o-transform:translate(60px,300px);}
+	40%{-o-transform:translate(120px,120px);}
+	50%{-o-transform:translate(120px,300px);}
+	60%{-o-transform:translate(180px,180px);}
+	70%{-o-transform:translate(180px,300px);}
+	80%{-o-transform:translate(240px,240px);}
+	90%{-o-transform:translate(240px,300px);}
+	100%{-o-transform:translate(280px,300px);}
+}
+@-ms-keyframes animations{
+	0%{-ms-transform:translate(0,0);}
+	10%{-ms-transform:translate(0,300px);}
+	20%{-ms-transform:translate(60px,60px);}
+	30%{-ms-transform:translate(60px,300px);}
+	40%{-ms-transform:translate(120px,120px);}
+	50%{-ms-transform:translate(120px,300px);}
+	60%{-ms-transform:translate(180px,180px);}
+	70%{-ms-transform:translate(180px,300px);}
+	80%{-ms-transform:translate(240px,240px);}
+	90%{-ms-transform:translate(240px,300px);}
+	100%{-ms-transform:translate(280px,300px);}
+}
+@keyframes animations{
+	0%{transform:translate(0,0);}
+	10%{transform:translate(0,300px);}
+	20%{transform:translate(60px,60px);}
+	30%{transform:translate(60px,300px);}
+	40%{transform:translate(120px,120px);}
+	50%{transform:translate(120px,300px);}
+	60%{transform:translate(180px,180px);}
+	70%{transform:translate(180px,300px);}
+	80%{transform:translate(240px,240px);}
+	90%{transform:translate(240px,300px);}
+	100%{transform:translate(280px,300px);}
+}
+</style>
+</head>
+<body>
+<h1>鼠标经过时太阳运动将暂停，移开继续：</h1>
+<div></div>
+<p></p>
+<!-- css199.com Baidu tongji analytics -->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ff93bd5d8aa4917a86cd8e59a65783744' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</body>
+</html>
+			</textarea>
+			<p><input type="button" value="运行" class="gbtn btn-sure" /></p>
+		</div>
+	</section>
+</section>
+<aside id="ft">
+	<div class="browser"><iframe id="bot-browser" frameborder="0" allowtransparency="true" src="../../global-browser.htm" tppabs="http://css.doyoe.com/global-browser.htm"></iframe></div>
+	
+</aside>
+<script src="../../js/doyoe.js" tppabs="http://css.doyoe.com/js/doyoe.js"></script>
+<script src="../../js/style.js" tppabs="http://css.doyoe.com/js/style.js"></script>
+</body>
+</html>

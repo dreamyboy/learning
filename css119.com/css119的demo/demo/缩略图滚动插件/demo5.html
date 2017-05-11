@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>缩略图滚动插件-WEB前端开发(www.css119.com)-关注常见的前端开发问题、最新的前端开发技术(前端移动开发)和最好的前端开发工具</title>
+<style type="text/css">
+html,body,ul,li{margin:0;padding:0;list-style:none}
+a:focus{outline:none}
+img{border:none}
+.thum-box{margin:100px; border:1px solid #000}
+.thum-box .image-box{float:left; display:inline;position:relative; overflow:hidden}
+.thum-box .image-box ul{ position:relative; left:0;top:0}
+.thum-box li{ float:left; display:inline;font-size:12px;line-height:22px;margin:0 20px;cursor:pointer}
+
+.news-box{position:relative; left:0;top:0}
+</style>
+</head>
+
+<body>
+<div class="thum-box" id="thumSlide">
+    <div class="image-box">
+    	<ul>
+        	<li><a href="javascript:;">口语：会说中文就能说英语！</a></li>
+            <li><a href="javascript:;">中国打破了世界软件巨头规则</a></li>
+            <li><a href="javascript:;">学外语，上北外！</a></li>
+            <li><a href="javascript:;">学英语送ipad2,45天突破听说</a></li>
+    	</ul>
+    </div>
+</div>
+<div class="thum-box" id="thumSlide2">
+    <div class="image-box">
+    	<div class="news-box">
+    		<a href="javascript:;">口语：会说中文就能说英语！</a>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script> 
+<script type="text/javascript" src="js/jquery.thumSlide.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#thumSlide").thumSlide({showNum:6,isMarquee:true,isLoop:true,isAuto:true,autoTime:50});
+	$("#thumSlide2").thumSlide({showNum:4,isMarquee:true,isAuto:true,ul:".news-box",li:"a",autoTime:50});
+})
+</script>
+</body>
+</html>

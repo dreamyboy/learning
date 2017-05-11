@@ -1,0 +1,25 @@
+{
+  "name": "http2-test",
+  "version": "1.0.0",
+  "description": "http2 test",
+  "main": "node-http2.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xudeming208"
+  },
+  "keywords": [
+    "node",
+    "http2"
+  ],
+  "author": "xudeming208",
+  "license": "ISC",
+  "devDependencies": {
+    "http2": "^3.3.6"
+  },
+  "dependencies": {
+    "http2": "^3.3.6"
+  }
+}

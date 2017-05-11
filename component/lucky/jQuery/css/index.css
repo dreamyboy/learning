@@ -1,0 +1,25 @@
+*{padding:0;margin:0}
+body{
+    text-align: center;
+    background-color: #1664ad;
+}
+.ly-plate{
+    position:relative;
+}
+.rotate-bg{
+    width: 100%;
+    padding-top: 100%;
+    background: url(../images/bg.png) no-repeat;
+    background-size: 100% 100%;
+}
+.lottery-star{
+    width:40%;
+    padding-top: 40%;
+    background:url(../images/arrow.png) no-repeat;
+    background-size: 100% 100%;
+    cursor: pointer;
+    outline:none;
+    position:absolute;
+    top:30%;
+    left:30%;
+}

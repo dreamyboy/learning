@@ -1,0 +1,32 @@
+下载地址：http://www.52z.com/soft/23642.html
+
+系列号：
+
+1330-1343-1830-9875-8192-3098
+1330-1650-7442-9032-3879-0986
+先进行下面步骤再安装，别反了，如果安装好了试下序列，不行还得按下面来
+adobe photoshop CS 5.1 Extended注册方法：
+1 进入文件夹%windir%\system32\drivers\etc\
+一般是 C:\WINDOWS\system32\drivers\etc
+2 双击 hosts 选择 记事本打开(winodws 7用管理员身份运行打开记事本)
+3 将下面的代码 复制到 打开的hosts文档的 最后面 并且保存
+127.0.0.1 activate.adobe.com
+127.0.0.1 practivate.adobe.com
+127.0.0.1 ereg.adobe.com
+127.0.0.1 activate.wip3.adobe.com
+127.0.0.1 wip3.adobe.com
+127.0.0.1 3dns-3.adobe.com
+127.0.0.1 3dns-2.adobe.com
+127.0.0.1 adobe-dns.adobe.com
+127.0.0.1 adobe-dns-2.adobe.com
+127.0.0.1 adobe-dns-3.adobe.com
+127.0.0.1 ereg.wip3.adobe.com
+127.0.0.1 activate-sea.adobe.com
+127.0.0.1 wwis-dubc1-vip60.adobe.com
+127.0.0.1 activate-sjc0.adobe.com
+127.0.0.1 wwis-dubc1-vip60.adobe.com
+如果 你是 Vista或者win7 系统
+请先把 hosts 文件复制到别的地方 修改好后再覆盖过去 不能直接修改的。(否则提示无法保存)
+安装多个 adobe cs5 软件 只要修改一次就可以了 ^^
+4 进入对应文件夹 运行 Set-up.exe 开始安装主程序
+5 输入最上面的的序列号

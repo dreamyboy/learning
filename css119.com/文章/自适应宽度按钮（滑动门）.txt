@@ -1,0 +1,24 @@
+自适应宽度按钮（滑动门）原理很简单，2层标签，一层定位于背景的左边，一边定位于背景的右边，根据需要自动滑动，具体见代码:
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+a{background:url(/demo/img/btn-yellow.png) 0 0 no-repeat;  color:#fff; line-height:30px;height:30px;display:inline-block; cursor:pointer; padding-left:15px; text-align:center;}
+a:hover{background:url(/demo/img/btn-yellow.png) 0 -60px no-repeat}
+a em{background:url(/demo/img/btn-yellow.png) 100% -30px no-repeat;padding-right:15px; display:inline-block; font-style:normal}
+a:hover em{background:url(/demo/img/btn-yellow.png) 100% -90px no-repeat}
+</style>
+</head>
+<body>
+<a href="http://www.css119.com"><em>徐德明</em></a>
+<a href="http://www.css119.com"><em>css急救网</em></a>
+<a href=" http://www.css119.com/archives/524"><em>自适应宽度按钮（滑动门）</em></a>
+背景图用png8格式的，体积小，而且IE6也不用做透明
+</body>
+</html>
+
+
+PS：如果不希望用那么长的图片，或者因为想让按钮的长度不受图片的影响，可以弄很短的图片（我推荐10px，因为我曾经试验过，图片太短，浏览器重复图片的次数增加，影响速度），但是得多一层标签，即3个标签嵌套，第一层定位于背景的左边，第二层定位于背景的右边，最里面的一层自适应宽度，背景重复平铺，和上面的原理相似，很简单的，我这里就不做例子了，具体效果可以看我在国美电器网上商城团购页的“去看看”按钮，地址是：http://www.gome.com.cn/ec/groupon/groupon/todayGroupOn.jsp

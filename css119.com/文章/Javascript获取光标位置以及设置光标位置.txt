@@ -1,0 +1,30 @@
+对于写javascript写网页编辑器的人来说，获取textarea中的光标位置是一个非常重要的问题，而往往很多人在这个地方不知所措，找不到好的办法.今天在此我贴出Javascript获取光标位置以及设置光标位置的代码，具体见下：
+获取光标位置函数：
+function getCursortPosition (ctrl) {
+    var CaretPos = 0;    // IE Support
+    if (document.selection) {
+    ctrl.focus ();
+        var Sel = document.selection.createRange ();
+        Sel.moveStart ('character', -ctrl.value.length);
+        CaretPos = Sel.text.length;
+    }
+    // Firefox support
+    else if (ctrl.selectionStart || ctrl.selectionStart == '0')
+        CaretPos = ctrl.selectionStart;
+    return (CaretPos);
+}
+设置光标位置函数：
+function setCaretPosition(ctrl, pos){
+	if(ctrl.setSelectionRange)
+	{
+		ctrl.focus();
+		ctrl.setSelectionRange(pos,pos);
+	}
+	else if (ctrl.createTextRange) {
+		var range = ctrl.createTextRange();
+		range.collapse(true);
+		range.moveEnd('character', pos);
+		range.moveStart('character', pos);
+		range.select();
+	}
+}

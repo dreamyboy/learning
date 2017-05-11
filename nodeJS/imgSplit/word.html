@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta content="telephone=no" name="format-detection">
+    <title>映客分享，各送红包</title>
+    <link rel="shortcut icon" type="image/x-icon" href="//static.inke.com/s/images/favicon.ico">
+    <script src="//static.inke.com/web/act/common/rem.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: helvetica;
+        -webkit-tap-highlight-color: transparent;
+      }
+      img {
+          display: block;
+          width: 100%;
+      }
+      button {
+          outline: none;
+          -webkit-tap-highlight-color: transparent;
+          border: none;
+          background: transparent;
+      }
+      ul,li {
+          list-style: none;
+      }
+      #wrapper {
+          background: #ffe53e;
+          height: 100%;
+          display: none;
+      }
+      /*loading*/
+          #loading {
+          width: 100%;
+          height: 100%;
+          left:0;
+          top: 0;
+          background: rgba(0,0,0,.5);
+          position: fixed;
+          display: block;
+      }
+      #loading img {
+          position: absolute;
+          width: 8%;
+          left:46%;
+          top:46%;
+      }
+      .form{
+        position: relative;
+        text-align: center;
+        overflow: hidden;
+        min-height: 13rem;
+      }
+      .bg{
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: -1;
+        width: 100%;
+      }
+      .inner{
+        /*margin-top: 2rem;*/
+      }
+      input,.code-img,button,.tips{
+        width:90%;
+        background: #fff;
+        appearance:none;
+        -webkit-appearance:none;
+        color: #000;
+        outline: none;
+        height: 2rem;
+        font-size: .72rem;
+        text-indent: .5rem;
+        border: .078rem solid #000;
+        border-radius: .2rem;
+        margin-bottom: 1rem;
+      }
+      .tips{
+        width: 80%;
+        background: #ffe53f;
+        color:#3c0906;
+        font-size: .7rem;
+        text-indent: 0;
+        margin: 0 auto;
+        line-height: 2rem;
+        margin-bottom: 1.2rem;
+      }
+      .form-top,.input-box{
+        width:80%;margin: 0 auto;
+      }
+      .input-box{
+        background: #e05449;
+        border: .078rem solid #000;
+        border-top: none;
+        border-radius: 0 0 .4rem .4rem;
+      }
+      .code-box{
+        overflow: hidden;
+        width: 90%;
+        margin: 0 auto;
+      }
+      .code-input{
+        float: left;
+        width: 65%;
+      }
+      .code-img{
+        width:32%;
+        float: right;
+      }
+      .btn-get{
+        background: #ffe53f;
+        color:#e05449;
+        font-weight:600;
+        text-indent: 0;
+      }
+      .footer{
+        font-size: .7rem;
+        color: #000;
+        margin: 2rem auto 1.2rem;
+        text-align: center;
+      }
+      /*inner-result*/
+      .inner-result{
+
+      }
+      .inner-result .tips{
+        background: #fff;
+        padding: .8rem 0;
+        font-size: .8rem;
+        height: auto;
+        line-height: 2;
+      }
+      .f-red{
+        color: #e05449;
+      }
+      .small{
+        font-size: .6rem
+      }
+      .btn-open{
+        background: #e05449;
+        color: #fff;
+        font-weight:600;
+        text-indent: 0;
+        width: 80%;
+      }
+      .hide{
+        display: none
+      }
+      /*error-tips*/
+      .error-tips{
+        position: fixed;
+        width:100%;
+        text-align: center;
+        left: 0;
+        top: 50%;
+        transform: translate3D(0,-50%,0);
+        -webkit-transform: translate3D(0,-50%,0);
+        z-index: 1000;
+      }
+      .error-tips span{
+        background: rgba(0,0,0,.5);
+        color: #fff;
+        font-size: .8rem;
+        padding: .6rem;
+        border-radius: .2rem;
+      }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <section class="banner">
+          <img src="//img.inke.cn/NDg5OTQxNDc5ODk2MjI3.jpg" alt="">
+          <img src="//img.inke.cn/NzYxNTcxNDc5ODk1NjY0.jpg" alt="">
+        </section>
+        <section class="form">
+          <div class="inner" id="innerCommon">
+            <p class="tips">我在映客看到许多有趣的直播，邀请你也来</p>
+            <img src="//img.inke.cn/MzQ4NjYxNDc5ODkxNzM0.jpg" alt="" class="form-top">
+            <div class="input-box">
+                <input type="tel" placeholder="请输入手机号" maxlength='11' id="phoneInput">
+                <div class="code-box hide" id="codeBox">
+                    <input type="text" placeholder="请输入验证码" maxlength='4' class="code-input" id="codeInput">
+                    <img src="" alt="" class="code-img" id="codeImg">
+                </div>
+                <button class="btn-get" id="btnGet">立即领取</button>
+            </div>
+          </div>
+          <div class="inner inner-result hide" id="innerSuccess">
+              <div class="tips">
+                  <p class="f-red">新用户红包已经存在您的账户中</p>
+                  <p class="small">打开映客APP在消息中心领取</p>
+              </div>
+              <button class="btn-open">打开映客领取</button>
+          </div>
+          <div class="inner inner-result hide" id="innerFail">
+              <div class="tips">
+                  <p>您已经注册过了！</p>
+                  <p>邀请新用户注册领取更多红包</p>
+              </div>
+              <button class="btn-open">打开映客去分享</button>
+          </div>
+          <img src="//img.inke.cn/OTcxNTQxNDc5ODk2NTE2.jpg" alt="" class="bg">
+        </section>
+        <footer class="footer">本活动最终解释权归映客所有</footer>
+    </div>
+    <p class="error-tips hide" id="errorTips"><span></span></p>
+    <!--share-->
+    <div class="ik_share_info" style="display: none;">
+        <div id="ik_share_title">映客分享，各送红包</div>
+        <div id="ik_share_img">http://img.meelive.cn/NjEwNTMxNDc5OTAwNTc5.jpg</div>
+        <div id="ik_share_url">https://act.inke.com/banner/201611/redbag_share.html</div>
+    </div>
+    <!--loading-->
+    <div id="loading">
+        <img src="//static.inke.com/web/act/common/loading.jpg" alt="正在加载中...">
+    </div>
+    <script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="//static.inke.com/web/common/zepto/zepto.min.js"></script>
+    <script src="//act.inke.cn/common/common.js"></script>
+    <script>
+    var page = {
+        domain: (function(){
+           var apiHost = "//webapi.busi.inke.cn";
+            if(location.href.indexOf(".151")>=0){
+                apiHost = "//101.201.28.151:666";
+            }else if(location.href.indexOf("beta")>=0){
+                apiHost = "//betawebapi.busi.inke.cn";
+            }
+            return apiHost;
+        })(),
+        loading: $('#loading'),
+        innerCommon: $('#innerCommon'),
+        innerSuccess: $('#innerSuccess'),
+        innerFail: $('#innerFail'),
+        errorTips: $('#errorTips'),
+        phoneInput: $('#phoneInput'),
+        codeInput: $('#codeInput'),
+        codeBox: $('#codeBox'),
+        codeImg: $('#codeImg'),
+        btnGet: $('#btnGet'),
+        btnOpen: $('.btn-open'),
+        page_code: 'redbag_share_common',
+        click_id: 'click_id_commmon',
+        sid: Common.getQueryString('sid'),
+        uid: Common.getQueryString('uid'),
+        share_from: Common.getQueryString('share_from'),
+        share_uid: Common.getQueryString('share_uid'),
+        share_time: Common.getQueryString('share_time'),
+        from: Common.getQueryString('from'),
+        isappinstalled: Common.getQueryString('isappinstalled'),
+        live_uid: Common.getQueryString('live_uid'),
+        live_id: Common.getQueryString('live_id'),
+        source: (function() {
+            var ua = navigator.userAgent;
+            if (ua.indexOf('MicroMessenger') > 0) {
+                return 'weixin';
+            } else if (ua.indexOf('Qzone') > 0) {
+                return 'Qzone';
+            } else if (/QQ\/(\/[\d\.]+)*/.test(ua)) {
+                return 'QQ';
+            } else if (ua.indexOf('Weibo') > 0) {
+                return 'Weibo';
+            } else {
+                return 'other';
+            }
+        })(),
+        app_type: (function() {
+            var ua = navigator.userAgent,
+                android = ua.match(/(Android)\s+([\d.]+)/),
+                ipad = ua.match(/(iPad).*OS\s([\d_]+)/),
+                iphone = !ipad && ua.match(/(iPhone\sOS)\s([\d_]+)/),
+                webos = ua.match(/(webOS|hpwOS)[\s\/]([\d.]+)/),
+                touchpad = webos && ua.match(/TouchPad/),
+                blackberry = ua.match(/(BlackBerry).*Version\/([\d.]+)/);
+            if (android) {
+                return 'android';
+            } else if (ipad) {
+                return 'ipad';
+            } else if (iphone) {
+                return 'iphone';
+            } else if (touchpad) {
+                return 'touchpad';
+            } else if (blackberry) {
+                return 'blackberry';
+            } else {
+                return 'other';
+            }
+        })(),
+        init: function() {
+            var self = this;
+            self.submitFun();
+            self.getCode();
+            self.share();
+            self.btnOpenFun();
+            self.log();
+        },
+        share: function() {
+            var self = this;
+            Common.wxShare({
+                title: document.title,
+                desc: "映客分享，各送红包",
+                imgUrl: "http://img.meelive.cn/NjEwNTMxNDc5OTAwNTc5.jpg",
+                link: "https://act.inke.com/banner/201611/redbag_share.html?share_uid="+self.share_uid+"&share_time="+self.share_time+"&from="+self.from+"&isappinstalled="+self.isappinstalled
+            });
+        },
+        // errorTips
+        disapperMsg: function(msg) {
+            var self = this;
+            self.errorTips.html('<span>'+msg+'</span>').css('display', 'block');
+            setTimeout(function() {
+                self.errorTips.hide();
+            }, 1500);
+        },
+        // validate
+        validate: function(cbk) {
+            var self = this,
+                reg = /^\d{11}$/,
+                emptyReg = /^\s*|\s*$/g,
+                phoneVal = self.phoneInput.val(),
+                codeVal = self.codeInput.val();
+            if (phoneVal.replace(self.emptyReg, '') == '') {
+                self.disapperMsg('请输入手机号');
+            } else if (!reg.test(phoneVal)) {
+                self.disapperMsg('请输入正确的手机号');
+            } else if (self.codeBox.is(':visible') && codeVal.replace(self.emptyReg, '') == '') {
+                self.disapperMsg('请输入验证码');
+            } else {
+                cbk && typeof cbk === 'function' && cbk();
+            }
+        },
+        // submitFun
+        submitFun: function() {
+            var self = this;
+            self.btnGet.off('click').on('click', function() {
+                self.validate(function() {
+                    self.loading.show();
+                    Common.ajax({
+                        url: self.domain + '/redpacket/lxRedpacket',
+                        data: {
+                            share_uid: self.share_uid,
+                            view_phone: '86' + self.phoneInput.val(),
+                            short_code: self.codeInput.val()
+                        },
+                        type: 'POST',
+                        success: function(res) {
+                            self.loading.hide();
+                            var code = res.error_code,
+                                msg = res.message;
+                            switch (code) {
+                                case 0:
+                                    self.innerCommon.hide();
+                                    self.innerFail.hide();
+                                    self.innerSuccess.show();
+                                    self.page_code = "redbag_share_success";
+                                    self.click_id = 'click_id_success';
+                                    self.log();
+                                    break;
+                                case 1099999901:
+                                case 1099999933:
+                                case 1099999944:
+                                    self.disapperMsg(msg);
+                                    break;
+                                case 1099999911:
+                                    self.innerCommon.hide();
+                                    self.innerFail.show();
+                                    self.innerSuccess.hide();
+                                    self.page_code = "redbag_share_fail";
+                                    self.click_id = 'click_id_fail';
+                                    self.log();
+                                    break;
+                                case 1099999922:
+                                    self.innerCommon.show();
+                                    self.innerFail.hide();
+                                    self.innerSuccess.hide();
+                                    self.codeBox.show();
+                                    self.codeImg.attr('src', self.domain + '/redpacket/get_captcha?t='+(+new Date()));
+                                    break;
+                                case 1099999909:
+                                    self.disapperMsg('验证码错误');
+                                    self.innerCommon.show();
+                                    self.innerFail.hide();
+                                    self.innerSuccess.hide();
+                                    self.codeBox.show();
+                                    self.codeInput.val('');
+                                    self.codeImg.attr('src', self.domain + '/redpacket/get_captcha?t='+(+new Date()));
+                                    break;
+                                default:
+                                    self.disapperMsg(msg);
+                            }
+                        }
+                    });
+                });
+            });
+        },
+        // getCode
+        getCode: function() {
+            var self = this;
+            self.codeImg.on('click', function() {
+                $(this).attr('src', self.domain + '/redpacket/get_captcha?t='+(+new Date()));
+            })
+        },
+        // btnOpen
+        btnOpenFun: function() {
+            var self = this;
+            self.btnOpen.on('click', function() {
+                self.openApp();
+            });
+        },
+        openApp: function() {
+            Common.downApp();
+        },
+        // 埋点
+        log: function() {
+            var self = this;
+            var logObj = {
+                    report_type: "wechat_share",
+                    busi_code: "weixin_redbag_getNew",
+                    page_code: self.page_code,
+                    uid: self.uid || '',
+                    source: self.source || '',
+                    other: {
+                        uid: self.uid || '',
+                        app_type: self.app_type || '',
+                        share_from: self.share_from || '',
+                        share_uid: self.share_uid || '',
+                        live_uid: self.live_uid || '',
+                        live_id: self.live_id || '',
+                    }
+                };
+            // Page_view
+            Common.log(logObj);
+            // click
+            function clickLog() {
+                self.validate(function() {
+                    logObj.page_code = self.page_code;
+                    logObj.other.click_id = self.click_id;
+                    Common.log(logObj);
+                })
+            }
+            self.btnGet.on('click', clickLog);
+            self.btnOpen.on('click', clickLog);
+        }
+    }
+    $(function() {
+        page.init();
+    });
+    </script>
+</body>
+
+</html>

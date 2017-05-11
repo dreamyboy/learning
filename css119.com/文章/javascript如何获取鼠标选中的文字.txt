@@ -1,0 +1,25 @@
+selection是对当前激活选中区（即高亮文本）进行操作。
+在非IE浏览器（Firefox、Safari、Chrome、Opera）下可以使用window.getSelection()获得selection对象，本文讲述的是标准的selection操作方法。
+获取鼠标选中的文字的代码：
+ <textarea name="" id="test" cols="30" rows="10"></textarea>
+<script type="text/javascript">
+function getSelectText(){
+    var txt = null;
+    if (window.getSelection){  // mozilla FF
+        txt = window.getSelection();
+       }
+    else if (document.getSelection){
+        txt = document.getSelection();
+        }
+    else if (document.selection){  //IE
+        txt = document.selection.createRange().text;
+        }
+    return txt;
+    }
+var obj=document.getElementById("test");
+document.onmouseup=function(){
+    obj.value=getSelectText();
+    }
+</script>
+效果见(用鼠标选中什么文字，textarea中就显示什么文字)：
+javascript如何获取鼠标拖黑的文字？也就是我要写个文本编辑器，我在文本域写了”我是个好人”这几个字，然后我用鼠标拖黑选择这”我是个好人”字中的”个好”，然后要把”个好”变黑，，需要怎样通过javascript才能获取”个好”这两个字？

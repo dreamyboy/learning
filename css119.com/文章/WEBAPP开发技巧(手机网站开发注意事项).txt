@@ -1,0 +1,54 @@
+以下只是我个人得总结，如果你有更好的建议，请留言，一起共勉进步！！- -！
+1、要响应式开发web，也就是页面必须自适应屏幕大小，可以采用流体布局，如之前的文章（自适应宽度布局），其他具体的小问题可以采用media query解决（让IE支持CSS3 Media Query实现响应式Web设计和CSS3 Media Queries）；
+2、因为手机大多是高级浏览器，可以使用html5+css3开发；
+3、合理灵活的使用meta标签，具体如下；
+<meta content=”width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;” name=”viewport” />
+<meta content=”yes” name=”apple-mobile-web-app-capable” />
+<meta content=”black” name=”apple-mobile-web-app-status-bar-style” />
+<meta content=”telephone=no” name=”format-detection” />
+第一个meta标签表示：强制让文档的宽度与设备的宽度保持1:1，并且文档最大的宽度比例是1.0，且不允许用户点击屏幕放大浏览；
+第二个meta标签是iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览，隐藏浏览器导航栏；
+第三个meta标签也是iphone的私有标签，它指定的iphone中safari顶端的状态条的样式；
+第四个meta标签表示：告诉设备忽略将页面中的数字识别为电话号码，个别需要识别的话可以这样开启：<a href=”tel:13030303030″>13030303030</a>
+例子见：常用meta标签示例
+4、一定要注意链接的大小，因为大多是触屏手机，要让用户很方便的能点击到标签（我以前看到过文章，现在找不到出处，好像是最小得42px*42px）:
+操作对象的大小符合手指的操作，按键的大小设置规范：
+食指点击的间距 约为7*7 mm， 1mm间距，
+拇指点击8*8 mm，2mm间距。当前推荐的值为9mm 大小，最小应不小于7mm。
+当然一些重要操作，或者频繁点击的区域可以设置的略微更大一些。
+5、要做好优雅降级（平稳退化），少用JS，图片，要用户禁止下载JS和图片的时候页面也能体现价值（因为很多APP默认设置为3G下是不自动下载图片等资源的）。
+6、对于图片的处理，只要设置宽度，让图片自适应，防止图片变形，当然要兼容的设备分辨率差距很大的时候，需要利用media queries根据分辨率的不同加载不同的图片（需要同一张设置为几种不同的规格）,一是防止小分辨率设备加载大图片浪费流量，二是防止大分辨率设备加载小图片导致的图片模糊问题。
+7、当设置分辨率太小的话，显示正常模块显得太拥挤的情况下，可以利用media queries根据分辨率适当的显示或隐藏模块，如768px下显示2列布局，320px显示1列布局等。
+/* Large desktop */
+@media (min-width: 1200px) { ... }
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) { ... }
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) { ... }
+/* Landscape phones and down */
+@media (max-width: 480px) { ... }
+8、当然也可以根据判断不同的终端跳转到不同的URL，见：手机平板等移动端适配跳转URL的javascript
+9、手机浏览器多而乱，而且手机系统的默认处理方法也不同，兼容问题丝毫不比PC版的简单，所以要总结归纳常用的处理方法；
+10、对手机平板的移动端来说，流量是很重要的，所以webapp中class和id的命名尽量断点，如头部可以命名为hd,中间为bd,底部为ft等（此建议待定，因为考虑到后期维护是否方便等问题）；
+具体的经验建议：
+1、-webkit-tap-highlight-color:rgba(255,255,255,0)可以同时屏蔽ios和android下点击元素时出现的阴影。
+备注：transparent的属性值在android下无效。
+2、-webkit-appearance:none可以同时屏蔽输入框怪异的内阴影，解决iOS下无法修改按钮样式，测试还发现一个小问题就是，加了上面的属性后，iOS下默认还是带有圆角的，不过可以使用 border-radius属性修改。
+3、-webkit-transform:translate3d(0, 0, 0)在ios下可以让动画更加流畅（这个属性会调用硬件加速模式，无需通过JS引擎，直接浏览器内核渲染），但是在android下不可乱用，很多见所未见的bug就是因为这个。
+4、@-webkit-keyframes可以预定义很多你所想到的动画，然后通过-webkit-transition来调用。
+5、-webkit-background-size可以做高清图标，不过一些低版本的android只能识别background-size，所以有必要两个都要写上；用这个属性的时候推荐用cover这个值，可以自动去匹配宽和高。
+6、border-radius、box-shadow、gradient、border-image，不解释，可以精简代码。
+7、android、ios4及以下，固定宽/高块级元素的overflow:scroll/auto失效，属于浏览器的bug，可借助第三方工具实现。
+8、ios5+可以通过scrollTo(0,0)来自动隐藏浏览器地址栏。
+9、css3动画会影响你的自动聚焦，所以自动聚焦要在动画执行之前来做，或者直接舍弃。
+10、如果涉及较多域外链接，DNS Prefetching可以帮你做DNS预解析。
+11、如果你希望你的站点更多地在SNS上传播，那么Open Graph Protocol会比较适合你。
+12、当用iScroll时候，不能使用:focus{outline:0}伪类，否则滑动会卡。
+13、IOS禁止横竖屏时字体变大，-webkit-text-size-adjust: none;
+14、iphone的Retina显示屏的css中的数值都得翻倍，包括图片大小也得翻倍，Retina显示屏精致，可以简单理解为Retina显示屏上的1像素相当于普通的2像素。
+15、解决闪屏，-webkit-backface-visibility:hidden;-webkit-transform-style:preserve-3d；
+16、触摸事件用touch系列，不要用click替代；
+17、关于电量，JPEG最省电（JPEG>PNG>GIF）,图片数量约多，约大约耗电，AJAX动态内容耗电，reflow和repaint耗电，webGL和translate3d耗电
+参考：https://github.com/AlloyTeam/Mars/tree/master/issues
+https://github.com/hoosin/mobile-web-favorites
+https://github.com/jtyjty99999/mobileTech

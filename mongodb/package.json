@@ -1,0 +1,24 @@
+{
+  "name": "mongodb-learn",
+  "version": "1.0.0",
+  "description": "用mongodb做的表格的例子",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "mongod -f /usr/local/etc/mongod.conf"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xudeming208/mongodb.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xudeming208/mongodb/issues"
+  },
+  "homepage": "https://github.com/xudeming208/mongodb#readme",
+  "dependencies": {
+    "mongodb": "^2.2.26",
+    "mongoose": "^4.9.8"
+  }
+}

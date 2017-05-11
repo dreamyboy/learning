@@ -1,0 +1,24 @@
+<!--index.wxml-->
+<view class="container">
+  <scroll-view scroll-y="true" bindscrolltolower="lower" class="scroll-view">
+	  <import src="../common/head.wxml" />
+	  <template is="head" data="{{...head}}" />
+	  <view class="ul">
+	    <block wx:for="{{arr}}">
+	      <view class="li" bindtap="gotoVideo">
+	      	<view class="image-box">
+		        <image src="{{item.pic}}" mode="aspectFit" class="image"></image>
+		    </view>
+	        <view class="btn">直播</view>
+	        <view class="box">
+	          <image src="{{item.pic}}" mode="scaleToFill" class="pic"></image>
+	          <text class="name">{{item.name}}</text>
+	          <image src="{{fans}}" mode="scaleToFill" class="fans"></image>
+	          <text class="num">{{item.fans}}</text>
+	        </view>
+	      </view>
+	    </block>
+	  </view>
+	  <view class="{{isDisplay}}">loading</view>
+	</scroll-view>
+</view>

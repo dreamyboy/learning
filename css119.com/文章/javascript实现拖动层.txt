@@ -1,0 +1,122 @@
+javascript实现拖动层，原理很简单，就是根据鼠标的位置实时设置层的left和top。
+实例代码一见：
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+#main div{position:absolute;width:220px;height:150px;border:1px solid #999;}
+</style>
+<script type="text/javascript">
+var a;
+document.onmouseup = function() {
+    if (!a) return;
+    a = "";
+};
+document.onmousemove = function(d) {
+    if (!a) return;
+    d=d||event;
+    a.style.left = (d.clientX - b) + "px";
+    a.style.top = (d.clientY - c) + "px";
+};
+function $(o, e) {
+    a = o;
+    b = e.clientX - parseInt(a.style.left);
+    c = e.clientY - parseInt(a.style.top);
+}
+</script>
+</head>
+<body>
+  <div id="main">
+    <div style="left:100px;top:100px;background:#fc9;" onmousedown="$(this,event)">1</div>
+    <div style="left:400px;top:100px;background:#9cf;" onmousedown="$(this,event)">2</div>
+    <div style="left:700px;top:100px;background:#f9c;" onmousedown="$(this,event)">3</div>
+    <div style="left:100px;top:300px;background:#9fc;" onmousedown="$(this,event)">4</div>
+    <div style="left:400px;top:300px;background:#c9f;" onmousedown="$(this,event)">5</div>
+    <div style="left:700px;top:300px;background:#cf9;" onmousedown="$(this,event)">6</div>
+  </div>
+</body>
+</html>
+
+
+
+实例代码二见：
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+#test{width:200px; height:200px; background:pink; cursor:move; position:absolute; left:100px; top:100px}
+</style>
+</head>
+<body>
+<div id="test"></div>
+<script type="text/javascript">
+var obj=document.getElementById("test");
+var b;
+obj.onmousedown=function(e){
+    b=true;
+    var divLeft=parseFloat(window.getComputedStyle?window.getComputedStyle(obj,null).left:obj.currentStyle.left);
+    var divTop=parseFloat(window.getComputedStyle?window.getComputedStyle(obj,null).top:obj.currentStyle.top);
+    var e=e||event;
+    var divX=e.clientX-divLeft;  //计算鼠标和div边框的距离
+    var divY=e.clientY-divTop;
+    document.onmousemove=function(e){
+        if(b){
+            var e=e||event;  //兼容IE8及以下
+            obj.style.left=e.clientX-divX+"px";
+            obj.style.top=e.clientY-divY+"px";
+            }
+        }
+    }
+document.onmouseup=function(){
+    b=false;
+    }
+</script>
+</body>
+</html>
+
+
+
+
+实例代码三见（拖动把柄）：
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+*{margin:0;padding:0}
+#testBox{ width:300px; height:300px; background:red; position:absolute; left:0; top:0}
+#test{width:200px; height:200px; background:pink; cursor:move; margin:30px}
+</style>
+</head>
+<body>
+<div id="testBox">
+<div id="test">在这里才能移动</div>
+</div>
+<script type="text/javascript">
+var obj=document.getElementById("test");
+var objBox=document.getElementById("testBox");
+var b;
+obj.onmousedown=function(e){
+    b=true;
+    var divLeft=parseFloat(window.getComputedStyle?window.getComputedStyle(objBox,null).left:objBox.currentStyle.left);
+    var divTop=parseFloat(window.getComputedStyle?window.getComputedStyle(objBox,null).top:objBox.currentStyle.top);
+    var e=e||event;
+    var divX=e.clientX-divLeft;  //计算鼠标和div边框的距离
+    var divY=e.clientY-divTop;
+    document.onmousemove=function(e){
+        if(b){
+            var e=e||event;  //IE8及以下浏览器得写这句
+            objBox.style.left=e.clientX-divX+"px";
+            objBox.style.top=e.clientY-divY+"px";
+            }
+        }
+    }
+document.onmouseup=function(){
+    b=false;
+    }
+</script>
+</body>
+</html>

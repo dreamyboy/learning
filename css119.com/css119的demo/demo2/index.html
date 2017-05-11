@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>百度后台主页</title>
+<link href="style/base-min.css" rel="stylesheet" />
+<!--[if IE]>
+<script src="js/html5.js"></script>
+<![endif]-->
+</head>
+
+<body>
+<div class="wrapper">
+	<div class="top_bar">
+		<div class="top_bar_box">
+		    <ul class="fl">
+		      <li>欢迎 <a href="#">Admin</a></li>
+		      <li><a href="#">退出</a></li>
+		      <li><a href="#">前端预览</a></li>
+		      <li class="border0"><a href="javascript:void(0)" class="toggleWidth">宽屏/窄屏</a></li>
+		    </ul>
+			<ul class="new_items fr">
+				<li><span>2</span> <a href="#">新消息</a></li>
+				<li><span>10</span> <a href="#">新留言</a></li>
+				<li class="border0"><span>4</span> <a href="#">任务</a></li>
+			</ul>
+		</div>
+	</div>
+	<header class="header">
+		<h1 class="fl"><a href="#" title="百度">百度</a></h1>
+		<p class="admin fl">后台管理</p>
+		<nav class="nav fr">
+		  <ul>
+		    <li class="dashboard active">
+		      <h2><a href="#" class="main_link" title="请输入tips">仪表板</a></h2>
+		      <span class="blank"></span>
+            </li>
+		    <li class="content_nav">
+		      <h2><a href="#" class="main_link" title="请输入tips">内容</a></h2>
+		      <span class="blank"></span>
+            </li>
+		    <li class="media_library">
+		      <h2><a href="#" class="main_link" title="请输入tips">媒体库</a> </h2>
+		      <span class="blank"></span>
+            </li>
+		    <li class="user">
+		      <h2><a href="#" class="main_link" title="请输入tips">用户</a> </h2>
+		      <span class="blank"></span>
+            </li>
+		    <li class="tasks">
+		      <h2><a href="#" class="main_link" title="请输入tips">任务</a> </h2>
+		      <span class="blank"></span>
+     		</li>
+		    <li class="report">
+		      <h2><a href="#" class="main_link" title="请输入tips">报告</a> </h2>
+		      <span class="blank"></span>
+           	</li>
+		  </ul>
+		</nav>
+	</header>
+	<section class="container">
+	    <menu class="Breadcrumbs_menu">
+	      <ul class="clearfix">
+	        <li><span class="blank"></span> <a href="#">导航</a> </li>
+	        <li> <a href="#">导航</a> </li>
+	        <li> <a href="#">导航</a> </li>
+	        <li class="current">当前页</li>
+	      </ul>
+	    </menu>
+	    <table border="0" cellspacing="0" cellpadding="0" class="layout-table">
+	      <tr>
+	        <td scope="row" class="layout-table-td" width="200">
+	        	<iframe src="left.html" frameborder="0" id="leftFrame"></iframe>
+	       	</td>
+	        <td class="layout-table-td">
+	        	<iframe src="right.html" frameborder="0" id="rightFrame"></iframe>
+	       	</td>
+	      </tr>
+	    </table>
+	</section>
+	<footer class="footer">
+	    <p class="fl">Copyright © 2013 baidu.com</p>
+	    <a href="javascript:void(0)" class="toTop">Back to top</a>
+	</footer>
+</div>
+<script type="text/javascript" src="js/jquery-1.6.1.min.js"></script> 
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript">
+//获取iframe的元素
+function getIframeContent(iframeId,obj){
+	return $(iframeId).contents().find(obj);
+}
+//宽屏/窄屏
+var toggleWidth=function(){
+	$(".toggleWidth").toggle(
+		function(){$(".wrapper").addClass("fixed");setRightIframeHeight();},
+		function(){$(".wrapper").removeClass("fixed");setRightIframeHeight();}
+	);
+}
+//backToTop
+base.backTop(".toTop",1000);
+//板块内的内容的展开与关闭
+var section_toggle=function(){
+	getIframeContent("#rightFrame",".box_c").find(".slide").toggle(
+		function(){$(this).parent("h4").next(".box_c_content").hide(0,function(){setRightIframeHeight();})},
+		function(){$(this).parent("h4").next(".box_c_content").show(0,function(){setRightIframeHeight();})}
+	);
+}
+//板块的移除
+var section_remove=function(){
+	getIframeContent("#rightFrame",".box_c").find(".hide").click(function(){
+		$(this).parents(".box_c").fadeOut(function(){setRightIframeHeight();});
+	});
+}
+<!--导航的关闭与打开-->
+var aside_click=function(){
+	var obj=getIframeContent("#leftFrame",".aside_menu");
+	obj.find("h3").click(function(){
+		if($(this).nextAll("ul").is(":visible")){
+			return false;
+		}
+		else{
+			obj.find("h3").removeClass();
+			$(this).addClass("active");
+			obj.find(">ul>li>ul").hide(0,function(){setLeftIframeHeight();});
+			$(this).nextAll("ul").show(0,function(){setLeftIframeHeight();});
+		}
+	});
+	if(obj.find("a").next("ul").length>0){
+		obj.find("a").click(function(){
+			$(this).next("ul").toggle();	
+		});	
+	}
+}
+//设置右边iframe的高度
+function setRightIframeHeight(){
+	var bodyHeight=getIframeContent("#rightFrame","#rightContent").height();
+	$("#rightFrame").height(bodyHeight);
+}
+//设置左边iframe的高度
+function setLeftIframeHeight(){
+	var bodyHeight=getIframeContent("#leftFrame","#leftContent").height();
+	$("#leftFrame").height(bodyHeight);
+}
+window.onload=function(){
+	setRightIframeHeight();
+	setLeftIframeHeight();
+	aside_click();
+}
+$(function(){
+	toggleWidth();
+	section_toggle();
+	section_remove();
+	});
+</script>
+<!-- css199.com Baidu tongji analytics -->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ff93bd5d8aa4917a86cd8e59a65783744' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+如何清除图片下方出现几像素的空白间隙？
+
+方法1：
+img{display:block;}
+方法2：
+img{vertical-align:top;}
+除了top值，还可以设置为text-top | middle | bottom | text-bottom，甚至特定的<length>和<percentage>值都可以
+方法3：
+#test{font-size:0;line-height:0;}
+#test为img的父元素

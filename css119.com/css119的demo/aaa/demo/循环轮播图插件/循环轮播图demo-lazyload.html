@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>循环轮播图插件-WEB前端开发(www.css119.com)-关注常见的前端开发问题、最新的前端开发技术(前端移动开发)和最好的前端开发工具</title>
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<link rel="stylesheet" type="text/css" href="css/imgSlide.css">
+<style type="text/css">
+/*外框*/
+.imageSlide,.imageSlide li{width:800px;height:293px}
+/*小按钮样式*/
+.imageSlide .num{bottom:10px}
+</style>
+</style>
+</head>
+
+<body>
+<div class="imageSlide" id="imageSlide">
+  <ul>
+    <li><a href="#"><img src="img/blank.gif" data-src="http://www.css119.com/demo/img/imgSlide/i01.jpg"></a></li>
+    <li><a href="#"><img src="img/blank.gif" data-src="http://www.css119.com/demo/img/imgSlide/i02.jpg"></a></li>
+    <li><a href="#"><img src="img/blank.gif" data-src="http://www.css119.com/demo/img/imgSlide/i03.jpg"></a></li>
+    <li><a href="#"><img src="img/blank.gif" data-src="http://www.css119.com/demo/img/imgSlide/i04.jpg"></a></li>
+    <li><a href="#"><img src="img/blank.gif" data-src="http://www.css119.com/demo/img/imgSlide/i05.jpg"></a></li>
+    <li><a href="#"><img src="img/blank.gif" data-src="http://www.css119.com/demo/img/imgSlide/i06.jpg"></a></li>
+    <li><a href="#"><img src="img/blank.gif" data-src="http://www.css119.com/demo/img/imgSlide/i07.jpg"></a></li>
+    <li><a href="#"><img src="img/blank.gif" data-src="http://www.css119.com/demo/img/imgSlide/i08.jpg"></a></li>
+  </ul>
+  <div class="num"></div>
+  <a class="prev" href="javascript:;" title="上一张（支持'→'和'←'按键切换）" hidefocus="true"><b></b><i></i></a>
+  <a class="next" href="javascript:;" title="上一张（支持'→'和'←'按键切换）" hidefocus="true"><b></b><i></i></a>
+</div>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="js/jquery.imageSlide.simple.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#imageSlide").imageSlide({lazyLoad:true});
+})
+</script>
+</body>
+</html>

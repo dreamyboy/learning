@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>flash抽奖转盘通用模板</title>
+<style type="text/css">
+.flashContent{width:510px;height:510px}
+</style>
+</head>
+
+<body>
+<div id="flashContent" class="flashContent"></div>
+<script type="text/javascript" src="js/loadFlash.js"></script>
+<script type="text/javascript">
+var baseUrl="images/"
+
+
+flashHoler = "flashContent"     //加载flash的容器ID
+autoPlay = "no"                 //初始化时是否自动旋转，"yes" or "no"
+setPointer="yes" 				//初始化时是否设置鼠标指针，"yes" or "no"
+url_bg = baseUrl+"bg.png";              //转盘背景图片
+url_prize = baseUrl+"prize.png";        //奖品图片
+url_pointer = baseUrl+"pointer.png";    //指针图片
+url_btnStart = baseUrl+"btnStart.gif";  //开始按钮图片，可以是图片或flash
+url_btnOver = baseUrl+"btnOver.gif";    //鼠标经过图片
+url_btnWait = baseUrl+"btnWait.gif";    //旋转过程中按钮图片
+url_btnSuc = baseUrl+"btnSuc.gif";      //旋转结束后按钮图片
+W_bg = "510";                   //背景图片尺寸
+W_btn = "124";                  //按钮图片尺寸
+W_pointer = "150";              //指针图片宽度
+H_pointer = "255";              //指针图片高度
+totleNum = 10;                  //奖品个数
+turns = 5;                      //旋转圈数
+stopNum = 3;                    //中奖奖品
+
+
+
+loadFlash(stopNum);
+//抽奖完成后执行的函数，必须在网上才能执行，本地运行index.html不执行的，详见：www.css119.com/demo/抽奖转盘/index.html
+function flashOver(){
+	alert(0)
+	loadFlash(stopNum);
+}
+</script>
+</body>
+</html>

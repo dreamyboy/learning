@@ -1,0 +1,15 @@
+注意两个小问题：
+1.firefox 暂时不支持 .ani
+2.下面两个写法 firefox 都无法正确执行。
+cursor: url(foo.cur);
+后面没有 auto或者 pointer 等标准属性。
+cursor: url(foo.cur), pointer, url(bar.cur), auto;
+uri 必须在前，标准属性在后。
+不兼容 IE时，可以给DIV设置background:red属性;然后利用IE滤镜100%透明就可以了
+.photo_left{z-index:100;position:absolute; top:40px; left:0;cursor: url(http://ui.caidimg.com/images/pre.cur),auto; background:#fff \9;filter: alpha(opacity=0,finishopacity=0,style=0)}
+.photo_right{z-index:100;position:absolute; top:40px;right:0;cursor:url(http://ui.caidimg.com/images/next.cur),auto; background:#fff \9;filter: alpha(opacity=0,finishopacity=0,style=0)}
+别忘记后面的auto或者default,如 cursor: url(http://ui.caidimg.com/images/pre.cur),auto;
+http://photo.auto.sina.com.cn/images/next.cur
+http://photo.auto.sina.com.cn/images/pre.cur
+自定义鼠标url里面的图标必须得是cur或者ani格式
+cur全部用绝对地址，兼容IE和FF

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>徐德明编写的常见JS效果库</title>
+<style type="text/css">
+/* base */
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0}
+body,button,input,select,textarea{font:12px/1.5 tahoma,arial,\5b8b\4f53}
+h1,h2,h3,h4,h5,h6{font-size:100%}
+address,cite,dfn,em,var{font-style:normal}
+code,kbd,pre,samp{font-family:courier new,courier,monospace}
+small{font-size:12px}
+ul,ol{list-style:none}
+a{text-decoration:none}
+a:hover{text-decoration:underline}
+sup{vertical-align:text-top}
+sub{vertical-align:text-bottom}
+legend{color:#000}
+fieldset,img{border:0}
+button,input,select,textarea{font-size:100%}
+table{border-collapse:collapse;border-spacing:0}
+header,footer,article,aside,section,nav,menu,hgroup{display:block}
+.clearfix{*zoom:1}
+.clearfix:after{display:block;visibility:hidden;clear:both;height:0;content:'.'}
+.fl{float:left;display:inline}
+.fr{float:right;display:inline}
+/* waterFall */
+.water-fall{width:100%}
+.water-fall li{position:absolute;left:0;top:0;width:192px;border:1px solid #ddd;padding:10px;-webkit-transition:all .8s ease-in;-moz-transition:all .8s ease-in-out;-o-transition:all .5s ease-in;transition:all .5s ease-in}
+.overlay{background:#000;filter:alpha(opacity=60);opacity:0.6;width:100%;height:100%;position:fixed;left:0;top:0;z-index:9999998}
+.progress-box{width:230px; height:100px;position:absolute; left:50%; top:50%; margin:-50px 0 0 -115px; text-align:center;z-index:9999999}
+.progress-box p,.load-percent{color:#fff; margin-bottom:10px}
+.load-percent{font-size:22px; margin:0}
+.upload-loading,.upload-loading p{ width:230px; height:13px; background:url(http://www.css119.com/demo/ico-progress.png) no-repeat;position:relative; overflow:hidden; border-radius:30px}
+.upload-loading p{background-position:0 -30px; text-indent:-99999px; top:0; left:-100%}
+.loading-black{display:inline-block;width:24px;height:24px;background:url(http://www.css119.com/demo/loading-black.gif) no-repeat; text-indent:-9999em}
+.moreLoading{ width:100%; height:36px; line-height:36px; text-align:center;clear:both;margin:50px 0 80px 0; display:none}
+.moreLoading .loading-black{ vertical-align:middle; margin-right:10px}
+</style>
+</head>
+<body>
+<div id="progressBox" class="progress-box">
+	<p>页面加载中...</p>
+    <div id="uploadLoading" class="upload-loading">
+            <p>上传进度</p>
+          </div>
+    <span id="loadPercent" class="load-percent"></span>
+</div>
+
+<div id="waterFall" class="water-fall" style="display:none"></div>
+<p class="moreLoading"><span class="loading-black"></span>正在加载...</p>
+<div class="overlay" id="overlay"></div>
+<!-- 引用JS文件 -->
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="http://www.css119.com/wp-includes/js/xdmJS.js"></script>
+<!-- 仅本页面调用的方法 -->
+<script type="text/javascript">
+//利用img.load事件，防止图片还没加载完就执行瀑布流，导致页面混乱，这种方法不必设置图片的宽高
+//定义存储图片名称的数组
+var imageSrcArray=["P_1","P_2","P_3","P_4","P_5","P_6","P_7","P_8","P_9","P_10","P_11","P_12","P_13","P_14","P_15","P_16","P_14","P_18","P_19","P_20","P_21","P_22","P_23","P_24","P_25","P_26","P_27","P_28","P_29","P_30","P_31","P_32","P_33","P_34","P_35","P_36","P_37","P_38","P_39","P_40","P_41","P_42"];
+var i=1,
+	len=imageSrcArray.length,  //len的值就是要加载的总的图片的数量
+	html="",
+	img;
+function imageLoadFun(src,fun){
+	img = new Image(),
+		src=src;  //如果图片的名称没有规律，可以事先把图片的名称存放到一个数组中，然后依次imageSrcArray[i]获取
+	//利用img.load，必须得设置img的src，因为图片都没有src，怎么知道图片是否加载完呢，所以必须得加src
+	img.src=src;
+	
+	//可以根据加载图片的张数，来实现进度条的实现，每加载完成一张图片，实时的改变进度条
+	img.addEventListener("load", fun, false);
+	
+}
+function progress(){
+	//模拟for循环，这种循环模式可以模拟同步下载效果，即，从头到尾一张一张的下载，而不是像异步那样，下载的顺序无规律
+	if(i<len){
+		i++;
+		var newSrc="http://www.css119.com/demo/img/waterFall2/"+imageSrcArray[i-1]+".jpg";
+		imageLoadFun(newSrc,progress)
+	}
+	//每加载完成一张图片，实时的改变进度条
+	var pNum=i/len*100;
+	$("#uploadLoading").find("p").css("left",pNum-100+"%");
+	$("#loadPercent").html(pNum.toFixed(2)+"%");
+	//把src赋给DOM
+	html+="<li><a href='#'><img src='"+newSrc+"' alt=''></a></li>";
+	//不加这个判断的话，每加载完一张图片都会执行一次imgLoaded(),img.load并不是所有图片加载完了才执行，而是每张图片加载完都会执行
+	if(i==len){
+	 	img.addEventListener("load", imgLoaded, false);
+	}
+}
+function imgLoaded() {
+	$("#progressBox,#overlay").hide();
+	$("#waterFall").append("<ul>"+html+"</ul>").show(function(){
+		xdmJS.waterFall("#waterFall","#waterFall li","15px",true);
+	});
+}
+imageLoadFun("http://www.css119.com/demo/img/waterFall2/"+imageSrcArray[0]+".jpg",progress);
+/*滚动动态加载JSON*/
+	isEnd=false;
+	$(window).scroll(function(){
+		if (!isEnd){
+			if($(document).scrollTop() + $(window).height() >  $("#waterFall").height()){
+				$(".moreLoading").show();
+				isEnd = true;
+				jQuery.ajax({
+			type: "post",
+			url: "http://www.css119.com/demo/waterfall-ajax.json",
+			dataType:"json",
+   			success: function(data){
+				var jsonHtml="";
+				$(data).each(function(i){
+					function a(){
+						jsonHtml="<li><a href='##'><img src='"+data[i].url+"' alt=''></a></li>";
+						console.log(jsonHtml)
+						$("#waterFall").find("ul").append(0+jsonHtml);
+						xdmJS.waterFall("#waterFall","#waterFall li","15px",true);
+						}
+					imageLoadFun(data[i].url,a);
+					
+					
+				});
+			
+					
+			
+			$(".moreLoading").hide();
+   			}
+		});
+		
+			}
+		}
+	});
+</script>
+<!-- css199.com Baidu tongji analytics -->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ff93bd5d8aa4917a86cd8e59a65783744' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</body>
+</html>

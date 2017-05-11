@@ -1,0 +1,49 @@
+@charset "utf-8";
+/* base */
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0}
+body,button,input,select,textarea{font:12px/1.5 tahoma,arial,\5b8b\4f53}
+h1,h2,h3,h4,h5,h6{font-size:100%}
+address,cite,dfn,em,var{font-style:normal}
+code,kbd,pre,samp{font-family:courier new,courier,monospace}
+small{font-size:12px}
+ul,ol{list-style:none}
+a{text-decoration:none}
+a:hover{text-decoration:underline}
+a:focus,input[type=button],input[type=submit],button{outline:none}
+sup{vertical-align:text-top}
+sub{vertical-align:text-bottom}
+legend{color:#000}
+fieldset,img{border:0}
+button,input,select,textarea{font-size:100%}
+table{border-collapse:collapse;border-spacing:0}
+header,footer,article,aside,section,nav,menu,hgroup{display:block}
+.clearfix{*zoom:1}
+.clearfix:after{display:block;visibility:hidden;clear:both;height:0;content:'.'}
+.fl{float:left;display:inline}
+.fr{float:right;display:inline}
+/* selectAnalog */
+.select-analog .title{display:block;border:1px solid #ddd;height:25px;line-height:25px;padding-left:5px;color:#333;background:#f3f3f3;position:relative}
+.select-analog .title:hover{background:#fff;text-decoration:none}
+.select-analog .arr{width:0;height:0;font-size:0;overflow:hidden;border:5px dashed transparent;border-top:5px solid #ccc;position:absolute;right:5px;top:10px}
+.select-analog ul{background:#fff;border:1px solid #ddd;border-top:none;position:absolute;z-index:10000;display:none}
+.select-analog ul a{display:block;height:25px;line-height:25px;padding:0 0 0 5px;color:#333}
+.select-analog ul a:hover{background:#3376c3;color:#fff;text-decoration:none}
+/* layerShowHide */
+html body{_background-image:url(about:blank);_background-attachment:fixed; height:100%}
+.overlay{background:#000;filter:alpha(opacity=60);opacity:0.6;width:100%;height:100%;position:fixed;left:0;top:0;z-index:9999998}
+.overlay-ie6{position:absolute}
+.overlay iframe{background:#000;height:100%;width:100%}
+.popup-ie6{position:absolute;left:expression(eval(document.documentElement.scrollLeft+ (document.documentElement.clientWidth-this.offsetWidth)/2));
+top:expression(eval(document.documentElement.scrollTop+ (document.documentElement.clientHeight-this.offsetHeight)/2));z-index:9999999}
+/* imgScroll */
+.img-scroll{width:800px;height:293px;overflow:hidden;position:relative}
+.img-scroll ul{position:absolute;left:0;top:0;height:100%;*z-index:20}
+.img-scroll li{float:left;display:inline;position:relative;height:100%}
+.img-scroll li p{position:absolute;left:5px;bottom:0;width:500px;height:36px;line-height:36px;color:#fff;font-weight:bold;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;z-index:20}
+.img-scroll .num,.num-opacity{position:absolute;left:0;bottom:0;width:100%;height:36px;z-index:30;text-align:right}
+.num-opacity{background:#000;background:rgba(0,0,0,0.2);filter:Alpha(opacity=20);z-index:10}
+.img-scroll .num a{display:inline-block;height:14px;line-height:14px;width:14px;border:1px solid #fff;color:#fff;margin:10px 10px 0 0;font-size:0}
+.img-scroll .num a:hover,.img-scroll .num a.cur{background:#f00;text-decoration:none;font-weight:bold}
+/* waterFall */
+.water-fall{width:100%}
+.water-fall li{position:absolute;left:0;top:0;width:192px;border:1px solid #ddd;padding:10px;-webkit-transition:all .8s ease-in;-moz-transition:all .8s ease-in-out;-o-transition:all .5s ease-in;transition:all .5s ease-in}

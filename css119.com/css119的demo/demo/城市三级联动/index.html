@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>城市三级联动</title>
+<style type="text/css">
+body{ background:#eee;margin:0; padding:0; font-family:"微软雅黑", Arial, Helvetica, sans-serif; }
+a{color:#060; text-decoration:none;}
+a:hover{color:#900;}
+.info{ margin:5px; text-align:center;}
+.info select{ border:1px #930 solid; background:#fff;}
+</style>
+</head>
+
+<body>
+<div class="info">
+	<select id="province" name="province"></select>
+    <select id="city" name="city" ></select>
+    <select id="town" name="town"></select>
+</div>
+<script type="text/javascript" src="js/citySelect.js"></script>
+<script type="text/javascript">
+citySelect.init();
+</script>
+</body>
+</html>

@@ -1,0 +1,217 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>Multiple background</title>
+<meta name="Description" content="" />
+<meta name="Keywords" content="" />
+<meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com" />
+<meta name="copyright" content="www.doyoe.com" />
+<meta name="robots" content="all" />
+<!--[if lte IE 8]>
+<script src="http://www.css119.com/iehtml5.js"></script>
+<![endif]-->
+<link rel="stylesheet" href="../../skin/article.css" tppabs="http://css.doyoe.com/skin/article.css" />
+</head>
+<body>
+<nav id="guide">
+	<div class="from">
+		<a href="../../index.htm" tppabs="http://css.doyoe.com/" target="_blank">CSS参考手册</a>
+		<span>&#187;</span>
+		<a href="../index.htm" tppabs="http://css.doyoe.com/properties/index.htm">属性列表</a>
+		<span>&#187;</span>
+		<a href="index.htm" tppabs="http://css.doyoe.com/properties/background/index.htm">背景属性</a>
+		<span>&#187;</span>
+	</div>
+	<div class="to">
+		<span class="label">相关内容：</span>
+		<div id="topages" class="gcombobox">
+			<a href="multiple-background.htm-.htm" tppabs="http://css.doyoe.com/properties/background/multiple-background.htm?" class="target">
+				<strong>其它背景属性参考</strong>
+				<span>选择其它项<!--[if lte IE 7]><ins>IE7 and earlier, Get to die</ins><![endif]--></span>
+			</a>
+			<div class="list ghide">
+				<ul>
+					<li><a href="background.htm" tppabs="http://css.doyoe.com/properties/background/background.htm">background</a></li>
+					<li><a href="background-color.htm" tppabs="http://css.doyoe.com/properties/background/background-color.htm">background-color</a></li>
+					<li><a href="background-image.htm" tppabs="http://css.doyoe.com/properties/background/background-image.htm">background-image</a></li>
+					<li><a href="background-repeat.htm" tppabs="http://css.doyoe.com/properties/background/background-repeat.htm">background-repeat</a></li>
+					<li><a href="background-attachment.htm" tppabs="http://css.doyoe.com/properties/background/background-attachment.htm">background-attachment</a></li>
+					<li><a href="background-position.htm" tppabs="http://css.doyoe.com/properties/background/background-position.htm">background-position</a></li>
+					<li><a href="background-origin.htm" tppabs="http://css.doyoe.com/properties/background/background-origin.htm">background-origin</a></li>
+					<li><a href="background-clip.htm" tppabs="http://css.doyoe.com/properties/background/background-clip.htm">background-clip</a></li>
+					<li><a href="background-size.htm" tppabs="http://css.doyoe.com/properties/background/background-size.htm">background-size</a></li>
+					<li><a href="multiple-background.htm" tppabs="http://css.doyoe.com/properties/background/multiple-background.htm">Multiple background</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</nav>
+<header id="hd">
+	<h1 class="tit">Multiple background</h1>
+	<ul class="info">
+		<li><strong>版本：CSS3</strong></li>
+		<li>继承性：无</li>
+	</ul>
+	<div id="browser" class="browser"><iframe id="top-browser" frameborder="0" allowtransparency="true" src="../../global-browser.htm" tppabs="http://css.doyoe.com/global-browser.htm"></iframe></div>
+</header>
+<section id="bd">
+	<section id="syntax" class="gmodule gattr">
+		<h2 class="tit">语法：</h2>
+		<div class="cont">
+			<p><strong>background</strong>：[ <a href="background-image.htm" tppabs="http://css.doyoe.com/properties/background/background-image.htm">background-image</a> ] || [ <a href="background-repeat.htm" tppabs="http://css.doyoe.com/properties/background/background-repeat.htm">background-repeat</a> ] || [ <a href="background-attachment.htm" tppabs="http://css.doyoe.com/properties/background/background-attachment.htm">background-attachment</a> ] || [ <a href="background-position.htm" tppabs="http://css.doyoe.com/properties/background/background-position.htm">background-position</a> ]</p>
+			<p><strong>相关属性</strong>：[ <a href="background-origin.htm" tppabs="http://css.doyoe.com/properties/background/background-origin.htm">background-origin</a> ] || [ <a href="background-clip.htm" tppabs="http://css.doyoe.com/properties/background/background-clip.htm">background-clip</a> ] || [ <a href="background-size.htm" tppabs="http://css.doyoe.com/properties/background/background-size.htm">background-size</a> ]</p>
+		</div>
+	</section>
+	<section id="value" class="gmodule gattr">
+		<h2 class="tit">取值：</h2>
+		<div class="cont">
+			<dl>
+				<dt>[ <a href="background-image.htm" tppabs="http://css.doyoe.com/properties/background/background-image.htm">background-image</a> ]：</dt>
+				<dd>指定对象的背景图像。可以是真实图片路径或使用渐变创建的“背景图像”</dd>
+				<dt>[ <a href="background-repeat.htm" tppabs="http://css.doyoe.com/properties/background/background-repeat.htm">background-repeat</a> ]：</dt>
+				<dd>指定对象的背景图像如何铺排填充。</dd>
+				<dt>[ <a href="background-attachment.htm" tppabs="http://css.doyoe.com/properties/background/background-attachment.htm">background-attachment</a> ]：</dt>
+				<dd>指定对象的背景图像是随对象内容滚动还是固定的。</dd>
+				<dt>[ <a href="background-position.htm" tppabs="http://css.doyoe.com/properties/background/background-position.htm">background-position</a> ]：</dt>
+				<dd>指定对象的背景图像位置。</dd>
+				<dt>[ <a href="background-origin.htm" tppabs="http://css.doyoe.com/properties/background/background-origin.htm">background-origin</a> ]：</dt>
+				<dd>指定对象的背景图像显示的原点。</dd>
+				<dt>[ <a href="background-clip.htm" tppabs="http://css.doyoe.com/properties/background/background-clip.htm">background-clip</a> ]：</dt>
+				<dd>指定对象的背景图像向外裁剪的区域。</dd>
+				<dt>[ <a href="background-size.htm" tppabs="http://css.doyoe.com/properties/background/background-size.htm">background-size</a> ]：</dt>
+				<dd>指定对象的背景图像的尺寸大小。</dd>
+			</dl>
+		</div>
+	</section>
+	<section id="intro" class="gmodule gattr">
+		<h2 class="tit">说明：</h2>
+		<div class="cont">
+			<strong>复合属性。检索或设置对象的多重背景图像（背景色<a href="background-color.htm" tppabs="http://css.doyoe.com/properties/background/background-color.htm">background-color</a>不能设置多重）。</strong>
+			<ul>
+				<li>一个元素可以设置多重背景图像。</li>
+				<li>每组属性间使用逗号分隔。</li>
+				<li>如果设置的多重背景图之间存在着交集（即存在着重叠关系），前面的背景图会覆盖在后面的背景图之上。</li>
+				<li>
+					<strong>示例：假设要在同一个元素上定义3个背景图像</strong>
+					<div class="gquote">
+						<p class="gquote-tit"><strong>缩写方式：</strong></p>
+						<blockquote class="gquote-cont"><pre><code>background:url(test1.jpg) no-repeat scroll 10px 20px,url(test2.jpg) no-repeat scroll 50px 60px,url(test3.jpg) no-repeat scroll 90px 100px;
+background-origin:content-box,content-box,content-box;
+background-clip:padding-box,padding-box,padding-box;
+background-size:50px 60px,50px 60px,50px 60px;</code></pre></blockquote>
+					</div>
+					<div class="gquote">
+						<p class="gquote-tit"><strong>拆分方式：</strong></p>
+						<blockquote class="gquote-cont"><pre><code>background-image:url(test1.jpg),url(test2.jpg),url(test3.jpg);
+background-repeat:no-repeat,no-repeat,no-repeat;
+background-attachment:scroll,scroll,scroll;
+background-repeat:10px 20px,50px 60px,90px 100px;
+background-origin:content-box,content-box,content-box;
+background-clip:padding-box,padding-box,padding-box;
+background-size:50px 60px,50px 60px,50px 60px;</code></pre></blockquote>
+					</div>
+				</li>
+				<li>
+					<p>如果定义了多个背景图片，而其他属性只有一个参数值，则表明所有背景图片的该属性都应用同一个参数值。据此可以对上面的例子进行缩写：</p>
+					<div class="gquote">
+						<p class="gquote-tit"><strong>缩写方式：</strong></p>
+						<blockquote class="gquote-cont"><pre><code>background:url(test1.jpg) no-repeat scroll 10px 20px,url(test2.jpg) no-repeat scroll 50px 60px,url(test3.jpg) no-repeat scroll 90px 100px;
+background-origin:content-box;
+background-clip:padding-box;
+background-size:50px 60px;</code></pre></blockquote>
+					</div>
+					<div class="gquote">
+						<p class="gquote-tit"><strong>拆分方式：</strong></p>
+						<blockquote class="gquote-cont"><pre><code>background-image:url(test1.jpg),url(test2.jpg),url(test3.jpg);
+background-repeat:no-repeat;
+background-attachment:scroll;
+background-repeat:10px 20px,50px 60px,90px 100px;
+background-origin:content-box;
+background-clip:padding-box;
+background-size:50px 60px;</code></pre></blockquote>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</section>
+	<section id="compatible" class="gmodule gattr">
+		<h2 class="tit">兼容性：</h2>
+		<div class="cont">
+			<ul class="support-type">
+				<li><span class="support">浅绿</span> = 支持</li>
+				<li><span class="unsupport">红色</span> = 不支持</li>
+				<li><span class="partsupport">墨绿</span> = 部分支持</li>
+				<li><span class="experimentsupport">橙色</span> = 实验性质</li>
+			</ul>
+			<table class="gdataform">
+				<thead>
+					<tr>
+						<th><a href="#browser" title="查看本文档测试时所用浏览器版本">支持版本</a>\类型</th>
+						<th><span class="browser-ie">IE</span></th>
+						<th><span class="browser-firefox">Firefox</span></th>
+						<th><span class="browser-safari">Safari</span></th>
+						<th><span class="browser-chrome">Chrome</span></th>
+						<th><span class="browser-opera">Opera</span></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>版本</th>
+						<td class="unsupport">6.0-8.0</td>
+						<td rowspan="2" class="support">4.0</td>
+						<td rowspan="2" class="support">5.1</td>
+						<td rowspan="2" class="support">13.0</td>
+						<td rowspan="2" class="support">11.50</td>
+					</tr>
+					<tr>
+						<th>版本</th>
+						<td class="support">9.0</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+	<section id="example" class="gmodule gattr">
+		<h2 class="tit">示例：</h2>
+		<div class="cont">
+			<textarea cols="90" rows="10">
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>Multiple backgrounds_CSS参考手册_web前端开发参考手册系列</title>
+<meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com" />
+<meta name="copyright" content="www.doyoe.com" />
+<style>
+.test{
+height:300px;
+background:url(skin/p_103x196_1.jpg) no-repeat scroll 10px 20px,url(skin/p_103x196_1.jpg) no-repeat scroll 50px 60px,url(skin/p_103x196_1.jpg) no-repeat scroll 90px 100px;
+background-origin:content-box;
+background-clip:padding-box;
+background-size:100px 120px;
+}
+</style>
+</head>
+<body>
+<div class="test">定义多重背景图像</div>
+<!-- css199.com Baidu tongji analytics -->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ff93bd5d8aa4917a86cd8e59a65783744' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</body>
+</html>
+			</textarea>
+			<p><input type="button" value="运行" class="gbtn btn-sure" /></p>
+		</div>
+	</section>
+</section>
+<aside id="ft">
+	<div class="browser"><iframe id="bot-browser" frameborder="0" allowtransparency="true" src="../../global-browser.htm" tppabs="http://css.doyoe.com/global-browser.htm"></iframe></div>
+	
+</aside>
+<script src="../../js/doyoe.js" tppabs="http://css.doyoe.com/js/doyoe.js"></script>
+<script src="../../js/style.js" tppabs="http://css.doyoe.com/js/style.js"></script>
+</body>
+</html>

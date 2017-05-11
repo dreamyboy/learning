@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+<div id="test">sssqdfef</div>
+<div style="width:200px; height:200px; background:red; display:none" id="test2"></div>
+<a href="javasript:;" id="btn">copy</a>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="jquery.zclip.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	//http://www.steamdev.com/zclip/#download
+	var str="aaa"
+	$('#btn').zclip({
+		path:'/demo/ZeroClipboard.swf',
+		copy:str,
+		afterCopy:function(){
+			$("#test2").show();		
+		}
+	});
+})
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+什么是冒泡：
+简单的说就是触发一个子容器的事件，父容器的事件也会跟着被触发。
+<div id="parentDiv" onclick="alert('parent');">
+    parent
+    <div id="childDiv" onclick="alert('child');">child</div>
+</div>
+在child和parent上分别添加了alert(‘child’)和alert(‘parent’)事件，这个时候假如我们点击child，会先执行alert(‘child’)，然后父元素的alert(‘parent’)也会被执行，当然假如还有更多的层次，父级的事件会依次被触发，这就是冒泡。
+但有些时候我么会不需要这样的机制，不如我们点击child只想触发child上的alert(‘child’)事件，那么我们就要阻止冒泡的发生。
+如何阻止冒泡？
+阻止冒泡有以下方法：
+e.cancelBubble=true;
+e.stopPropagation();
+return false;
+e.stopPropagation();是针对firefox的，e.cancelBubble=true;是针对IE的。
+下面举个例子：
+<div id="parentDiv" onclick="alert('parent');">
+    parent
+    <div id="childDiv" onclick="doSomething(this,event);">child</div>
+</div>
+<script>
+    function doSomething (obj,evt) {
+        var e=evt||window.event;
+        e.stopPropagation();
+    }
+</script>
+因为在doSomething里阻止了冒泡，所以parentDiv上的alert(‘parent’)事件也就不会被触发了。
+如何利用冒泡？
+当然有的时候我们还会利用一下冒泡，满足我们的需求，比如有很多个元素都要添加一个事件来处理某件事，但是假如把某个元素上都加上onclick的话，首先性能不说，这么多的代码也会让人嗤之以鼻，这就可以用到冒泡。
+因为这些元素事件的触发都能够通过冒泡来触发他父亲的事件，那就只给他父亲加上事件吧，然后再判断确切是那个元素的时间被触发。然后你就可以为所欲为了。
+例子：
+<table onclick="clicktd(event);" width="400" height="200" border="1">
+    <tr>
+        <td id="td1" width="25%">td1</td>
+        <td id="td2" width="25%">td2</td>
+        <td id="td3" width="25%">td3</td>
+        <td id="td4" width="25%">td4</td>
+    </tr>
+</table>
+<script>
+    function clicktd(e){
+        var e = e||window.event;
+        var obj =  e.target||e.srcElement;
+        alert(obj.id);
+    }  
+</script>
+event.target表示发生点击事件的元素；
+注意：a标签的event.target返回的是其href，而不是a标签本身，如果要返回DOM，可以利用outerHTML；event.target.outerHTML
+这里主要是通过e.target 或e.srcElement(根据浏览器不同)获取确切的元素。接下来怎么做大家应该知道了。

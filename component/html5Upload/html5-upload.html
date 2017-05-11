@@ -1,0 +1,273 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<title>HTML5上传图片</title>
+<style type="text/css">
+li{list-style:none;}
+li img{width:100px}
+.tips{color:red}
+</style>
+</head>
+
+<body>
+<p>注意图片太小的话，看不到进度条</p>
+<br>
+<br>
+<p id="tips" class="tips"></p>
+<br>
+<br>
+<p>多图上传的，没法用手机拍照(IOS9好像也可以拍照)</p>
+<input type="file" id="filesInput" multiple />
+<br>
+<br>
+<label>读取进度：</label><progress id="Progress2" value="0" max="100"></progress>
+<span id="percent2"></span>
+<p id="info2" class="tips"></p>
+<br>
+<br>
+<p>如果要使用手机的拍照功能，就不能使用multiple属性(拍照或者录像)</p>
+<input type="file" id="filesInput2" />
+<br>
+<br>
+<br>
+<br>
+<p>可以限制类型(只能照片)</p>
+<input type="file" id="filesInput3" accept="image/*" />
+<br>
+<br>
+<br>
+<br>
+<a href="javascript:;" id="btnUpload">开始上传</a>
+<br>
+<br>
+<label>上传进度：</label><progress id="Progress" value="0" max="100"></progress>
+<span id="percent"></span>
+<p id="uploadSpeed"></p>
+<p id="info" class="tips"></p>
+<br>
+<br>
+<ul id="imageBox"></ul>
+<br>
+<br>
+<div id="drop" style="width:300px;height:300px;background:#ccc">
+    可以拖动图片到这上传
+</div>
+<br>
+<br>
+<div id="paste" style="width:300px;height:300px;background:#ccc">
+    粘贴或者QQ截图上传（ctrl+v），只能传一张
+</div>
+
+<script type="text/javascript">
+//定义获取对象的方法
+function $(id) {
+    return document.getElementById(id);
+}
+var filesInput = $("filesInput"),
+    filesInput2 = $("filesInput2"),
+    filesInput3 = $("filesInput3"),
+    tips = $("tips"),
+    info = $("info"),
+    info2 = $("info2"),
+    dropDom = $("drop"),
+    pasteDom = $("paste"),
+    imageBox = $("imageBox"),
+    btnUpload = $("btnUpload"),
+    progress = $("Progress"),
+    progress2 = $("Progress2"),
+    percent = $("percent"),
+    percent2 = $("percent2"),
+    uploadSpeed = $("uploadSpeed");
+//定义存放图片对象的数组
+var uploadImgArr = [];
+//防止图片上传完成后，再点击上传按钮的时候重复上传图片
+var isUpload = false;
+//定义获取图片信息的函数
+function getFiles(files) {
+    isUpload = false;
+    // e = e || window.event;
+    //获取file input中的图片信息列表
+    // var files = e.target.files;
+    // 这个PSD也能通过，PSD后缀是"image/vnd.adobe.photoshop"
+    // var reg = /image\/.*/i;
+    //验证是否是图片文件的正则
+    var reg = /image\/[jpeg|png|gif]/i;
+    //console.log(files);
+    for (var i = 0, f; f = files[i]; i++) {
+        //把这个if判断去掉后，也能上传别的文件
+        if (!reg.test(f.type)) {
+            tips.innerHTML += "你选择的" + f.name + "文件不是图片<br>";
+            //跳出循环
+            continue;
+        }
+        console.log(f);
+        // http://javascript.ruanyifeng.com/htmlapi/file.html
+        // console.log(f.slice(0, 1024));
+        uploadImgArr.push(f);
+        var reader = new FileReader();
+        //要看明显的进度条，可以找很大的图片，或者去掉图片正则验证传大的其他文件
+        reader.onprogress = function(e) {
+            if (e.lengthComputable) {
+                progress2.value = (e.loaded / e.total) * 100;
+                percent2.innerHTML = (e.loaded * 100 / e.total).toFixed(2) + "%";
+            }
+        };
+        //类似于原生JS实现tab一样（闭包的方法），参见http://www.css119.com/archives/1418
+        reader.onload = (function(file) {
+            //获取图片相关的信息
+            var fileSize = (file.size / 1024).toFixed(2) + "K",
+                fileName = file.name,
+                fileType = file.type;
+            //console.log(fileName)
+            return function(e) {
+                // console.log(this===reader);
+                // console.log(reader);
+                // console.log(reader.result);
+                // console.log(e.target.result);
+                info2.innerHTML += fileName + "读取完成;<br>";
+                // progress2.value = 100;
+                // percent2.innerHTML = "100%";
+                //获取图片的宽高
+                var img = new Image();
+                img.addEventListener("load", imgLoaded, false);
+                img.src = e.target.result;
+                //URL对象用于生成指向File对象或Blob对象的URL,此种方法不需要生成reader对象
+                //http://javascript.ruanyifeng.com/htmlapi/file.html#toc5
+                //见例子html5-upload3.html
+                // img.src=window.URL.createObjectURL(file);
+
+                function imgLoaded() {
+                    imgWidth = img.width;
+                    imgHeight = img.height;
+                    //图片加载完成后才能获取imgWidth和imgHeight
+                    imageBox.innerHTML += "<li><img src='" + e.target.result + "' alt='" + fileName + "' title='" + fileName + "'> 图片名称是：" + fileName + ";图片的的大小是：" + fileSize + ";图片的类型是：" + fileType + ";图片的尺寸是：" + imgWidth + " X " + imgHeight + "</li>";
+                }
+            }
+        })(f);
+        //读取文件内容
+        reader.readAsDataURL(f);
+    }
+    //console.log(uploadImgArr);
+}
+
+if (window.File && window.FileList && window.FileReader && window.Blob) {
+    filesInput.addEventListener("change", function(e) {
+        getFiles(e.target.files)
+    }, false);
+    filesInput2.addEventListener("change", function(e) {
+        getFiles(e.target.files)
+    }, false);
+    filesInput3.addEventListener("change", function(e) {
+        getFiles(e.target.files)
+    }, false);
+    //拖动
+    dropFun();
+    //粘贴
+    pasteFun();
+} else {
+    tips.innerHTML = "您的浏览器不支持HTML5上传";
+}
+
+//拖动上传
+function dropFun() {
+    dropDom.addEventListener("dragover", function(event) {
+        event.stopPropagation();
+        event.preventDefault();
+    }, false);
+
+    dropDom.addEventListener('drop', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        // http://javascript.ruanyifeng.com/dom/event.html#toc33
+        var fileList = e.dataTransfer.files;
+        getFiles(fileList)
+    });
+}
+
+//粘贴或者QQ截图上传，只能传一张
+function pasteFun() {
+    //http://javascript.ruanyifeng.com/htmlapi/file.html
+    pasteDom.addEventListener('paste', function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        var arr = [];
+        // console.log(e);
+        if (e.clipboardData && e.clipboardData.items && e.clipboardData.items.length) {
+            for (var i = 0, items = e.clipboardData.items; i < items.length; i++) {
+                // console.log(e.clipboardData.items[i].kind);
+                if (items[i].kind === 'file' && items[i].type.match(/^image/)) {
+                    arr.push(items[i].getAsFile());
+                    break;
+                }
+            }
+            // console.log(arr);
+            getFiles(arr);
+        }
+    }, false);
+}
+
+
+//开始上传照片
+function uploadFun() {
+    var j = 0;
+
+    function fun() {
+        if (uploadImgArr.length > 0 && !isUpload) {
+            var singleImg = uploadImgArr[j];
+            var xhr = new XMLHttpRequest();
+            if (xhr.upload) {
+                //进度条(见http://www.css119.com/archives/1476)
+                xhr.upload.addEventListener("progress",
+                    function(e) {
+                        if (e.lengthComputable) {
+                            progress.value = (e.loaded / e.total) * 100;
+                            percent.innerHTML = Math.round(e.loaded * 100 / e.total) + "%";
+                            //计算网速
+                            var nowDate = new Date().getTime();
+                            var x = (e.loaded) / 1024;
+                            var y = (nowDate - startDate) / 1000;
+                            uploadSpeed.innerHTML = "网速：" + (x / y).toFixed(2) + " K\/S";
+                        } else {
+                            percent.innerHTML = "无法计算文件大小";
+                        }
+                    },
+                    false);
+                // 文件上传成功或是失败
+                xhr.onreadystatechange = function(e) {
+                    if (xhr.readyState == 4) {
+                        console.log(xhr)
+                        if (xhr.status == 200) {
+                            info.innerHTML += singleImg.name + "上传完成;<br>";
+                            //因为progress事件是按一定时间段返回数据的，所以单独progress不可能100%的，在这设置传完后强制设置100%
+                            // progress.value = 100;
+                            // percent.innerHTML = "100%";
+                            isUpload = true;
+                        } else {
+                            info.innerHTML += singleImg.name + "上传失败;<br>";
+                        }
+                        //上传成功（或者失败）一张后，再次调用fun函数，模拟循环
+                        if (j < uploadImgArr.length - 1) {
+                            j++;
+                            isUpload = false;
+                            fun();
+                        }
+                    }
+                };
+                //console.log(singleImg);
+                var formdata = new FormData();
+                formdata.append("FileData", singleImg);
+                // 开始上传
+                xhr.open("POST", "upload.php", true);
+                xhr.send(formdata);
+                var startDate = new Date().getTime();
+            }
+        }
+    }
+    fun();
+}
+btnUpload.addEventListener("click", uploadFun, false);
+</script>
+</body>
+</html>

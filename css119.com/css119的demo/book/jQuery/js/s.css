@@ -1,0 +1,30 @@
+html, body, div, span, iframe,h1, h2, h3, h4, h5, h6, p, a,   em, img,  s, small,  strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td{border: 0;margin: 0;padding: 0;vertical-align: baseline;}
+.w960 {margin:0 auto; width: 960px;}
+
+
+body { line-height: 1; font-family:Tahoma, Geneva, sans-serif;}
+ol, ul { list-style: none; }
+
+.fl { float: left; }
+.fr { float: right; }
+.cl{ clear:both;}
+a:hover, a:active, input { outline: none; }
+a {color: #00addc;text-decoration: none;}
+.aaa{ background:#fff;}
+.aa1{background:#efefef; padding:10px; margin-bottom:10px; float:left;}
+
+#content{ font-family:"Microsoft Yahei"; border:5px solid #ddd; padding:10px; margin:20px auto 20px 20px; background:#fff; width:335px; overflow:hidden;}
+ul{height:470px;overflow-y:scroll;overflow-x:hidden; width:335px;border:1px solid #ddd; }
+ul li{ font-size:12px; width:306px; margin:0; overflow:hidden; padding:8px; border-bottom:1px solid #dedede; }
+ul li:hover{ background:rgb(232,238,247);}
+ul li a{ padding:2px 5px;font-family:Verdana, Tahoma, arial, sans-serif, "宋体";}
+
+a, a:link, a:visited {color:rgb(64,112,170);text-decoration: none;}
+a:hover {color:white;background: rgb(79,129,189);}
+h1{ font-size:20px; padding:0 0 10px 10px; color:#06F;}
+
+
+input.input1{border:1px solid #ccc;border-radius:2px;  color:#666;padding:7px 8px;padding:8px 8px 6px 8px\9; height:23px; line-height:23px; overflow:hidden; font-family:Tahoma, Geneva, sans-serif; font-weight:bold;
+font-size:14px;width:200px;}
+input {-webkit-transition: border linear 0.2s, box-shadow linear 0.2s;-moz-transition: border linear 0.2s, box-shadow linear 0.2s;-ms-transition: border linear 0.2s, box-shadow linear 0.2s;-o-transition: border linear 0.2s, box-shadow linear 0.2s;transition: border linear 0.2s, box-shadow linear 0.2s;-webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);-moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);}
+input:focus {outline: 0;border-color: rgba(82, 168, 236, 0.8);-webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);-moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);}

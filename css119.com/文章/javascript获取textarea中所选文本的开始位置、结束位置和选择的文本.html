@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>javascript获取textarea中所选文本的开始位置、结束位置和选择的文本</title>
+</head>
+<body>
+<textarea name="" id="test" cols="30" rows="10"></textarea>
+<script type="text/javascript">
+//获取所选文本的开始和结束位置
+function getPositions() {
+    var el = document.getElementById("test"),
+        x = 0,
+        y = 0,
+        val = el.value;
+    //IE
+    if (document.selection) {
+        //创建范围对象
+        var range = document.selection.createRange();
+        //克隆对象
+        var drange = range.duplicate();
+        //复制范围
+        drange.moveToElementText(el);
+        drange.setEndPoint("EndToEnd", range);
+        x = drange.text.length - range.text.length;
+        y = x + range.text.length;
+    }
+    //Firefox,Chrome,Safari,opera etc
+    else if (window.getSelection) {
+        x = el.selectionStart;
+        y = el.selectionEnd;
+    }
+    return {
+        "val": val,
+        "x": x,
+        "y": y
+    };
+}
+//获取textarea中选择的文本
+document.onmouseup = function() {
+    if (window.getSelection) {
+        //Firefox,Chrome,Safari,opera etc
+        console.log(getPositions().val.substring(getPositions().x, getPositions().y));
+    } else if (document.selection) {
+        //IE，IE下可以直接获取，不必利用开始和结束位置截取
+        console.log(document.selection.createRange().text);
+    }
+};
+</script>
+</body>
+</html>

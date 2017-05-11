@@ -1,0 +1,104 @@
+诸如智能手机和平板电脑一类的移动设备通常会有一个电容式触摸屏（capacitive touch-sensitive screen），以捕捉用户的手指所做的交互。随着移动网络的发展，其能够支持越来越复杂的应用，web开发者需要一种方法来处理这些事件。例如，几乎所 有的快节奏游戏都需要玩家一次按下多个按钮，这种方式，在触摸屏情况下，意味着多点触摸。Apple在iOS 2.0中引入了触摸事件API，Android正迎头赶上这一事实标准，缩小差距。最近一个W3C工作组正合力制定这一触摸事件规范。
+
+iOS上的Safari也支持click 和mouseover等传统的交互事件，只是不推荐在iOS的浏览器应用上使用click和mouseover，因为这两个事件是为了支持鼠标点击而设计 出来的。Click事件在iOS上会有半秒左右的延迟，原因是iOS要highlight接收到click的element。而 mouseover/out等事件则会被手指的点击触发。所以，在iOS上，应当抛弃传统的交互事件模型而接受一个新的事件模型。Touch事件和更高级 的Gesture事件，能让你的网页交互起来像native应用一样。
+
+三种在规范中列出并获得跨移动设备广泛实现的基本触摸事件：
+1. touchstart ：手指放在一个DOM元素上。
+2. touchmove ：手指拖曳一个DOM元素。
+3. touchend ：手指从一个DOM元素上移开。
+
+每个触摸事件都包括了三个触摸列表：
+1. touches ：当前位于屏幕上的所有手指的一个列表。
+2. targetTouches ：位于当前DOM元素上的手指的一个列表。
+3. changedTouches ：涉及当前事件的手指的一个列表。
+例如，在一个touchend事件中，这就会是移开的手指。
+
+这些列表由包含了触摸信息的对象组成：
+1. identifier ：一个数值，唯一标识触摸会话（touch session）中的当前手指。
+2. target ：DOM元素，是动作所针对的目标。
+3. 客户/页面/屏幕坐标 ：动作在屏幕上发生的位置。
+4. 半径坐标和 rotationAngle ：画出大约相当于手指形状的椭圆形。
+
+在开始描述touch事件之前，需要先描述一下多触式系统中特有的touch对象（android和iOS乃至nokia最新的meego系统都模拟了类 似的对象，这里只针对iOS，因为我只有iPad可用于测试。。）。这个对象封装一次屏幕触摸，一般来自于手指。它在touch事件触发的时候产生，可以 通过touch event handler的event对象取到（一般是通过event.changedTouches属性）。这个对象包括一些重要的属性：
+client / clientY：触摸点相对于浏览器窗口viewport的位置
+pageX / pageY：触摸点相对于页面的位置
+screenX /screenY：触摸点相对于屏幕的位置
+identifier： touch对象的unique ID
+我们从一个单根手指触摸的实例开始进入多触式网页的世界。当一根手指放下的时候，屏幕上出现一个方块，手指移动方块也随着移动，手指提起方块消失。首先，让我们定义一下方块的css：
+*{margin:0;padding:0}
+html,body{height:100%}
+.spirit{position:absolute;width:50px;height:50px;background-color:red;}
+#canvas{position:relative;width:100%;height:200px;background-color:#ccc}
+然后，在body下定义一个接收事件的容器：
+<div id="canvas"></div>
+定义touchstart的事件处理函数，并绑定事件：
+var canvas = document.getElementById("canvas"),
+    spirit,
+    startX,
+    startY;
+function touchStart(event) {
+    //阻止网页默认动作（即网页滚动）
+    event.preventDefault();
+    if (spirit || !event.touches.length) return;
+    var touch = event.touches[0];
+    startX = touch.pageX;
+    startY = touch.pageY;
+    spirit = document.createElement("div");
+    canvas.appendChild(spirit);
+    spirit.className = "spirit";
+    spirit.style.left = startX + "px";
+    spirit.style.top = startY + "px";
+}
+canvas.addEventListener("touchstart", touchStart, false);
+首先，我们将方块spirit作为一个全局对象，因为我们现在要测试单根手指所以屏幕上最好只有一个物体在移动（等会有多触实例）。在touchStart这个事件处理函数中，我们也首先判断了是否已经产生了spirit，也就是是否已经有一个手指放到屏幕上，如果是，直接返回。
+和传统的event listener一样，多触式系统也会产生一个event对象，只不过这个对象要多出一些属性，比如这里的event.touches，这个数组对象获得屏幕上所有的touch。注意这里的event.preventDefault()，在传统的事件处理函数中，这个方法阻止事件的默认动作，触摸事件的默认动作是滚屏，我们不想屏幕动来动去的，所以先调用一下这个函数。我们取第一个touch，将其pageX/Y作为spirit创建时的初始位置。接下来，我们创建一个div，并且设置className，left，top三个属性。最后，我们把spirit对象appendChild到容器中。这样，当第一根手指放下的时候，一个红色的，50px见方的方块就放到屏幕上了。
+然后，我们要开始处理手指在屏幕上移动的事件：
+function touchMove(event) {
+    event.preventDefault();
+    if (!spirit || !event.touches.length) return;
+    var touch = event.touches[0],
+        x = touch.pageX - startX,
+        y = touch.pageY - startY;
+    //这里是为了手指一定是横向滚动的,原理是计算X位置的偏移要比Y的偏移大
+    if (Math.abs(x) > Math.abs(y)) {
+        spirit.style.left = touch.pageX + "px";
+        spirit.style.top = touch.pageY + "px";
+    }
+}
+canvas.addEventListener("touchmove", touchMove, false);
+在touch move listener中，我们使用webkit特有的css属性：webkitTransform来移动方块，这个属性具体怎么用请google之。建议构造面向iOS设备的网页的时候尽量使用webkit自己的特性，不但炫，更可以直接利用硬件来提高性能。
+最后，我们处理touchend事件。手指提起的时候方块从屏幕上移除。
+function touchEnd(event) {
+    if (!spirit) return;
+    canvas.removeChild(spirit);
+    spirit = null;
+}
+canvas.addEventListener("touchend", touchEnd, false);
+在你的ipad或者iphone上测试一下以上代码。如果不出意外的话，一个完整的多触式web程序就诞生了。。
+设备支持
+遗憾的是，触摸事件的实现在完备性和质量方面的差别很大。我编写了一个诊断脚本来显示一些关于触摸API实现的基本信息，其中包括哪些事件是支持 的，以及 touchmove事件触发的解决方案。我在Nexus One和Nexus S硬件上测试了Android 2.3.3，在Xoom上测试了Android 3.0.1，以及在iPad和iPhone上测试了iOS 4.2。
+简而言之，所有被测试的浏览器都支持touchstart、touchend和touchmove事件。
+规范提供了额外的三个触摸事件，但被测试的浏览器没有支持它们：
+1. touchenter ：移动的手指进入一个DOM元素。
+2. toucheleave ：移动手指离开一个DOM元素。
+3. touchcancel ：触摸被中断（实现规范）。
+被测试的浏览器还在每个触摸列表内部都提供了touches、targetTouches和changedTouches列表。不过，被测试的浏 览器没有支持 radiusX、radiusY或是rotationAngle属性，这些属性指明触摸屏幕的手指的形状。在一次touchmove期间，事件大约一秒钟 触发60次，所有的被测试设备都是这样。
+开发者工具
+在移动开发中，一种较为容易的做法是，先在桌面上开始原型设计，然后再在打算要支持的设备上处理移动特有的部分。多点触摸正是难以在PC上进行测试的那些功能之一，因为大部分的PC都没有触摸输入。
+不得不在移动设备上进行的测试有可能会拉长你的开发周期，因为你所做的每项改变都需要提交代码到服务器上，接着再加载到设备上。然后，一旦运行后，对应用也就没有太多的调试了，因为平板电脑和智能手机都很缺乏web开发者所用的工具。
+这个问题的一个解决方案是在开发机器上模拟触发事件。对于单点触摸，触摸事件可以基于鼠标事件来模拟。如果你有触摸输入设备的话，比如说现代的App MacBook，那么多点触摸也可以被模拟。
+单点触摸事件
+如果你想在桌面上模拟单点触摸事件的话，试一下Phantom Limb ，该程序在网页上模拟触摸事件并提供一只巨手来引导。
+另外还有Touchable 这一jquery插件，该插件跨平台地统一了触摸和鼠标事件。
+多点触摸事件
+为了能够让你的多点触摸web应用在你的浏览器或是多点触摸控板（比如说Apple MacBook或是MagicPad）上起作用，我创建了这一个MagicTouch.js填充工具 ，其捕捉来自触控板的触摸事件，然后把它们转换成标准兼容的触摸事件。
+1. 下载npTuioClient NPAPI插件 并把它安装到~/Library/Internet Plug-Ins/目录下。
+2. 下载这一Mac MagicPad的TongSeng TUIO应用 并启动这一服务器。
+3. 下载MagicTouch.js 这一javascript库来基于npTuioClient回调模拟规范兼容的触摸事件。
+对touch event的介绍我们点到为止，这里给大家推荐两篇文档：
+Safari dom additions reference: http://developer.apple.com/library/safari/#documentation/AppleApplications/Reference/SafariJSRef/Intro/Intro.html#//apple_ref/doc/uid/TP40001482-CH2g-BAJDAJAG
+Safari web content guide:
+http://developer.apple.com/library/safari/#documentation/appleapplications/reference/safariwebcontent/Introduction/Introduction.html
+对于有志于开发多触式网页应用的程序员来说，apple的developer站点是一个应该经常光顾的地方。
+我做的一个简单的例子：
+http://www.css119.com/demo/touchmove.html

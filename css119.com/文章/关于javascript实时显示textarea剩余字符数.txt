@@ -1,0 +1,178 @@
+今天在百度的项目中碰到一个问题，就是实现javascript实时显示textarea剩余字符数的功能，咋一看，这个功能也太简单了吧，一般都是只用keydown和keyup事件监听textarea的字符数就可以了，但是QA检测需要支持鼠标右键的相关事件（包括粘贴，撤销，删除和剪切等），而且要求鼠标直接拖动文字至textarea中也要实时改变字数，由于这些方法没有直接按键盘，所以光keydown和keyup事件监听是不够的。
+此时就需要用onpropertychange事件了，该事件与onchange事件存在本质区别,onpropertychange事件是当控件里的内容一改变马上触发事件(注意:onpropertychange事件仅限于使用在普通的html上,使用过struts的html:textarea 标签的不包含该事件,否则会报错)，但是onpropertychange是IE专享的，而且好像不能用attachEvent绑定，而要直接obj.onpropertychange = fun;其他浏览器需要用oninput事件替代。
+一个简单的demo：
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+</head>
+<body>
+<textarea name="" id="textarea"></textarea>
+<p id="remain"></p>
+<script type="text/javascript">
+var textareaObj=document.getElementById("textarea"),
+    remainObj=document.getElementById("remain"),
+    num=0;
+if(/msie/i.test(navigator.userAgent)){
+    textareaObj.onpropertychange=function(){
+        num=1000-this.value.length;
+        remainObj.innerHTML="剩余"+num+"字";
+    }    
+}
+else{
+    textareaObj.oninput=function(){
+        num=1000-this.value.length;
+        remainObj.innerHTML="剩余"+num+"字";
+    }
+}
+</script>
+</body>
+</html>
+上面这个demo支持FF，chrome、ie7和safari所有的事件，包括键盘的输入、删除和直接鼠标拖入，也可以鼠标右键里面的粘贴、删除、撤销和剪切等，opera也支持这些事件，但是不支持鼠标直接拖入，ie8，ie9不支持鼠标的右键事件（除了粘贴）。ie9支持键盘输入，不支持键盘删除。
+onpropertychange事件没法直接鼠标右键里面的删除和撤销等事件，而且也没办法直接监听这些事件，不像鼠标右键的剪切粘贴和直接拖动等能够用onpaste、oncut和ondrop监听，所以这方面还没找到有效的办法，如果有童鞋知道，请告知，万分感激！
+demo：
+/*计算剩余字符,base.remainWord("#textarea",10,"#wordsNum");*/
+    remainWord:function(textareaId, totalNum, remainId) {
+        /*
+        textareaId:代表textarea的ID;
+        totalNum:代表可输入的总共的字符数;
+        remainId:显示剩余字符数的ID;
+        */
+        $(textareaId).each(function() {
+            var self = $(this), remainObj = $(remainId), num = 0;
+            function fun() {
+                num = totalNum - self.val().length;
+                if (num >= 0) {
+                    remainObj.css("color", "#828181").html("剩余" + num + "个字");
+                    self.removeClass("error");
+                } else {
+                    remainObj.css("color", "#f00");
+                    self.addClass("error").val(self.val().substring(0, totalNum));
+                }
+                if (self.val() == "") {
+                    self.prev("label").html("请输入想要说的问题，我们会及时给您反馈。");
+                } else {
+                    self.prev("label").html("");
+                }
+            }
+            //ie用onpropertychange事件,IE9不支持鼠标右键里面的删除，onpropertychange不支持很多事件，需要单独写
+            if (/msie/i.test(navigator.userAgent)) {
+                self[0].onpropertychange = fun;
+                self.keydown(fun);
+                self.keyup(fun);
+                base.bindEvent(self[0], "paste", function() {
+                    setTimeout(fun, 100);
+                });
+                base.bindEvent(self[0], "cut", function() {
+                    setTimeout(fun, 100);
+                });
+            } else {
+                base.bindEvent(self[0], "input", fun);
+            }
+            //opera和IE拖动事件
+            if (/opera/i.test(navigator.userAgent) || /msie/i.test(navigator.userAgent)) {
+                //防止用户拖动内容到输入框
+                base.bindEvent(self[0], "drop", function() {
+                    setTimeout(fun, 100);
+                });
+                base.bindEvent(self[0], "dragend", function() {
+                    setTimeout(fun, 100);
+                });
+            }
+        });
+    },
+最终解决方式如下：
+/*检测字数通用fun*/
+    checkWord: function(obj, fun, speed) {
+        //部分ie中的onpropertychange事件并不能检测鼠标右键的删除和撤销等事件，opera的oninput事件不能检测直接拖动内容到textarea事件drop&&dragend，故这利用定时器解决
+        if (base.browser() == "ie6" || base.browser() == "ie7" || base.browser() == "ie8" || base.browser() == "ie9" || base.browser() == "opera") {
+            var timer;
+            $(obj).focus(function() {
+                timer = setInterval(fun, speed);
+            });
+            $(obj).blur(function() {
+                clearInterval(timer);
+            });
+        }
+        //FF,Chrome,safari等浏览器可以利用oninput事件监听所有的事件，包括keydown,keyup,鼠标右键中的cut，paste和删除，撤销等所有事件，包括直接拖动drop等也支持
+        else {
+            base.bindEvent(obj, "input", fun);
+        }
+    },
+    /*计算剩余字符,base.remainWord("#textarea","#wordsNum");*/
+    remainWord: function(textareaId, remainId) {
+        /*
+		textareaId:代表textarea的ID;
+		remainId:显示剩余字符数的ID;
+		*/
+        $(textareaId).each(function() {
+            var self = $(this),
+            	remainObj = $(remainId),
+            	num = 0;
+            function fun() {
+                num = base.totalNum - self.val().length;
+                if (num > 0) {
+                    remainObj.css("color", "#828181").html("剩余" + num + "个");
+                    self.removeClass("error");
+                    if (num == base.totalNum) {
+                        remainObj.html("最多" + base.totalNum + "字");
+                    }
+                } else {
+                    remainObj.css("color", "#f00").html("剩余0个");
+                    self.addClass("error");
+                    //防止ie下输入全部内容后不能ctrl+a全选
+                    if (num != 0) {
+                        self.val(self.val().substring(0, base.totalNum));
+                        //防止输入全部内容后能在前面输入字符，同时删除了后面的字符
+                        self.unbind("keydown");
+                        self.keydown(function(event) {
+                            //排除一些删除按钮和方向按钮等，getTextareaSelectVal是为了当选择textarea一部分内容后，就可以输入内容，否则不能输入，self.val().length >= base.totalNum是为了删除textarea一部分内容后，能够重新输入
+                            if (! (event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 46 || event.keyCode == 37 || event.keyCode == 38 || event.keyCode == 39 || event.keyCode == 40 || event.ctrlKey && event.keyCode == 65 || getTextareaSelectVal()) && self.val().length >= base.totalNum) {
+                                return false;
+                            }
+                        });
+                        //防止输入全部内容后用户拖动内容到输入框
+                        self[0].ondrop = function() {
+                            if (self.val().length >= base.totalNum) {
+                                return false;
+                            }
+                        };
+                        //防止输入全部内容后用户鼠标右键粘贴内容到输入框
+                        self[0].onpaste = function() {
+                            if (self.val().length >= base.totalNum && !getTextareaSelectVal()) {
+                                return false;
+                            }
+                        };
+                        //获取所选文本的开始和结束位置
+                        function getPositions() {
+                            var x = 0,
+                            y = 0,
+                            val = self[0].value;
+                            x = self[0].selectionStart;
+                            y = self[0].selectionEnd;
+                            return {
+                                "val": val,
+                                "x": x,
+                                "y": y
+                            };
+                        }
+                        //获取textarea中选择的文本
+                        function getTextareaSelectVal() {
+                            if (window.getSelection) {
+                                //Firefox,Chrome,Safari,opera etc
+                                return getPositions().val.substring(getPositions().x, getPositions().y).length > 0;
+                            } else if (document.selection) {
+                                //IE，IE下可以直接获取，不必利用开始和结束位置截取
+                                return document.selection.createRange().text.length > 0;
+                            }
+                        }
+                    }
+                }
+                if (self.val() != "") {
+                    self.prev("label").html("");
+                }
+            }
+            base.checkWord(self[0], fun, 100);
+        });
+    },

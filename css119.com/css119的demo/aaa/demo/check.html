@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="checkbox" name="" id="selectAll">
+	<input type="checkbox" class="test" value="" />
+	<input type="checkbox" class="test" value="" />
+	<input type="checkbox" class="test" value="" />
+	<input type="checkbox" class="test" value="" />
+	<input type="checkbox" class="test" value="" />
+	<input type="checkbox" class="test" value="" />
+	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script>
+		$("#selectAll").click(function(){
+			var checkboxs=$(".test"),
+				self=this;
+			checkboxs.each(function(){
+				//$(this)[0].checked=self.checked;
+				//$(this).prop("checked",self.checked);
+				$(this).attr("checked",self.checked);
+			});
+		});
+	</script>
+</body>
+</html>

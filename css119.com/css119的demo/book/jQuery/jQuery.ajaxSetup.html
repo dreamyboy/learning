@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery.ajaxSetup([options])</title>
+<meta name="Keywords" content="jQuery中文参考手册,jQuery速查手册,jQuery最新版CHM下载,jQuery最新中文版,jQuery最新中文参考手册" />
+<meta name="Description" content="jQuery 1.7.2 CHM下载,jQuery中文参考手册,jQuery中文版1.7.2参考手册,jQuery 1.7.2 速查表,jQuery中文参考手册"/>
+<link type="text/css" rel="stylesheet" href="style/style.css" tppabs="http://www.css119.com/jquery/style/style.css"  />
+</head>
+<body id="split">
+<div id="content">
+  
+  <div rel="jQuery.ajaxSetup">
+    <h2><span>返回值:jQuery</span>jQuery.ajaxSetup(<em class="optional">[options]</em>)</h2>
+    <h3>概述</h3>
+    <div class="desc">
+      <p>设置全局 AJAX 默认选项。</p>
+      <div class="longdesc">
+        <p>参数见 '$.ajax' 说明。</p>
+      </div>
+    </div>
+    <h3>参数</h3>
+    <div>
+      <h4><strong>options<em> </em></strong><span>Object</span><em>V1.1</em></h4>
+      <p>选项设置。所有设置项均为可选设置。.</p>
+    </div>
+    <div class="example">
+      <h3>示例</h3>
+      <span id="f_ad2"></span>
+      <h4>描述:</h4>
+      <p>设置 AJAX 请求默认地址为 "/xmlhttp/"，禁止触发全局 AJAX 事件，用 POST 代替默认 GET 方法。其后的 AJAX 请求不再设置任何选项参数。</p>
+      <h5>jQuery 代码:</h5>
+      <pre><code>$.ajaxSetup({
+  url: "/xmlhttp/",
+  global: false,
+  type: "POST"
+});
+$.ajax({ data: myData });</code></pre>
+    </div>
+  </div>
+</div>
+<!-- css199.com Baidu tongji analytics -->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ff93bd5d8aa4917a86cd8e59a65783744' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</body>
+</html>

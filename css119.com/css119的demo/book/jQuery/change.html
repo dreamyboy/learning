@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>change([[data],fn])</title>
+<meta name="Keywords" content="jQuery中文参考手册,jQuery速查手册,jQuery最新版CHM下载,jQuery最新中文版,jQuery最新中文参考手册" />
+<meta name="Description" content="jQuery 1.7.2 CHM下载,jQuery中文参考手册,jQuery中文版1.7.2参考手册,jQuery 1.7.2 速查表,jQuery中文参考手册"/>
+<link type="text/css" rel="stylesheet" href="style/style.css" tppabs="http://www.css119.com/jquery/style/style.css"  />
+</head>
+<body id="split">
+<div id="content">
+  <div rel="change">
+    <h2><span>返回值:jQuery</span>change([[data],fn])</h2>
+    <h3>概述</h3>
+    <div class="desc">
+      <p>触发每个匹配元素的change事件</p>
+      <div class="longdesc">
+        <p>这个函数会调用执行绑定到change事件的所有函数，包括浏览器的默认行为。可以通过在某个绑定的函数中返回false来防止触发浏览器的默认行为。change事件会在元素失去焦点的时候触发，也会当其值在获得焦点后改变时触发。</p>
+      </div>
+    </div>
+       <h3>参数</h3>
+    <div>
+      <h4><strong>fn</strong><span>Function</span><em>V1.0</em></h4>
+      <p>在每一个匹配元素的change事件中绑定的处理函数。</p>
+      <h4><strong>[data],fn</strong><span>String,Function</span><em>V1.4.3</em></h4>
+      <p><strong>data</strong>:change([Data], fn) 可传入data供函数fn处理。</p>
+      <p><strong>fn</strong>:在每一个匹配元素的change事件中绑定的处理函数。</p>
+    </div>
+    <div class="example">
+      <h3>示例</h3>
+      <span id="f_ad2"></span>
+      <h4>描述:</h4>
+      <p>触发被选元素的 change 事件。</p>
+      <h5>jQuery 代码:</h5>
+      <pre>$(<em>selector</em>).change();</pre>
+    </div>
+      <h4>描述:</h4>
+      <p>给所有的文本框增加输入验证</p>
+      <h5>jQuery 代码:</h5>
+      <pre><code>$("input[type='text']").change( function() {
+  // 这里可以写些验证代码
+});</code></pre>
+    </div>
+  </div>
+</div>
+<!-- css199.com Baidu tongji analytics -->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ff93bd5d8aa4917a86cd8e59a65783744' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</body>
+</html>

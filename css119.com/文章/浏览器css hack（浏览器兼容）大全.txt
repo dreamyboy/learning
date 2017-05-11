@@ -1,0 +1,34 @@
+浏览器css hack（浏览器兼容）大全
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+/*所有浏览器*/
+.test{font-size:60px}
+/*only ie9，ie9 支持 :root 选择器，:root .class{ background-color:orange; }这样FF,opera等也认识；所以要写成:root .class{ background-color:orange\9; } */
+:root .test{font-size:50px\9}
+:root .test{font-size:50px\0}
+:root .test{font-size:50px\0\9}
+:root .test{font-size:50px\9\0}
+:root .test{font-size:50px\0/}
+/*ie8和ie9*/
+.test{font-size:40px\9}
+.test{font-size:40px\0}
+.test{font-size:40px\9\0}
+.test{font-size:40px\0\9}
+.test{font-size:40px\0/}
+/*ie6和ie7*/
+.test{*font-size:60px}
+.test{+font-size:60px}
+/*only ie6*/
+.test{_font-size:60px}
+.test{-font-size:60px}
+</style>
+</head>
+<body>
+<a href="http://www.css119.com">www.css119.com-web前端开发-实时关注常见的前端开发问题、最新的前端开发技术和最好的前端开发工具</a>
+</body>
+</html>
+PS:应该记住，项目中应该要尽量少用hack，而且其实结构布局合理很少需要用到hack的，我现在基本只有ie6和ie7才用少许hack，另外还可以用JS判断来根据不同的浏览器加载不同的css文件

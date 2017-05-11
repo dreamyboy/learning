@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>css3</title>
+<link rel="stylesheet" type="text/css" href="css/demo.css" media="all">
+<style type="text/css">
+body{ font-size:16px; line-height:1}
+input{ width:100px; height:22px; line-height:32px; padding:5px; border:1px solid #ccc; border-radius:6px;-moz-transition:width .5s ease-in 0s,height 3s linear 0s}
+input:focus{ width:250px; height:50px; line-height:50px}
+</style>
+</head>
+<body>
+<input type="text">
+<p style="font:400 12px/1.5 Arial, Helvetica, sans-serif; white-space:pre-wrap; width:600px">
+有时我们不只改变一个css效果的属性,而是想改变两个或者多个css属性的transition效果，那么我们只要把几个transition的声明串在一起，用逗号（"，"）隔开，然后各自可以有各自不同的延续时间和其时间的速率变换方式。但需要值得注意的一点：transition-delay与transition-duration的值都是时间，所以要区分它们在连写中的位置，一般浏览器会根据先后顺序决定，第一个可以解析为时间的怭值为transition-duration第二个为transition-delay。如：
+   a {
+    -moz-transition: background 0.5s ease-in,color 0.3s ease-out;
+    -webkit-transition: background 0.5s ease-in,color 0.3s ease-out;
+    -o-transition: background 0.5s ease-in,color 0.3s ease-out;
+    transition: background 0.5s ease-in,color 0.3s ease-out;
+  }
+</p>
+<p style="font:400 12px/1.5 Arial, Helvetica, sans-serif; white-space:pre-wrap; width:600px">
+如果你想给元素执行所有transition效果的属性，那么我们还可以利用all属性值来操作，此时他们共享同样的延续时间以及速率变换方式，如：
+   a {
+    -moz-transition: all 0.5s ease-in;
+    -webkit-transition: all 0.5s ease-in;
+    -o-transition: all 0.5s ease-in;
+    transition: all 0.5s ease-in;
+  }
+见demo 7
+</p>
+</body>
+</html>

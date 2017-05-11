@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>Multi-column index</title>
+<meta name="Description" content="CSS多列属性" />
+<meta name="Keywords" content="CSS Multi-column Properties,columns,column-width,column-count,column-gap,column-rule,column-rule-width,column-rule-style,column-rule-color,column-span,column-fill,column-break-before,column-break-after,column-break-inside" />
+<meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com" />
+<meta name="copyright" content="www.doyoe.com" />
+<meta name="robots" content="all" />
+<!--[if lte IE 8]>
+<script src="http://www.css119.com/iehtml5.js"></script>
+<![endif]-->
+<link rel="stylesheet" href="../../skin/article.css" tppabs="http://css.doyoe.com/skin/article.css" />
+</head>
+<body>
+<nav id="guide">
+	<div class="from">
+		<a href="../../index.htm" tppabs="http://css.doyoe.com/" target="_blank">CSS参考手册</a>
+		<span>&#187;</span>
+		<a href="../index.htm" tppabs="http://css.doyoe.com/properties/index.htm">属性列表</a>
+		<span>&#187;</span>
+		多栏属性
+	</div>
+	<div class="to">
+		<span class="label">相关内容：</span>
+		<div id="topages" class="gcombobox">
+			<a href="index.htm-.htm" tppabs="http://css.doyoe.com/properties/multi-column/index.htm?" class="target">
+				<strong>其它多栏属性参考</strong>
+				<span>选择其它项<!--[if lte IE 7]><ins>IE7 and earlier, Get to die</ins><![endif]--></span>
+			</a>
+			<div class="list ghide">
+				<ul>
+					<li><a href="columns.htm" tppabs="http://css.doyoe.com/properties/multi-column/columns.htm">columns</a></li>
+					<li><a href="column-width.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-width.htm">column-width</a></li>
+					<li><a href="column-count.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-count.htm">column-count</a></li>
+					<li><a href="column-gap.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-gap.htm">column-gap</a></li>
+					<li><a href="column-rule.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-rule.htm">column-rule</a></li>
+					<li><a href="column-rule-width.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-rule-width.htm">column-rule-width</a></li>
+					<li><a href="column-rule-style.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-rule-style.htm">column-rule-style</a></li>
+					<li><a href="column-rule-color.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-rule-color.htm">column-rule-color</a></li>
+					<li><a href="column-span.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-span.htm">column-span</a></li>
+					<li><a href="column-fill.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-fill.htm">column-fill</a></li>
+					<li><a href="column-break-before.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-break-before.htm">column-break-before</a></li>
+					<li><a href="column-break-after.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-break-after.htm">column-break-after</a></li>
+					<li><a href="column-break-inside.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-break-inside.htm">column-break-inside</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</nav>
+<header id="hd">
+	<h1 class="tit">CSS Multi-column Properties</h1>
+	<ul class="info">
+		<li>多列属性</li>
+	</ul>
+	<div id="browser" class="browser"><iframe id="top-browser" frameborder="0" allowtransparency="true" src="../../global-browser.htm" tppabs="http://css.doyoe.com/global-browser.htm"></iframe></div>
+</header>
+<section id="bd">
+	<section id="multi-column-listing" class="gmodule gattr">
+		<h2 class="tit">多列 Multi-column</h2>
+		<div class="cont">
+			<table class="gdataform">
+				<thead>
+					<tr>
+						<th>Properties<br />属性</th>
+						<th>CSS Version<br />版本</th>
+						<th>Inherit From Parent<br />继承性</th>
+						<th>Description<br />简介</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><a href="columns.htm" tppabs="http://css.doyoe.com/properties/multi-column/columns.htm" class="linkcss3">columns</a></th>
+						<td>CSS3</td>
+						<td>无</td>
+						<td>设置或检索对象的列数和每列的宽度。复合属性</td>
+					</tr>
+					<tr>
+						<td><a href="column-width.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-width.htm" class="linkcss3">column-width</a></th>
+						<td>CSS3</td>
+						<td>无</td>
+						<td>设置或检索对象每列的宽度</td>
+					</tr>
+					<tr>
+						<td><a href="column-count.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-count.htm" class="linkcss3">column-count</a></th>
+						<td>CSS3</td>
+						<td>无</td>
+						<td>设置或检索对象的列数</td>
+					</tr>
+					<tr>
+						<td><a href="column-gap.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-gap.htm" class="linkcss3">column-gap</a></th>
+						<td>CSS3</td>
+						<td>无</td>
+						<td>设置或检索对象的列与列之间的间隙</td>
+					</tr>
+					<tr>
+						<td><a href="column-rule.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-rule.htm" class="linkcss3">column-rule</a></th>
+						<td>CSS3</td>
+						<td>无</td>
+						<td>设置或检索对象的列与列之间的边框。复合属性</td>
+					</tr>
+					<tr>
+						<td><a href="column-rule-width.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-rule-width.htm" class="linkcss3">column-rule-width</a></th>
+						<td>CSS3</td>
+						<td>无</td>
+						<td>设置或检索对象的列与列之间的边框厚度。</td>
+					</tr>
+					<tr>
+						<td><a href="column-rule-style.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-rule-style.htm" class="linkcss3">column-rule-style</a></th>
+						<td>CSS3</td>
+						<td>无</td>
+						<td>设置或检索对象的列与列之间的边框样式。</td>
+					</tr>
+					<tr>
+						<td><a href="column-rule-color.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-rule-color.htm" class="linkcss3">column-rule-color</a></th>
+						<td>CSS3</td>
+						<td>无</td>
+						<td>设置或检索对象的列与列之间的边框颜色。</td>
+					</tr>
+					<tr>
+						<td><a href="column-span.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-span.htm" class="linkcss3">column-span</a></th>
+						<td>CSS3</td>
+						<td>无</td>
+						<td>设置或检索对象元素是否横跨所有列。</td>
+					</tr>
+					<tr>
+						<td><a href="column-fill.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-fill.htm" class="linkcss3">column-fill</a></th>
+						<td>CSS3</td>
+						<td>无</td>
+						<td>设置或检索对象所有列的高度是否统一。</td>
+					</tr>
+					<tr>
+						<td><a href="column-break-before.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-break-before.htm" class="linkcss3">column-break-before</a></th>
+						<td>CSS3</td>
+						<td>无</td>
+						<td>设置或检索对象之前是否断行。</td>
+					</tr>
+					<tr>
+						<td><a href="javascript:if(confirm('http://css.doyoe.com/properties/multi-column/column-fill-after.htm  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ ����������δ�ҵ����ļ���  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://css.doyoe.com/properties/multi-column/column-fill-after.htm'" tppabs="http://css.doyoe.com/properties/multi-column/column-fill-after.htm" class="linkcss3">column-break-after</a></th>
+						<td>CSS3</td>
+						<td>无</td>
+						<td>设置或检索对象之前是否断行。</td>
+					</tr>
+					<tr>
+						<td><a href="column-break-inside.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-break-inside.htm" class="linkcss3">column-break-inside</a></th>
+						<td>CSS3</td>
+						<td>无</td>
+						<td>设置或检索对象内部是否断行。</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="related">
+			<p><strong class="linkcss3">这种颜色</strong> 的链接表示是CSS3属性或原属性被CSS3修改并增加了新的属性值</p>
+		</div>
+	</section>
+</section>
+<aside id="ft">
+	<div class="browser"><iframe id="bot-browser" frameborder="0" allowtransparency="true" src="../../global-browser.htm" tppabs="http://css.doyoe.com/global-browser.htm"></iframe></div>
+	
+</aside>
+<script src="../../js/doyoe.js" tppabs="http://css.doyoe.com/js/doyoe.js"></script>
+<script src="../../js/style.js" tppabs="http://css.doyoe.com/js/style.js"></script>
+<!-- css199.com Baidu tongji analytics -->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ff93bd5d8aa4917a86cd8e59a65783744' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</body>
+</html>

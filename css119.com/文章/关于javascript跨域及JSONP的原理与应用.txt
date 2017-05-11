@@ -1,0 +1,134 @@
+同源策略，它是由Netscape提出的一个著名的安全策略，现在所有的可支持javascript的浏览器都会使用这个策略。
+为什么需要同源策略，这里举个例子：
+假设现在没有同源策略，会发生什么事情呢？大家知道，JavaScript可以做很多东西，比如：读取/修改网页中某个值。恩，你现在打开了浏览器，在一 个tab窗口中打开了银行网站，在另外一个tab窗口中打开了一个恶意网站，而那个恶意网站挂了一个的专门修改银行信息的JavaScript，当你访问 这个恶意网站并且执行它JavaScript时，你的银行页面就会被这个JavaScript修改，后果会非常严重！而同源策略就为了防止这种事情发生.
+比如说，浏览器的两个tab页中分别打开了http://www.baidu.com/index.html和http: //www.google.com/index.html，其中，JavaScript1和JavaScript3是属于百度的脚本，而 JavaScript2是属于谷歌的脚本，当浏览器的tab1要运行一个脚本时，便会进行同源检查，只有和www.baidu.com同源的脚本才能被执 行，所谓同源，就是指域名、协议、端口相同。所以，tab1只能执行JavaScript1和JavaScript3脚本，而JavaScript2不能 执行，从而防止其他网页对本网页的非法篡改。
+二、什么是JSONP?
+JSONP（JSON with Padding）是一个非官方的协议，它允许在服务器端集成Script tags返回至客户端，通过javascript callback的形式实现跨域访问（这仅仅是JSONP简单的实现形式）。
+三、为什么使用JSONP?
+由于 JSON 只是一种含有简单括号结构的纯文本，因此许多通道都可以交换 JSON 消息。因为同源策略的限制，我们不能在与外部服务器进行通信的时候使用 XMLHttpRequest。而JSONP是一种可以绕过同源策略的方法，即通过使用 JSON 与 < script> 标记相结合的方法，从服务端直接返回可执行的JavaScript函数调用或者JavaScript对象。
+其实 jsonp 是个很简单的一个东西。主要是利用了 <script/>标签对javascript文档的动态解析来实现。（其实也可以用eval函数）。
+<script type="text/javascript">
+    function jsonpCallback(result) {
+        alert(result.msg);
+    }
+</script>
+<script type="text/javascript" src="http://crossdomain.com/jsonServerResponse?jsonp=jsonpCallback"></script>
+其中 jsonCallback 是客户端注册的，获取跨域服务器上的json数据后，回调的函数。
+http://crossdomain.com/jsonServerResponse?jsonp=jsonpCallback
+这个 url 是跨域服务器取 json 数据的接口，参数为回调函数的名字，返回的格式为:
+jsonpCallback({ msg:'this  is  json  data'})
+Jsonp原理: 
+首先在客户端注册一个callback, 然后把callback的名字传给服务器。此时，服务器先生成 json 数据。然后以 javascript 语法的方式，生成一个function , function 名字就是传递上来的参数 jsonp.
+最后将 json 数据直接以入参的方式，放置到 function 中，这样就生成了一段 js 语法的文档，返回给客户端。
+客户端浏览器，解析script标签，并执行返回的javascript文档，此时数据作为参数，传入到了客户端预先定义好的 callback 函数里.(动态执行回调函数) .
+其实说白了，就是客户端定义一个函数(如a），请求地址后服务器端返回的结果是调用a函数,需要的数据都放在了a函数的参数里面。
+demo:
+应为它用到的只是所有 HTML 元素中一个简单的 script 元素。看到这是不是觉得越发奇怪了？没关系，继续看下去就会茅厕（塞）顿开的，嘿嘿～来看个例子吧：
+demo.html:
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Demo</title>
+</head>
+<body>
+<script type="text/javascript">
+function say(words) {
+   alert(words);
+}
+</script>
+<script type="text/javascript" src="demo.js"></script>
+</body>
+</html>
+demo.js:
+say("Hello, everyone!");
+运行 demo.html 文件后，是不是看到写着“Hello, everyone!”的警告框了？你可能会觉得这个例子很简单，没什么了不起的，甚至会在想：这和 JSONP 有关系吗？那么，我可以很肯定的告诉你：有关系！而且，这个例子实际上就是 JSONP 的原型！你也许会想到，JSONP 不是访问远程数据的吗？对，试想一下，如果 demo.js 文件在其它域的服务器上呢？结果会不会出现问题？我也可以很负责的告诉你：不会！你可以将上面例子中的 demo.js 更改为：http://demo.hpyer.cn/php/jsonp.php?callback=say 再试一下。
+现在，聪明的你应该已经明白 JSONP 到底是怎么回事了，那么，再来解释一下本节开头第一句话吧。看过 demo.js 文件的内容，应该知道，其只是对一个函数（通常称之为：回调函数）的调用，而需要交互的数据则通过参数形势进行返回。所以通过 JSONP 访问的服务器需要提供一个可以设置回调函数名的接口，就像 http://demo.hpyer.cn/php/jsonp.php?callback=say 中的 callback，所以，综上所述 JSONP 是需要服务器端的支持的。附上 jsonp.php 的源码：
+<?php
+$type = isset($_GET['type']) ? $_GET['type'] : '';
+$callback = isset($_GET['callback']) ? $_GET['callback'] : '';
+$json = '';
+if ($type == 'json') {
+   $json = '{
+   "Image": {
+   "Width": 800,
+   "Height": 600,
+   "Title": "View from 15th Floor",
+   "Thumbnail": {
+   "Url": "http://www.example.com/image/481989943",
+   "Height": 125,
+   "Width": "100"
+   },
+   "IDs": [116, 943, 234, 38793]
+   }
+   }';
+} else {
+   $json = '"Hello, everyone!"';
+}
+if (!empty($callback)) {
+   $json = $callback . '(' . $json . ')';
+}
+echo $json;
+jquery 中的应用:
+自 1.2 版本起，jQuery 加入了对 JSONP 的支持。我们可以很容易的利用 $.getJSON() 方法（或者其它基于 $.ajax() 的方法），来跨域加载 JSON 数据。来个例子吧：
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Demo</title>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+function do_jsonp() {
+   $.getJSON("http://demo.hpyer.cn/php/jsonp.php?type=json&callback=?",
+   function(data) {
+   $('#result').val('data.Image.IDs: ' + data.Image.IDs);
+   });
+}
+</script>
+</head>
+<body>
+<a href="javascript:do_jsonp();">Click me</a><br />
+<textarea id="result" cols="50" rows="5"></textarea>
+</body>
+</html>
+你可能注意到上面的例子中，url 被写成了 http://demo.hpyer.cn/php/jsonp.php?type=json&callback=?，需要说明的是，这个问号会被 jQuery 自动替换为回调函数的函数名（如果是一个匿名函数，jQuery 会自动生成一个带时间戳的函数名）。
+看我在项目中的一个例子：
+//定义Ajax函数
+function ajaxFun() {
+    var timeStamp = Math.floor(new Date().getTime() / 1000);
+    var url = "http://apiso.alidemo.3gpp.cn/httpserver/cp/yisou/ali_feedback_interface.php?callback=jsonpCallback&feedbacktype=add&type=" + feedbackNumber + "&book=" + me.mixedInfo.title + "&author=" + me.mixedInfo.author + "&chapter=" + me.mixedInfo.cname + "&chapterid=" + me.mixedInfo.cid + "&questiondesc=" + text + "&platform=1&t=" + timeStamp + "&sn=" + md5("d30fcd1a9f1900fa049b4766e0a275e1" + timeStamp);
+    var scriptObj = document.createElement("script");
+    scriptObj.src = url;
+    scriptObj.id = "jsonpScript";
+    document.body.appendChild(scriptObj);
+    //jsonp回调函数，jsonpCallback必须为全局函数，因为jsonp返回的是在全局环境中执行函数的语句，即jsonpCallback(data)
+    window.jsonpCallback = function(data) {
+        switch (data.code) {
+            case "1":
+                novel.readerPrompt('提交成功，即将返回……', 1, function() {
+                    window.history.go(-1);
+                });
+                break;
+            case "0":
+                novel.readerPrompt('提交失败。', 2);
+                break;
+            case "900":
+                novel.readerPrompt('提交失败，验证失败。', 2);
+                break;
+        }
+        //成功后删除scriptObj，后面的setTimeout就不会执行了
+        if (document.getElementById("jsonpScript")) {
+            document.body.removeChild(scriptObj);
+        }
+    }
+    //设置超时，超时的话直接显示提交成功
+    setTimeout(function() {
+        if (document.getElementById("jsonpScript")) {
+            document.body.removeChild(scriptObj);
+            novel.readerPrompt('提交成功，即将返回……', 1, function() {
+                window.history.go(-1);
+            });
+        }
+    }, 2000);
+}
+ajaxFun();

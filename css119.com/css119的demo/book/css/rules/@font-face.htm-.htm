@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>@font-face</title>
+<meta name="Description" content="" />
+<meta name="Keywords" content="" />
+<meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com" />
+<meta name="copyright" content="www.doyoe.com" />
+<meta name="robots" content="all" />
+<!--[if lte IE 8]>
+<script src="http://www.css119.com/iehtml5.js"></script>
+<![endif]-->
+<link rel="stylesheet" href="../skin/article.css" tppabs="http://css.doyoe.com/skin/article.css" />
+</head>
+<body>
+<nav id="guide">
+	<div class="from">
+		<a href="../index.htm" tppabs="http://css.doyoe.com/" target="_blank">CSS参考手册</a>
+		<span>&#187;</span>
+		<a href="../index-1.htm" tppabs="http://css.doyoe.com/index.htm">语法与规则列表</a>
+		<span>&#187;</span>
+	</div>
+	<div class="to">
+		<span class="label">相关内容：</span>
+		<div id="topages" class="gcombobox">
+			<a href="@font-face.htm-.htm" tppabs="http://css.doyoe.com/rules/@font-face.htm?" class="target">
+				<strong>其它语法与规则参考</strong>
+				<span>选择其它项<!--[if lte IE 7]><ins>IE7 and earlier, Get to die</ins><![endif]--></span>
+			</a>
+			<div class="list ghide">
+				<ul>
+					<li><a href="!important.htm" tppabs="http://css.doyoe.com/rules/!important.htm">!important</a></li>
+					<li><a href="comment.htm" tppabs="http://css.doyoe.com/rules/comment.htm">comment</a></li>
+					<li><a href="@import.htm" tppabs="http://css.doyoe.com/rules/@import.htm">@import</a></li>
+					<li><a href="@charset.htm" tppabs="http://css.doyoe.com/rules/@charset.htm">@charset</a></li>
+					<li><a href="@media.htm" tppabs="http://css.doyoe.com/rules/@media.htm">@media</a></li>
+					<li><a href="@font-face.htm" tppabs="http://css.doyoe.com/rules/@font-face.htm">@font-face</a></li>
+					<li><a href="@page.htm" tppabs="http://css.doyoe.com/rules/@page.htm">@page</a></li>
+					<li><a href="@keyframes.htm" tppabs="http://css.doyoe.com/rules/@keyframes.htm">@keyframes</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</nav>
+<header id="hd">
+	<h1 class="tit">@font-face</h1>
+	<ul class="info">
+		<li><strong>版本：CSS3</strong></li>
+	</ul>
+	<div id="browser" class="browser"><iframe id="top-browser" frameborder="0" allowtransparency="true" src="../global-browser.htm" tppabs="http://css.doyoe.com/global-browser.htm"></iframe></div>
+</header>
+<section id="bd">
+	<section id="syntax" class="gmodule gattr">
+		<h2 class="tit">语法：</h2>
+		<div class="cont">
+			<p><strong>@font-face</strong>{font-family:name;src:<a href="../values/textual/url.htm" tppabs="http://css.doyoe.com/values/textual/url.htm">&lt;url&gt;</a>;sRules;}</p>
+		</div>
+	</section>
+	<section id="value" class="gmodule gattr">
+		<h2 class="tit">取值：</h2>
+		<div class="cont">
+			<dl>
+				<dt>&lt;name&gt;：</dt>
+				<dd>字体名称</dd>
+				<dt><a href="../values/textual/url.htm" tppabs="http://css.doyoe.com/values/textual/url.htm">&lt;url&gt;</a>：</dt>
+				<dd>使用绝对或相对地址指定OpenType字体</dd>
+				<dt>&lt;sRules&gt;：</dt>
+				<dd>样式表定义</dd>
+			</dl>
+		</div>
+	</section>
+	<section id="intro" class="gmodule gattr">
+		<h2 class="tit">说明：</h2>
+		<div class="cont">
+			<strong>设置嵌入HTML文档的字体。</strong>
+			<ul>
+				<li>通常使用.ttf(TrueType)和.otf(OpenType)两种字体格式。</li>
+				<li>嵌入HTML文档的字体是指将OpenType字体（压缩的TrueType字体）文件映射到客户端系统，用来提供HTML文档使用该字体，或取代客户端系统已有的同名字体。即让客户端显示客户端所没有安装的字体。</li>
+				<li>微软的IE5已经是开始支持这个属性，但是只支持微软自有的.eot(Embedded Open Type)格式，而其他浏览器直到现在都没有支持这一字体格式。Safari从3.1开始已经可以设置.ttf(TrueType)和.otf(OpenType)两种字体做为自定义字体了。</li>
+			</ul>
+		</div>
+	</section>
+	<section id="compatible" class="gmodule gattr">
+		<h2 class="tit">兼容性：</h2>
+		<div class="cont">
+			<ul class="support-type">
+				<li><span class="support">浅绿</span> = 支持</li>
+				<li><span class="unsupport">红色</span> = 不支持</li>
+				<li><span class="partsupport">墨绿</span> = 部分支持</li>
+				<li><span class="experimentsupport">橙色</span> = 实验性质</li>
+			</ul>
+			<table class="gdataform">
+				<thead>
+					<tr>
+						<th><a href="#browser" title="查看本文档测试时所用浏览器版本">支持版本</a>\类型</th>
+						<th><span class="browser-ie">IE</span></th>
+						<th><span class="browser-firefox">Firefox</span></th>
+						<th><span class="browser-safari">Safari</span></th>
+						<th><span class="browser-chrome">Chrome</span></th>
+						<th><span class="browser-opera">Opera</span></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>版本</th>
+						<td class="partsupport">6.0-8.0 <sup><a href="#support1">#1</a></sup></td>
+						<td rowspan="2" class="support">4.0</td>
+						<td rowspan="2" class="support">5.1</td>
+						<td rowspan="2" class="support">13.0</td>
+						<td rowspan="2" class="support">11.50</td>
+					</tr>
+					<tr>
+						<th>版本</th>
+						<td class="partsupport">9.0-10.0 <sup><a href="#support2">#2</a></sup></td>
+					</tr>
+				</tbody>
+			</table>
+			<ol class="support-info">
+				<li id="support1">IE8及更早浏览器只支持微软自有的.eot(Embedded Open Type)格式。</li>
+				<li id="support2">IE9.0-10.0部分支持ttf和otf字体格式。</li>
+			</ol>
+		</div>
+	</section>
+	<section id="example" class="gmodule gattr">
+		<h2 class="tit">示例：</h2>
+		<div class="cont">
+			<textarea cols="90" rows="10">
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>@font-face_CSS参考手册_web前端开发参考手册系列</title>
+<meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com" />
+<meta name="copyright" content="www.doyoe.com" />
+<style>
+@font-face{
+	font-family:YH;
+	src:url("../../domain/fonts/MSYH.TTF");
+}
+body{font-family:'YH';}
+</style>
+</head>
+<body>
+<div>如果你的机器没有安装微软雅黑Microsoft YaHei，可以玩玩看。如果你用的是老版本IE，很遗憾你得找找看.eot格式的该字体</div>
+<!-- css199.com Baidu tongji analytics -->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ff93bd5d8aa4917a86cd8e59a65783744' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</body>
+</html>
+			</textarea>
+			<p><input type="button" value="运行" class="gbtn btn-sure" /></p>
+		</div>
+	</section>
+</section>
+<aside id="ft">
+	<div class="browser"><iframe id="bot-browser" frameborder="0" allowtransparency="true" src="../global-browser.htm" tppabs="http://css.doyoe.com/global-browser.htm"></iframe></div>
+	
+</aside>
+<script src="../js/doyoe.js" tppabs="http://css.doyoe.com/js/doyoe.js"></script>
+<script src="../js/style.js" tppabs="http://css.doyoe.com/js/style.js"></script>
+</body>
+</html>

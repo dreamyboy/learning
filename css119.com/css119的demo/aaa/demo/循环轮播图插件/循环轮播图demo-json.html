@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>循环轮播图插件-WEB前端开发(www.css119.com)-关注常见的前端开发问题、最新的前端开发技术(前端移动开发)和最好的前端开发工具</title>
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<link rel="stylesheet" type="text/css" href="css/imgSlide.css">
+<style type="text/css">
+/*外框*/
+.imageSlide{width:800px;height:320px}
+.imageSlide li{width:800px;height:293px}
+/*上一张下一张按钮样式*/
+.imageSlide .prev,.imageSlide .next,.imageSlide .prev-disable,.imageSlide .next-disable{margin-top:-48px}
+</style>
+</head>
+
+<body>
+<div class="imageSlide" id="imageSlide">
+	<!--可以根据需要删除数字按钮和左右按钮-->
+	<div class="num"></div>
+	<a class="prev" href="javascript:;" title="上一张（支持'→'和'←'按键切换）" hidefocus="true"><b></b></a>
+	<a class="next" href="javascript:;" title="下一张（支持'→'和'←'按键切换）" hidefocus="true"><b></b></a>
+</div>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="js/jquery.imageSlide.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	var LoadJsonObj=[];
+	for(var i=1;i<9;i++){
+		//没有图片信息的时候，设置"imgInfo":""
+		LoadJsonObj.push({"href":"javascript:;","imgSrc":"http://www.css119.com/demo/img/imgSlide/i0"+i+".jpg","imgTitle":"图片title","imgAlt":"图片alt"});
+		}
+	$("#imageSlide").imageSlide({evt:1,effect:1,isLoadJSON:true,LoadJsonObj:LoadJsonObj});
+})
+</script>
+</body>
+</html>

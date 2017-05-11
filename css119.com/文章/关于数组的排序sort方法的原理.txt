@@ -1,0 +1,50 @@
+最近在百度的项目中要用到对数组进行排序,当然一开始自然想到了数组的sort方法,这方法应用非常简单,大致如下:
+ window.onload=function(){
+        var arr=[2,55,55,1,75,3,9,35,70,166,432,678,32,98];
+        var arr2=["George","John","Thomas","James","Adrew","Martin"];
+        function arrsort(a,b){
+            return a-b;
+            }
+        console.log(arr.sort(arrsort));  //数字排序需要函数,如果要从大排到小,就return b-a;
+        console.log(arr2.sort());  //字母不需要
+    }
+但是我突然想到,sort用法为什么这么简单,其原理到底是什么呢?于是我试着不用sort对数组排序,原理是找到数组的最小值插入到新数组,然后删除数组中的这个最小值,更新数组后继续寻找最小值插入,如此循环,代码如下:
+ window.onload=function(){
+        var arr=[2,55,55,1,75,3,9,35,70,166,432,678,32,98];
+        var len=arr.length;
+        console.log(arr.join(","));
+        var newarr=[];
+        for(var i=0;i<len;i++){
+            newarr.push(Math.min.apply(null,arr));  //把最小值插入新数组
+            arr.splice(r(arr,Math.min.apply(null,arr)),1);  //插入后,立马删除最小值
+        }
+        //找到最小值在数组中的位置
+        function r(s,v){
+            for(k in s){
+                if(s[k] == v){
+                    return k;
+                    }
+                }
+            }
+        console.log(newarr.join(","))
+    }
+PS:这只是我写的一个方法,sort的原理应该不是这样的,还可以用冒泡法对数组排序.当然上面的代码只是对数字数组进行了排序,对于字符串的排序,可以考虑字符串的localeCompare方法.
+
+冒泡排序的代码如下：
+<script type="text/javascript">
+function bubble(arr){
+    var temp,len=arr.length;
+    for(var i=0;i<len-1;i++){
+        for(j=i+1;j<len;j++){
+            if(arr[i]>=arr[j]){  //如果要按大到小排序，就把此改成arr[i]<=arr[j]即可
+                temp=arr[i];
+                arr[i]=arr[j];
+                arr[j]=temp;    
+            }
+        }    
+    }
+    return arr;
+}
+var arr=[4,7,2,5,76,23,72,6,9,12,5];
+console.log(bubble(arr));
+</script>

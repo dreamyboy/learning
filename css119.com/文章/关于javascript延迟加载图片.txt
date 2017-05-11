@@ -1,0 +1,35 @@
+今天在技术群中，有位童鞋问起了javascript延迟加载图片的问题，我在这就给大家说明下原理和实现方法。
+延迟加载是通过自定义属性，把真实的img地址存到自定义属性中，如data-url=”img”,而图片真正的src存的是loading的图片，如src=”loading.gif”，通过JS来获取窗口的偏移量，当图片在窗口中的时候，再动态将data-url的值赋给src;
+延迟加载的原理其实很简单的，因为浏览器解析html的时候，会把img中所有的src都加载，但是自定义属性中的图片是不会加载的，所有我们就采用了替换，这样浏览器刚打开页面加载的是loading的图标，而不是真正的图片，这样就能提高网站的加载速度。
+实际项目应用中，可以先利用ajax先把图片的实际src赋给data-url，然后滚动带图片窗口时，在实时的替换img的src。
+具体代码如下：
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+</head>
+<body>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<img src="http://www.css119.com/demo/loading-black.gif" alt="" data-url="http://h.hiphotos.baidu.com/album/w%3D2048/sign=d012eacd77c6a7efb926af26c9c2af51/32fa828ba61ea8d3ca1c3b16960a304e251f58e1.jpg" id="test">
+<script type="text/javascript">
+var again=false;  //防止浏览器一直加载图片，这样图片加载成功后，滚动浏览器的时候就不会再加载图片了；
+var obj=document.getElementById("test"),
+    url=obj.getAttribute("data-url"),
+    o=obj.offsetTop,
+    h=window.innerHeight || document.documentElement.clientHeight,
+    t;
+function test(){
+    t=document.body.scrollTop || document.documentElement.scrollTop;  //滚动浏览器的时候，只有这个值是变动的，所以放在test函数中，而其他的不变的值就放外面，防止滚动浏览器一直查找元素及赋值；
+    if(t+h>o){
+        obj.src=url;
+        again=true;
+    }
+}
+window.onscroll=function(){if(!again)test()};
+</script>
+</body>
+</html>
+加载图片前的网络请求：
+
+加载成功后的网络请求：

@@ -1,0 +1,23 @@
+方法一：PNG8格式
+其实IE6与生俱来就支持png8的索引色透明度，但不支持png或8位以上的 alpha 透明度。而对于非动画的GIF建议你使用PNG8，因为体积会更小。对于并不复杂的png透明图其实可以存储为png8，这样可以有效避免ie6不能显示png24的问题。
+photoshop中：png24转换成png8的具体方法为：
+文件-》存储为web和设备所用格式-》在“预设”里，选择“PNG-8”和“”透明度，保存即可。
+方法二：DD_belatedPNG,解决IE6不支持PNG绝佳方案
+支持backgrond-position与background-repeat.这是其他js插件不具备的.同时DD_belatedPNG还支持a:hover属性,以及<img>.
+原理
+这个js插件使用了微软的VML语言进行绘制,而其他多数解决PNG问题的js插件用的是AlphaImageLoader滤镜.
+使用方法
+1.在这里下载DD_belatedPNG.js文件.
+http://dillerdesign.com/experiment/DD_belatedPNG/#download
+2.在网页中引用,如下:
+<!--[if IE 6]>
+<script src="DD_belatedPNG.js" mce_src="DD_belatedPNG.js"></script>
+<script type="text/javascript"> /* EXAMPLE */ DD_belatedPNG.fix('.png_bg'); /* 将 .png_bg 改成你应用了透明PNG的css选择器,*/ </script> <![endif]-->
+3.有2种调用函数,一种是DD_belatedPNG.fix(),如上代码.另一种是fix(),这中方法需要在函数内指出css选择器名.
+使用a:hover请留意
+如果你想要用透明PNG作为a:hover时的背景图片,那么你需要留意你的代码,需要以”a:hover”来作为选择器. 否则可能会导致无法成功.接着我们看看正确的代码:
+<!--[if IE 6]>
+<script type="text/javascript" src="js/DD_belatedPNG.js" ></script>
+<script type="text/javascript"> DD_belatedPNG.fix('.trans,.box a:hover'); </script>
+<![endif]-->
+其他的方法就不介绍了

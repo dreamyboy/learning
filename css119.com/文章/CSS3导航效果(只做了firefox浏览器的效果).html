@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>css3</title>
+<link rel="stylesheet" type="text/css" href="css/demo.css" media="all">
+<style type="text/css">
+body{ font-size:16px; line-height:1}
+a{ font-size:16px; color:#000; margin:0 10px; display:inline-block; height:32px; line-height:32px; padding:0 20px 0 10px; position:relative; text-decoration:none;overflow:hidden}
+a b{ position:absolute; right:0; top:15px; width:0; height:0; font-size:0; border:6px dashed transparent; border-top:6px solid #000;-moz-transform:rotate(0deg);-moz-transform-origin:50% 25%;-moz-transition:-moz-transform .5s ease-in 0s}
+a:hover b{-moz-transform:rotate(180deg);}
+a.rotate-x:hover b{-moz-transform:rotateX(180deg);}
+a.rotate-y:hover b{-moz-transform:rotateY(180deg);}
+a.rotate-z:hover b{-moz-transform:rotateZ(180deg);}  /*和rotate的效果一样*/
+</style>
+</head>
+<body>
+普通旋转
+<br>
+<a href="http://www.css119.com">home<b></b></a><a href="http://www.css119.com">home<b></b></a><a href="http://www.css119.com">home<b></b></a><a href="http://www.css119.com">home<b></b></a>
+<br><br>
+2D旋转
+<br>
+<a href="http://www.css119.com" class="rotate-x">home<b></b></a><a href="http://www.css119.com" class="rotate-x">home<b></b></a><a href="http://www.css119.com" class="rotate-x">home<b></b></a><a href="http://www.css119.com" class="rotate-x">home<b></b></a>
+<br><br>
+3D旋转
+<br>
+<a href="http://www.css119.com" class="rotate-y">home<b></b></a><a href="http://www.css119.com" class="rotate-y">home<b></b></a><a href="http://www.css119.com" class="rotate-y">home<b></b></a><a href="http://www.css119.com" class="rotate-y">home<b></b></a>
+<br><br>
+旋转rotateZ
+<br>
+<a href="http://www.css119.com" class="rotate-z">home<b></b></a><a href="http://www.css119.com" class="rotate-z">home<b></b></a><a href="http://www.css119.com" class="rotate-z">home<b></b></a><a href="http://www.css119.com" class="rotate-z">home<b></b></a>
+<br><br>
+</body>
+</html>

@@ -1,0 +1,298 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>column-rule-style</title>
+<meta name="Description" content="" />
+<meta name="Keywords" content="" />
+<meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com" />
+<meta name="copyright" content="www.doyoe.com" />
+<meta name="robots" content="all" />
+<!--[if lte IE 8]>
+<script src="http://www.css119.com/iehtml5.js"></script>
+<![endif]-->
+<link rel="stylesheet" href="../../skin/article.css" tppabs="http://css.doyoe.com/skin/article.css" />
+</head>
+<body>
+<nav id="guide">
+	<div class="from">
+		<a href="../../index.htm" tppabs="http://css.doyoe.com/" target="_blank">CSS参考手册</a>
+		<span>&#187;</span>
+		<a href="../index.htm" tppabs="http://css.doyoe.com/properties/index.htm">属性列表</a>
+		<span>&#187;</span>
+		<a href="index.htm" tppabs="http://css.doyoe.com/properties/multi-column/index.htm">多栏属性</a>
+		<span>&#187;</span>
+	</div>
+	<div class="to">
+		<span class="label">相关内容：</span>
+		<div id="topages" class="gcombobox">
+			<a href="column-rule-style.htm-.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-rule-style.htm?" class="target">
+				<strong>其它多栏属性参考</strong>
+				<span>选择其它项<!--[if lte IE 7]><ins>IE7 and earlier, Get to die</ins><![endif]--></span>
+			</a>
+			<div class="list ghide">
+				<ul>
+					<li><a href="columns.htm" tppabs="http://css.doyoe.com/properties/multi-column/columns.htm">columns</a></li>
+					<li><a href="column-width.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-width.htm">column-width</a></li>
+					<li><a href="column-count.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-count.htm">column-count</a></li>
+					<li><a href="column-gap.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-gap.htm">column-gap</a></li>
+					<li><a href="column-rule.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-rule.htm">column-rule</a></li>
+					<li><a href="column-rule-width.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-rule-width.htm">column-rule-width</a></li>
+					<li><a href="column-rule-style.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-rule-style.htm">column-rule-style</a></li>
+					<li><a href="column-rule-color.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-rule-color.htm">column-rule-color</a></li>
+					<li><a href="column-span.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-span.htm">column-span</a></li>
+					<li><a href="column-fill.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-fill.htm">column-fill</a></li>
+					<li><a href="column-break-before.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-break-before.htm">column-break-before</a></li>
+					<li><a href="column-break-after.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-break-after.htm">column-break-after</a></li>
+					<li><a href="column-break-inside.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-break-inside.htm">column-break-inside</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</nav>
+<header id="hd">
+	<h1 class="tit">column-rule-style</h1>
+	<ul class="info">
+		<li><strong>版本：CSS3</strong></li>
+		<li>继承性：无</li>
+	</ul>
+	<div id="browser" class="browser"><iframe id="top-browser" frameborder="0" allowtransparency="true" src="../../global-browser.htm" tppabs="http://css.doyoe.com/global-browser.htm"></iframe></div>
+</header>
+<section id="bd">
+	<section id="syntax" class="gmodule gattr">
+		<h2 class="tit">语法：</h2>
+		<div class="cont">
+			<p><strong>column-rule-style</strong>：none | hidden | dotted | dashed | solid | double | groove | ridge | inset | outset</p>
+			<p><strong>默认值</strong>：<mark class="defaultvalue">none</mark></p>
+		</div>
+	</section>
+	<section id="value" class="gmodule gattr">
+		<h2 class="tit">取值：</h2>
+		<div class="cont">
+			<dl>
+				<dt>none：</dt>
+				<dd>无轮廓。<a href="column-rule-color.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-rule-color.htm">column-rule-color</a>与<a href="column-rule-width.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-rule-width.htm">column-rule-width</a>将被忽略</dd>
+				<dt>hidden：</dt>
+				<dd>隐藏边框。</dd>
+				<dt>dotted：</dt>
+				<dd>点状轮廓。</dd>
+				<dt>dashed：</dt>
+				<dd>虚线轮廓。</dd>
+				<dt>solid：</dt>
+				<dd>实线轮廓</dd>
+				<dt>double：</dt>
+				<dd>双线轮廓。两条单线与其间隔的和等于指定的<a href="column-rule-width.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-rule-width.htm">column-rule-width</a>值</dd>
+				<dt>groove：</dt>
+				<dd>3D凹槽轮廓。</dd>
+				<dt>ridge：</dt>
+				<dd>3D凸槽轮廓。</dd>
+				<dt>inset：</dt>
+				<dd>3D凹边轮廓。</dd>
+				<dt>outset：</dt>
+				<dd>3D凸边轮廓。</dd>
+			</dl>
+		</div>
+	</section>
+	<section id="intro" class="gmodule gattr">
+		<h2 class="tit">说明：</h2>
+		<div class="cont">
+			<strong>设置或检索对象的列与列之间的边框样式。</strong>参阅<a href="../border/border-style.htm" tppabs="http://css.doyoe.com/properties/border/border-style.htm">border-style</a>属性
+			<ul>
+				<li>如果<a href="column-rule-width.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-rule-width.htm">column-rule-width</a>等于0，本属性将失去作用。</li>
+				<li>对应的脚本特性为<strong>columnRuleStyle</strong>。</li>
+			</ul>
+		</div>
+	</section>
+	<section id="compatible" class="gmodule gattr">
+		<h2 class="tit">兼容性：</h2>
+		<div class="cont">
+			<ul class="support-type">
+				<li><span class="support">浅绿</span> = 支持</li>
+				<li><span class="unsupport">红色</span> = 不支持</li>
+				<li><span class="partsupport">墨绿</span> = 部分支持</li>
+				<li><span class="experimentsupport">橙色</span> = 实验性质</li>
+			</ul>
+			<table class="gdataform">
+				<thead>
+					<tr>
+						<th><a href="#browser" title="查看本文档测试时所用浏览器版本">支持版本</a>\类型</th>
+						<th><span class="browser-ie">IE</span></th>
+						<th><span class="browser-firefox">Firefox</span></th>
+						<th><span class="browser-safari">Safari</span></th>
+						<th><span class="browser-chrome">Chrome</span></th>
+						<th><span class="browser-opera">Opera</span></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>版本</th>
+						<td class="unsupport">6.0-9.0</td>
+						<td rowspan="2" class="experimentsupport">4.0-9.0</td>
+						<td rowspan="2" class="experimentsupport">5.1</td>
+						<td rowspan="2" class="experimentsupport">13.0-16.0</td>
+						<td rowspan="2" class="support">11.50</td>
+					</tr>
+					<tr>
+						<th>版本</th>
+						<td class="support">10.0</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+	<section class="gmodule gattr" id="way">
+		<h2 class="tit">写法：</h2>
+		<div class="cont">
+			<table class="gdataform">
+				<thead>
+					<tr>
+						<th>内核类型</th>
+						<th>写法</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>Webkit(Chrome/Safari)</th>
+						<td>-webkit-column-rule-style</td>
+					</tr>
+					<tr>
+						<th>Gecko(Firefox)</th>
+						<td>-moz-column-rule-style</td>
+					</tr>
+					<tr>
+						<th>Presto(Opera)</th>
+						<td>column-rule-style</td>
+					</tr>
+					<tr>
+						<th>Trident(IE)</th>
+						<td>column-rule-style</td>
+					</tr>
+					<tr>
+						<th>W3C</th>
+						<td>column-rule-style</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+	<section id="example" class="gmodule gattr">
+		<h2 class="tit">示例：</h2>
+		<div class="cont">
+			<textarea cols="90" rows="10">
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>column-rule-style_CSS参考手册_web前端开发参考手册系列</title>
+<meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com" />
+<meta name="copyright" content="www.doyoe.com" />
+<style>
+body{font:14px/1.5 georgia,serif,sans-serif;}
+p{margin:0;padding:5px 10px;background:#eee;}
+h1{margin:10px 0;font-size:16px;}
+div{
+	width:600px;
+	border:10px solid #000;
+	-moz-column-count:3;
+	-moz-column-gap:20px;
+	-moz-column-rule-width:3px;
+	-webkit-column-count:3;
+	-webkit-column-gap:20px;
+	-webkit-column-rule-width:3px;
+	column-count:3;
+	column-gap:20px;
+	column-rule-width:3px;
+}
+.test{
+	-moz-column-rule-style:none;
+	-webkit-column-rule-style:none;
+	column-rule-style:none;
+}
+.test2{
+	-moz-column-rule-style:hidden;
+	-webkit-column-rule-style:hidden;
+	column-rule-style:hidden;
+}
+.test3{
+	-moz-column-rule-style:dotted;
+	-webkit-column-rule-style:dotted;
+	column-rule-style:dotted;
+}
+.test4{
+	-moz-column-rule-style:dashed;
+	-webkit-column-rule-style:dashed;
+	column-rule-style:dashed;
+}
+.test5{
+	-moz-column-rule-style:solid;
+	-webkit-column-rule-style:solid;
+	column-rule-style:solid;
+}
+.test6{
+	-moz-column-rule-style:double;
+	-webkit-column-rule-style:double;
+	column-rule-style:double;
+}
+.test7{
+	-moz-column-rule-style:groove;
+	-webkit-column-rule-style:groove;
+	column-rule-style:groove;
+}
+.test8{
+	-moz-column-rule-style:ridge;
+	-webkit-column-rule-style:ridge;
+	column-rule-style:ridge;
+}
+.test9{
+	-moz-column-rule-style:inset;
+	-webkit-column-rule-style:inset;
+	column-rule-style:inset;
+}
+.test10{
+	-moz-column-rule-style:outset;
+	-webkit-column-rule-style:outset;
+	column-rule-style:outset;
+}
+</style>
+</head>
+<body>
+<h1>column-rule-style:none</h1>
+<div class="test">This module describes multi-column layout in CSS. By using functionality described in this document, style sheets can declare that the content of an element is to be laid out in multiple columns.</div>
+<h1>column-rule-width:hidden</h1>
+<div class="test2">This module describes multi-column layout in CSS. By using functionality described in this document, style sheets can declare that the content of an element is to be laid out in multiple columns.</div>
+<h1>column-rule-width:dotted</h1>
+<div class="test3">This module describes multi-column layout in CSS. By using functionality described in this document, style sheets can declare that the content of an element is to be laid out in multiple columns.</div>
+<h1>column-rule-width:dashed</h1>
+<div class="test4">This module describes multi-column layout in CSS. By using functionality described in this document, style sheets can declare that the content of an element is to be laid out in multiple columns.</div>
+<h1>column-rule-style:solid</h1>
+<div class="test5">This module describes multi-column layout in CSS. By using functionality described in this document, style sheets can declare that the content of an element is to be laid out in multiple columns.</div>
+<h1>column-rule-width:double</h1>
+<div class="test6">This module describes multi-column layout in CSS. By using functionality described in this document, style sheets can declare that the content of an element is to be laid out in multiple columns.</div>
+<h1>column-rule-width:groove</h1>
+<div class="test7">This module describes multi-column layout in CSS. By using functionality described in this document, style sheets can declare that the content of an element is to be laid out in multiple columns.</div>
+<h1>column-rule-width:ridge</h1>
+<div class="test8">This module describes multi-column layout in CSS. By using functionality described in this document, style sheets can declare that the content of an element is to be laid out in multiple columns.</div>
+<h1>column-rule-width:inset</h1>
+<div class="test9">This module describes multi-column layout in CSS. By using functionality described in this document, style sheets can declare that the content of an element is to be laid out in multiple columns.</div>
+<h1>column-rule-width:outset</h1>
+<div class="test10">This module describes multi-column layout in CSS. By using functionality described in this document, style sheets can declare that the content of an element is to be laid out in multiple columns.</div>
+<!-- css199.com Baidu tongji analytics -->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ff93bd5d8aa4917a86cd8e59a65783744' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</body>
+</html>
+			</textarea>
+			<p><input type="button" value="运行" class="gbtn btn-sure" /></p>
+		</div>
+	</section>
+</section>
+<aside id="ft">
+	<div class="browser"><iframe id="bot-browser" frameborder="0" allowtransparency="true" src="../../global-browser.htm" tppabs="http://css.doyoe.com/global-browser.htm"></iframe></div>
+	
+</aside>
+<script src="../../js/doyoe.js" tppabs="http://css.doyoe.com/js/doyoe.js"></script>
+<script src="../../js/style.js" tppabs="http://css.doyoe.com/js/style.js"></script>
+</body>
+</html>

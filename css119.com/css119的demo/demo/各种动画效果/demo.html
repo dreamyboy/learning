@@ -1,0 +1,683 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Adam' javascript学习笔记一 ----- 运动原理</title>
+<meta name="Keywords" content="Adam' javascript学习笔记一 ----- 运动原理,Jquery插件,Jquery原创,Jquery资源,Jquery特效,js特效,div+css,JquerySchool," />
+<meta name="description" content="JquerySchool是一个专门分享jquery资源、jquery插件、jquery特效的一个网站,完全开放源代码,把实际开发中应用最多、最实用的Jquery资源抽取出来再加以精心编排,让广大网友能以最短的时间、花最少的精力去真正掌握jQuery开发的知识。" />
+<script src="Aui_Animate.js" language="javascript" type="text/javascript"></script>
+<script>
+window.onload = function(){
+	/**********************   运动学习课程 - 1  匀速运动    **********************/
+	
+	/*  一、基础运动框架
+	
+			1. 需要初始化一个定时器
+			var timer = null;
+			
+			2. 清除时间轴
+			clearInterval(timer);
+			
+			3. 设置补间动画（30针/秒）
+			timer = setInterval(function(){},30);
+			
+			4. 设置速度(越大越快，越小越慢)
+			var speed = 10;
+			
+			5. 判断结束位置
+			if( 当前值 < 目标值 ){}
+			
+			6. 如果到达目标值，则清除时间轴
+			clearInterval(timer);
+			
+			7. 未达到目标值，则 当前值 加 速度
+			目标当前值 += 速度
+	*/
+	
+	// Example - 1 - 小方块匀速运动
+	
+	var obj = document.getElementById("move"),
+	    stopObj = document.getElementById("stop"),
+		// 初始化时间轴 
+		timer = null,
+		startMove = function( nTarget ){
+			var div1 = document.getElementById("div1");
+			// 前清除时间轴
+			clearInterval(timer);   
+			timer = setInterval(function(){
+				var num = 13,
+				    speed = div1.offsetLeft<nTarget?num:-num;
+				// 判断结束位置
+				if( Math.abs(div1.offsetLeft - nTarget) < num ) {
+					// 到达目标 
+					clearInterval(timer);
+					div1.style.left = nTarget + "px";
+				} else {
+					// 到达目标之前
+					div1.style.left = div1.offsetLeft + speed + "px";
+				};
+			},30);
+		};
+	
+	// 点击事件
+	obj.onclick = function(){
+		startMove( 500 );	
+	};
+	//stopObj.onclick = stopMove;
+	
+	// Example - 2 - 图片淡入淡出
+	
+	var tmp = 100;
+	var timer2 = null,
+		oSet = document.getElementById("alphaSet"),
+		oReset = document.getElementById("alphaReset");
+		startMove2 = function( nTarget ){
+			var oimg = document.getElementById("img0");
+			clearInterval(timer2);
+			timer2 = setInterval(function(){
+				var nSpeed = tmp < nTarget?10:-10;
+				if(tmp == nTarget){
+					clearInterval(timer2);
+				} else {
+					tmp += nSpeed;
+					oimg.style.filter = "alpha(opacity:"+ tmp +")";
+					oimg.style.opacity = tmp/100;
+				};
+			},30);
+		};
+		
+	// 点击事件
+	oSet.onclick = function(){
+		startMove2(30);
+	};
+	oReset.onclick = function(){
+		startMove2(100);
+	};
+	
+	/**********************   运动学习课程 - 1  匀速运动  完毕    **********************/
+	
+	
+	/**********************   运动学习课程 - 2  缓冲运动    **********************/
+    
+	/*  二、缓冲运动
+		1. 逐渐变慢,最后停止
+		2. 距离越远,速度越大
+		   -- 速度由距离决定
+		   -- 速度 = （目标值 - 当前值）/ 缩放系数
+		3. Math.ceil()   // 向上取整
+		   Math.floor()  // 向下取整
+	*/
+	
+	// Example - 3 - 小方块缓冲左右运动
+	
+	var oStart1 = document.getElementById("start1"),
+		oReset1 = document.getElementById("reset1"),
+		timer2 = null,
+		// 动画函数
+		startMove3 = function( iTarget ){
+			iTarget = parseInt(iTarget);
+			var div2 = document.getElementById("div2"),
+				oSign = div2.offsetLeft < iTarget?">=":"<=";
+			clearInterval(timer2);
+			timer2 = setInterval(function(){
+				var Buffer = ( iTarget - div2.offsetLeft )/8,
+					iSpeed = Buffer>0?Math.ceil(Buffer):Math.floor(Buffer);
+				if( eval( div2.offsetLeft + oSign + iTarget ) ){
+					clearInterval(timer2);
+				} else {
+					div2.style.left = div2.offsetLeft + iSpeed + "px";
+				}
+			},30);
+		}
+		
+	// 点击事件
+	oStart1.onclick = function(){
+		startMove3(500);
+	};
+	oReset1.onclick = function(){
+		startMove3(10);
+	};
+	
+	// Example - 4 - 右边浮动层
+	
+
+	var timer3 = null,
+		div3 = document.getElementById("div3"),
+		getPos = function(div){
+			var scrolltop = document.documentElement.scrollTop||document.body.scrollTop,
+				divPos = Math.round( scrolltop + ( document.documentElement.clientHeight - div.offsetHeight )/2);
+			return divPos;
+		},
+		startMove4 = function( nTarget , div ){
+			clearInterval(timer3);
+			timer3 = setInterval(function(){
+				var Buffer = ( nTarget - div.offsetTop )/4,
+					iSpeed = Buffer>0?Math.ceil(Buffer):Math.floor(Buffer);
+				if( div.offsetTop == nTarget ){
+					clearInterval(timer3);
+				} else {
+					div.style.top = div.offsetTop + iSpeed + "px";
+				};
+			},30);
+		};
+	// 初始化位置 
+	startMove4( getPos(div3) ,div3 );
+	
+	// 绑定事件
+	window.onscroll = function(){
+		startMove4( getPos(div3) ,div3 );
+	};
+	
+	/**********************   运动学习课程 - 2  缓冲运动 完毕   **********************/
+	
+	/**********************   运动学习课程 - 3  多物体运动框架 开始   **********************/
+	
+	/*  一、运动框架改进
+	
+			1. 改进定时器,给多个事件元素绑定定时器,作为物体属性
+			oList[i].timer = null;
+			
+			2. 改进参数,给多个事件元素绑定参数,作为物体属性
+			oList2[d].alpha = 30;
+			
+			3. 多物体运动不要有公共参数
+			
+	*/
+	
+	// Example - 5 - 多个DIV改变宽度
+	
+	var oList = document.getElementById("list").getElementsByTagName("li"),
+		iLength = oList.length;
+		NewStartMove = function( curr, iTarget ){
+			clearInterval(curr.timer)
+			curr.timer = setInterval(function(){
+				var Buffer = ( iTarget - curr.offsetWidth )/8,
+					iSpeed = Buffer>0?Math.ceil(Buffer):Math.floor(Buffer);
+				if( iTarget == curr.offsetWidth ) {
+					clearInterval(curr.timer)
+				} else {
+					curr.style.width = curr.offsetWidth + iSpeed + "px";
+				}
+			},30);
+		};
+	for( i=0; i<iLength; i+=1 ){
+		
+		//oList[i].timer = null;  //  改进时间轴
+		
+		oList[i].onmouseover = function(){
+			NewStartMove( this, 300 );
+		};
+		oList[i].onmouseout = function(){
+			NewStartMove( this, 100 );
+		};
+	};
+
+	// Example - 6 - 多个DIV改变宽度
+	
+	
+	var oList2 = document.getElementById("list2").getElementsByTagName("img"),
+		iLength = oList2.length;
+		NewStartMove2 = function( curr, iTarget ){
+			clearInterval(curr.timer)
+			curr.timer = setInterval(function(){
+				var Buffer = ( iTarget - curr.alpha )/8,
+					iSpeed = Buffer>0?Math.ceil(Buffer):Math.floor(Buffer);
+				if( iTarget == curr.alpha ) {
+					clearInterval(curr.timer)
+					//console.log("-----------------")
+				} else {
+					//console.log( "当前：" + curr.alpha ,"速度：" + iSpeed,"目标："+iTarget)
+					curr.alpha += iSpeed;
+					curr.style.filter = "alpha(opacity:"+ curr.alpha +")";
+					curr.style.opacity = curr.alpha/100;
+				}
+			},30);
+		};
+	for( d=0; d<iLength; d+=1 ){
+		
+		oList2[d].alpha = 100;
+		
+		//oList2[d].timer = null;  //  改进时间轴
+		
+		oList2[d].onmouseover = function(){
+			NewStartMove2( this, 20 );
+		};
+		oList2[d].onmouseout = function(){
+			NewStartMove2( this, 100 );
+		};
+	};
+	
+	// Example - 7 - 任意值运动框架 - 混合多维动画
+	
+	/* 1. 新增方法 getStyle( obj, attr )
+	      ---  return obj.currentStyle[attr];  // IE
+		  ---  return getComputedStyle( obj, null )[attr];  // 非IE
+	
+	*/
+	
+	var oList3 = document.getElementById("list3").getElementsByTagName("li"),
+		iLength3 = oList3.length,
+		getStyle = function( obj, attr ){
+			try {
+				var str = obj.currentStyle[attr];
+			} catch(e){
+				var str = getComputedStyle( obj, null )[attr];
+			};
+			return str?str:attr=="opacity"?1:str;
+		},
+		NewStartMove5 = function( obj, attr, iTarget, fn ){
+			iTarget = parseInt(iTarget);
+			clearInterval(obj.timer);
+			obj.timer = setInterval(function(){
+				var val =  getStyle( obj, attr ),
+					iCurr = ( attr == "opacity" ) ? parseInt(parseFloat(val)*100) : parseInt( val=="auto"?0:val ),
+					Buffer = ( iTarget - iCurr )/8,
+					iSpeed = Buffer>0?Math.ceil(Buffer):Math.floor(Buffer);
+				if( iTarget == iCurr ){
+					clearInterval(obj.timer);
+					if(fn) fn();
+				} else if( attr == "opacity" ){ 
+						var repair = iTarget - iCurr>iSpeed?1:0;
+						//console.log(iCurr + iSpeed + repair)
+						obj.style.filter = "alpha(opacity:"+ ( iCurr + iSpeed + repair ) +")";
+						obj.style.opacity = ( iCurr + iSpeed + repair )/100;
+				} else {
+					obj.style[ attr ] = iCurr + iSpeed + "px";
+				};
+			},30);
+			
+		};
+		
+		// 1. 改变宽度
+		oList3[0].onmouseover = function(){
+			NewStartMove5( this, "width", 300 );
+		};
+		
+		oList3[0].onmouseout = function(){
+			NewStartMove5( this, "width", 150 );
+		};
+		
+		// 2. 改变透明度
+		
+		NewStartMove5( oList3[1], "opacity", 40, function(){
+			NewStartMove5( oList3[1], "width", 200, function(){
+				
+				oList3[1].onmouseover = function(){
+					NewStartMove5( this, "opacity", 100 );
+				};
+				
+				oList3[1].onmouseout = function(){
+					NewStartMove5( this, "opacity", 40 );
+					
+				};
+			});
+		});
+		
+		// 3. 改变字体大小
+		oList3[2].onmouseover = function(){
+			NewStartMove5( this, "fontSize", 20 );
+		};
+		oList3[2].onmouseout = function(){
+			NewStartMove5( this, "fontSize", 12 );
+		};
+		
+		// 4. 改变边框
+		oList3[3].onmouseover = function(){
+			NewStartMove5( this, "borderWidth", 20 );
+		};
+		oList3[3].onmouseout = function(){
+			NewStartMove5( this, "borderWidth", 0 );
+		};
+		
+		// 5. 改变padding
+		oList3[4].onmouseover = function(){
+			NewStartMove5( this, "padding", 50 );
+		};
+		oList3[4].onmouseout = function(){
+			NewStartMove5( this, "padding", 0 );
+		};
+		
+		// 6. 改变偏移
+		oList3[5].onmouseover = function(){
+			NewStartMove5( this, "left", 200 );
+		};
+		oList3[5].onmouseout = function(){
+			NewStartMove5( this, "left", 10 );
+		};
+		
+		// 7. 改变高度
+		oList3[6].onmouseover = function(){
+			NewStartMove5( this, "height", 200 );
+		};
+		oList3[6].onmouseout = function(){
+			NewStartMove5( this, "height", 50 );
+		};
+		
+	// Example - 8 - 完美运动框架  ( 运动框架 Aui_Animate.js )
+	
+	var oList5 = document.getElementById("wrap"),
+		iLength5 = oList5.length;
+		
+		// 绑定事件 测试框架
+		btn1.onclick = function(){
+			var center = ( document.documentElement.clientWidth - 1000 )/2;
+			aUi_Animate( oList5, {  height : 200 ,width : 1000, opacity : 100, left: center } , function(){
+				aUi_Animate( oList5, { fontSize:30 , lineHeight: 200 });
+				oList5.innerHTML = "同时改变（高宽及居中），然后改变内部字体大小,快完成了！"
+			})
+		};
+		btn2.onclick = function(){
+			alert("宽："+oList5.clientWidth)	
+			alert("高："+oList5.clientHeight)
+			alert("透明度："+getStyle(oList5,"opacity"))
+			alert("字体大小："+getStyle(oList5,"fontSize"))
+		};
+		
+		
+		
+
+	/**********************   运动学习课程 - 3  多物体运动框架 结束   **********************/
+	
+	/**********************   运动学习课程 - 4  弹性运动 ， 碰撞运动 结束   **********************/
+	
+	/*
+		一、 加减速运动  减速运动
+		
+			if(demo9.offsetLeft < 200){
+				iSpeed+=1;
+			} else if(demo9.offsetLeft >= 0) {
+				iSpeed-=1;
+			};
+			
+		二、 弹性运动  不适用  height width  不能为负数
+		    
+			速度 += ( 目标值 - demo9.offsetLeft )/5;
+			
+		三、 摩擦力：
+		
+		     速度 *= 0.7;
+		
+		四、 碰撞运动
+	*/
+	
+	// Example - 9 - 弹性运动
+	
+	var ex10_info = document.getElementById("ex10-info"),
+		ex10_info_list = ex10_info.getElementsByTagName("li");
+	
+	var	iSpeed = 0,
+		left = 0,
+		target = 600;
+	btn3.onclick = function(){
+		var obj = this;
+		clearInterval(obj.timer);
+		obj.timer = setInterval(function(){
+			iSpeed += ( target - demo9.offsetLeft )/5;
+			iSpeed *= 0.7;
+			left += iSpeed;
+			if( Math.abs(iSpeed)<1 && Math.abs( left - target ) < 1 ){
+				demo9.style.left = target + "px";
+				clearInterval(obj.timer);
+				if( left < 0) left = 0;
+			} else {
+				left += iSpeed;
+				demo9.style.left = left + "px";
+			};
+		},30);
+	};
+	btn4.onclick = function(){
+		alert(demo9.offsetLeft)
+	}
+	
+	// Example - 10 - 碰撞运动
+	
+	var iSpeedX = 0;
+	var iSpeedY = 0;
+	var lastX = 0;
+	var lastY = 0;
+	var new_timer = null;
+	
+	demo10.onmousedown = function(e){
+		var e = e || window.event;
+		var disX = e.clientX - demo10.offsetLeft;
+		var disY = e.clientY - demo10.offsetTop;
+		
+		document.onmousemove = function(){
+			var e = e || window.event;
+			var l = e.clientX - disX;
+			var t = e.clientY - disY;
+			if( l <= 0 ) {
+				l = 0;	
+			} else if( l >= wrap10.clientWidth - demo10.offsetWidth ) {
+				l = wrap10.clientWidth - demo10.offsetWidth;
+			};
+			if( t <= 0 ) {
+				t = 0;	
+			} else if( t >= wrap10.clientHeight - demo10.offsetHeight ) {
+				t = wrap10.clientHeight - demo10.offsetHeight;
+			};
+			
+			demo10.style.left = l + "px";
+			demo10.style.top = t + "px";
+			
+			iSpeedX = l - lastX;
+			lastX = l;
+			iSpeedY = t - lastY;
+			lastY = t;
+			
+			
+			//console.log("x:"+ lastX, "y:" + lastY)
+			
+			// 测试拖拽轨迹
+			/*var obox = document.createElement("div");
+			obox.style.cssText = "position:absolute;width:3px;height:3px;background:black;left:"+ l +"px;top:"+t+"px";
+			wrap10.appendChild(obox);*/
+		};
+		
+		document.onmouseup = function(){
+			this.onmousemove = null;
+			this.onmouseup = null;
+			pz_animate();
+			
+		};
+		
+		clearInterval(new_timer);
+		
+	};
+	function pz_animate(){
+		clearInterval(new_timer);
+		new_timer = setInterval(function(){
+			
+			iSpeedY += 3;
+			//iSpeedX += 2;
+			
+			var _l = demo10.offsetLeft + iSpeedX;
+			var _t = demo10.offsetTop + iSpeedY;
+		
+			if( _t >=  wrap10.clientHeight - demo10.offsetHeight ) {
+				iSpeedY *= -0.8;
+				iSpeedX *= 0.8;
+				_t = wrap10.clientHeight - demo10.offsetHeight;
+			} else if( _t <= 0) {
+				iSpeedY *= -1;
+				iSpeedX *= 0.8;
+				_t = 0;
+			};
+			if( _l >=  wrap10.clientWidth - demo10.offsetWidth ) {
+				iSpeedX *= -0.8;
+				_l = wrap10.clientWidth - demo10.offsetWidth;
+			} else if( _l <= 0 ) {
+				iSpeedX *= -0.8;
+				_l = 0;
+			};
+			
+			iSpeedX = Math.abs(iSpeedX) < 1 ? 0 : iSpeedX;
+			iSpeedY = Math.abs(iSpeedY) < 1 ? 0 : iSpeedY;
+			if( iSpeedX == 0 && iSpeedY == 0 && _t == wrap10.clientHeight - demo10.offsetHeight ) { 
+				clearInterval(new_timer);
+			} else {
+				ex10_info_list[0].innerHTML = "left :" + _l;
+				ex10_info_list[1].innerHTML = "top :" + _t;
+				ex10_info_list[2].innerHTML = "speed_x :" + iSpeedX;
+				ex10_info_list[3].innerHTML = "speed_y :" + iSpeedY;
+				
+				demo10.style.left = _l + "px";
+				demo10.style.top = _t + "px";
+			};
+		},30);
+	};
+
+};
+</script>
+</head>
+
+<body style="margin:10px; padding:0;">
+
+<div id="id111"></div>
+
+<h1 style=" margin:0; margin-bottom:40px; padding:10px 20px; color:#fff; background:black; position:fixed; z-index:100; left:0; right:0; top:0; "><span style="float:left; font-weight:bold; color:#fff;">Adam' javascript学习笔记一 ----- 运动原理</span><span style="float:right; color:#fff;">2012/11/8</span></h1>
+
+<div style="padding:10px; position:relative; top:60px;">
+    
+    <!-- 运动学习课程 - 1 - 开始 -->
+    
+    <h2>Example - 1 - 小方块匀速运动 [ 停止条件 ： Math.abs(div1.offsetLeft - nTarget) < num ] </h2>
+    <div style="height:150px; position:relative;">
+        <input type="button" value="运动" id="move" /><br /><br />
+        <div id="div1" style="width:100px; height:100px; position:relative; left:10px; top:0; background:red;"></div>
+        <span style="background:black; width:1px; height:150px; position:absolute; left:500px; top:0;"></span>
+    </div>
+    
+    <h2>Example - 2 - 图片淡入淡出[ 透明度兼容IE,FF： opacity:0.3; filter:alpha(opacity:30) ]</h2>
+    <input type="button" value="透明度 30%" id="alphaSet" />&nbsp;
+    <input type="button" value="透明度 恢复" id="alphaReset" /><br /><br />
+    <img src="img1.jpg" width="300" id="img0" />
+    
+    <!-- 运动学习课程 - 1 - 结束 -->
+    
+    <!-- 运动学习课程 - 2 - 开始 -->
+    
+    <h2>Example - 3 - 小方块缓冲左右运动 [ 速度取整：iSpeed = iSpeed>0?Math.ceil(iSpeed):Math.floor(iSpeed) ]</h2>
+    <div style="height:150px; position:relative;">
+        <input type="button" value="开始" id="start1" />&nbsp;
+        <input type="button" value="恢复" id="reset1" /><br /><br />
+        <div id="div2" style="width:100px; height:100px; position:relative; left:10px; top:0; background:red;"></div>
+        <span style="background:black; width:1px; height:150px; position:absolute; left:500px; top:0;"></span>
+    </div>
+    <h2 style="p">Example - 4 - 右边浮动层 [ parseInt(iTarget) ]</h2>
+    <p>→</p>
+    <p>→</p>
+    <p>→</p>
+    <p>→</p>
+    <p>　</p>
+    <p>　</p>
+</div>
+
+<div id="div3" style=" position:absolute; z-index:999; right:0; top:0; height:125px; line-height:30px; font-weight:bold; width:40px; text-align:center; padding:10px 5px; background:black; color:#fff; font-size:22px; ">
+缓冲运动
+</div>
+
+<div style="padding:10px; position:relative;">
+
+	<!-- 运动学习课程 - 2 - 结束 -->
+    
+    <dl style="border:2px solid black; margin:0; padding:10px; margin-bottom:50px; ">
+        <dt style="margin-bottom:15px;"><b>运动入门总结：</b></dt>
+        <dd style=" line-height:25px;">1. 深刻运动框架基本原理。</dd>
+        <dd style=" line-height:25px;">2. 重要参数：</dd>
+        <dd style=" line-height:25px;"> --- 目标位置 ( target )</dd>
+        <dd style=" line-height:25px;"> --- 当前位置 ( curr )</dd>
+        <dd style=" line-height:25px;">3. 常用的缓冲运动。</dd>
+    </dl>
+    
+    <!-- 运动学习课程 - 3 - 开始 -->
+    
+    <h2>Example - 5 - 多个DIV改变宽度 [ 给每个元素绑定时间轴 oList[i].timer = null ]</h2>
+    <ul id="list" style="list-style:none; margin:0; padding:0;">
+    	<li style="width:100px; background:black; color:#fff; height:40px; line-height:40px; text-align:center; cursor:pointer; margin-bottom:20px;">标题一</li>
+        <li style="width:100px; background:black; color:#fff; height:40px; line-height:40px; text-align:center; cursor:pointer; margin-bottom:20px;">标题二</li>
+        <li style="width:100px; background:black; color:#fff; height:40px; line-height:40px; text-align:center; cursor:pointer; margin-bottom:20px;">标题三</li>
+        <li style="width:100px; background:black; color:#fff; height:40px; line-height:40px; text-align:center; cursor:pointer; margin-bottom:20px;">标题四</li>
+        <li style="width:100px; background:black; color:#fff; height:40px; line-height:40px; text-align:center; cursor:pointer; margin-bottom:20px;">标题五</li>
+    </ul>
+    
+    <h2>Example - 6 - 多个IMG改变透明度 [ 给每个元素绑定属性 oList[i].alpha = null ]</h2>
+    <div id="list2" style="list-style:none; margin:0; padding:0;">
+    	<div style="margin-right:10px; cursor:pointer; margin-bottom:10px; border:1px solid #ccc; width:220px; height:120px; float:left;">
+            <img src="img1.jpg" height="120" width="220"/>
+        </div>
+        <div style="margin-right:10px; cursor:pointer; margin-bottom:10px; border:1px solid #ccc; width:220px; height:120px; float:left;">
+            <img src="img1.jpg" height="120" width="220"/>
+        </div>
+        <div style="margin-right:10px; cursor:pointer; margin-bottom:10px; border:1px solid #ccc; width:220px; height:120px; float:left;">
+            <img src="img1.jpg" height="120" width="220"/>
+        </div>
+        <div style="margin-right:10px; cursor:pointer; margin-bottom:10px; border:1px solid #ccc; width:220px; height:120px; float:left;">
+            <img src="img1.jpg" height="120" width="220"/>
+        </div>
+        <div style="margin-right:10px; cursor:pointer; margin-bottom:10px; border:1px solid #ccc; width:220px; height:120px; float:left;">
+            <img src="img1.jpg" height="120" width="220"/>
+        </div>
+        <div style="margin-right:10px; cursor:pointer; margin-bottom:10px; border:1px solid #ccc; width:220px; height:120px; float:left;">
+            <img src="img1.jpg" height="120" width="220"/>
+        </div>
+        <div style="margin-right:10px; cursor:pointer; margin-bottom:10px; border:1px solid #ccc; width:220px; height:120px; float:left;">
+            <img src="img1.jpg" height="120" width="220"/>
+        </div>
+        <div style="margin-right:10px; cursor:pointer; margin-bottom:10px; border:1px solid #ccc; width:220px; height:120px; float:left;">
+            <img src="img1.jpg" height="120" width="220"/>
+        </div>
+        <div style="margin-right:10px; cursor:pointer; margin-bottom:10px; border:1px solid #ccc; width:220px; height:120px; float:left;">
+            <img src="img1.jpg" height="120" width="220"/>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+    
+    <h2>Example - 7 - 任意值运动框架( 混合多维动画 )</h2>
+    <ul id="list3" style="list-style:none; margin:0; padding:0;">
+    	<li style="width:150px; background:black; color:#fff; height:40px; line-height:40px; text-align:center; cursor:pointer; margin-bottom:20px;">宽度改变</li>
+        <li style="width:150px; background:black; color:#fff; height:40px; line-height:40px; text-align:center; cursor:pointer; margin-bottom:20px;">透明度改变</li>
+        <li style="width:150px; background:black; color:#fff; height:40px; line-height:40px; text-align:center; cursor:pointer; margin-bottom:20px; font-size:10px; font-weight:bold;">变字体大小</li>
+        <li style="width:150px; background:black; color:#fff; height:40px; line-height:40px; text-align:center; cursor:pointer; margin-bottom:20px; border:0px solid red;">变边框</li>
+        <li style="width:150px; background:black; color:#fff; height:40px; line-height:40px; text-align:center; cursor:pointer; margin-bottom:20px;">改变padding</li>
+        <li style="width:150px; background:black; color:#fff; height:40px; line-height:40px; text-align:center; cursor:pointer; margin-bottom:20px; position:relative;">改变left</li>
+        <li style="width:150px; background:black; color:#fff; height:40px; line-height:40px; text-align:center; cursor:pointer; margin-bottom:20px;">改变高度</li>
+    </ul>
+    
+    <h2>Example - 8 - 完美运动框架</h2>
+    <input type="button" value="动画按钮" id="btn1" />&nbsp;
+    <input type="button" value="获取当前信息" id="btn2" /><br /><br />
+    <div id="wrap" style="background:black; color:#fff; height:50px; text-align:center; line-height:50px; width:400px; font-size:14px; font-weight:bold; filter:alpha(opacity:30); opacity:0.3; position:relative;">点击“动画按钮”！有惊喜！</div>
+    
+    <!-- 运动学习课程 - 3 - 结束 -->
+    
+    <!-- 运动学习课程 - 4 - 开始 -->
+    
+    <h2>Example - 9 - 弹性运动</h2>
+    <input type="button" value="开始运动" id="btn3" />&nbsp;
+    <input type="button" value="查看位置" id="btn4" /><br /><br />
+    <div style="height:120px; position:relative; top:20px;">
+    	<div id="demo9" style="height:100px; width:100px; position:absolute; left:0; top:0; background:red; z-index:-1;"></div>
+        <span style="position:absolute; left:600px; top:0; height:120px; background:black; width:1px; z-index:-2;"></span>
+    </div>
+    
+    <h2>Example - 10 - 碰撞运动</h2>
+    <div style="height:500px; position:relative; z-index:0; top:20px; border:1px solid black;" id="wrap10">
+    	<ul id="ex10-info">
+        	<li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    	<div id="demo10" style=" cursor:pointer; height:100px; width:100px; position:absolute; left:47%; bottom:0; background:red; z-index:0;"></div>
+    </div>
+
+	<!-- 运动学习课程 - 4 - 结束 -->
+    
+</div>
+
+
+
+<br />
+</body>
+</html>

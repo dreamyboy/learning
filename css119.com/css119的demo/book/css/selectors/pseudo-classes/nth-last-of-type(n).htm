@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>E:nth-last-of-type(n)</title>
+<meta name="Description" content="" />
+<meta name="Keywords" content="" />
+<meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com" />
+<meta name="copyright" content="www.doyoe.com" />
+<meta name="robots" content="all" />
+<!--[if lte IE 8]>
+<script src="http://www.css119.com/iehtml5.js"></script>
+<![endif]-->
+<link rel="stylesheet" href="../../skin/article.css" tppabs="http://css.doyoe.com/skin/article.css" />
+</head>
+<body>
+<nav id="guide">
+	<div class="from">
+		<a href="../../index.htm" tppabs="http://css.doyoe.com/" target="_blank">CSS参考手册</a>
+		<span>&#187;</span>
+		<a href="../index.htm" tppabs="http://css.doyoe.com/selectors/index.htm">选择符列表</a>
+		<span>&#187;</span>
+		<a href="index.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/index.htm">伪类选择符</a>
+		<span>&#187;</span>
+	</div>
+	<div class="to">
+		<span class="label">相关内容：</span>
+		<div id="topages" class="gcombobox">
+			<a href="nth-last-of-type(n).htm-.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/nth-last-of-type(n).htm?" class="target">
+				<strong>其它伪类选择符参考</strong>
+				<span>选择其它项<!--[if lte IE 7]><ins>IE7 and earlier, Get to die</ins><![endif]--></span>
+			</a>
+			<div class="list ghide">
+				<ul>
+					<li><a href="link.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/link.htm">E:link</a></li>
+					<li><a href="visited.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/visited.htm">E:visited</a></li>
+					<li><a href="hover.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/hover.htm">E:hover</a></li>
+					<li><a href="active.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/active.htm">E:active</a></li>
+					<li><a href="focus.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/focus.htm">E:focus</a></li>
+					<li><a href="lang().htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/lang().htm">E:lang()</a></li>
+					<li><a href="not().htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/not().htm">E:not()</a></li>
+					<li><a href="root.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/root.htm">E:root</a></li>
+					<li><a href="first-child.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/first-child.htm">E:first-child</a></li>
+					<li><a href="last-child.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/last-child.htm">E:last-child</a></li>
+					<li><a href="only-child.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/only-child.htm">E:only-child</a></li>
+					<li><a href="nth-child(n).htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/nth-child(n).htm">E:nth-child(n)</a></li>
+					<li><a href="nth-last-child(n).htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/nth-last-child(n).htm">E:nth-last-child(n)</a></li>
+					<li><a href="first-of-type.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/first-of-type.htm">E:first-of-type</a></li>
+					<li><a href="last-of-type.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/last-of-type.htm">E:last-of-type</a></li>
+					<li><a href="only-of-type.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/only-of-type.htm">E:only-of-type</a></li>
+					<li><a href="nth-of-type(n).htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/nth-of-type(n).htm">E:nth-of-type(n)</a></li>
+					<li><a href="nth-last-of-type(n).htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/nth-last-of-type(n).htm">E:nth-last-of-type(n)</a></li>
+					<li><a href="empty.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/empty.htm">E:empty</a></li>
+					<li><a href="checked.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/checked.htm">E:checked</a></li>
+					<li><a href="enabled.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/enabled.htm">E:enabled</a></li>
+					<li><a href="disabled.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/disabled.htm">E:disabled</a></li>
+					<li><a href="target.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/target.htm">E:target</a></li>
+					<li><a href="@page-first.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/@page-first.htm">@page:first</a></li>
+					<li><a href="@page-left.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/@page-left.htm">@page:left</a></li>
+					<li><a href="@page-right.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/@page-right.htm">@page:right</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</nav>
+<header id="hd">
+	<h1 class="tit">结构性伪类选择符 E:nth-last-of-type(n)</h1>
+	<ul class="info">
+		<li><strong>版本：CSS3</strong></li>
+	</ul>
+	<div id="browser" class="browser"><iframe id="top-browser" frameborder="0" allowtransparency="true" src="../../global-browser.htm" tppabs="http://css.doyoe.com/global-browser.htm"></iframe></div>
+</header>
+<section id="bd">
+	<section id="syntax" class="gmodule gattr">
+		<h2 class="tit">语法：</h2>
+		<div class="cont">
+			<p><strong>E:nth-last-of-type(n)</strong>{ sRules }</p>
+		</div>
+	</section>
+	<section id="intro" class="gmodule gattr">
+		<h2 class="tit">说明：</h2>
+		<div class="cont">
+			<strong>匹配同类型中的倒数第n个同级兄弟元素E。</strong>
+		</div>
+	</section>
+	<section class="gmodule gattr" id="compatible">
+		<h2 class="tit">兼容性：</h2>
+		<div class="cont">
+			<ul class="support-type">
+				<li><span class="support">浅绿</span> = 支持</li>
+				<li><span class="unsupport">红色</span> = 不支持</li>
+				<li><span class="partsupport">墨绿</span> = 部分支持</li>
+				<li><span class="experimentsupport">橙色</span> = 实验性质</li>
+			</ul>
+			<table class="gdataform">
+				<thead>
+					<tr>
+						<th><a href="#browser" title="查看本文档测试时所用浏览器版本">支持版本</a>\类型</th>
+						<th><span class="browser-ie">IE</span></th>
+						<th><span class="browser-firefox">Firefox</span></th>
+						<th><span class="browser-safari">Safari</span></th>
+						<th><span class="browser-chrome">Chrome</span></th>
+						<th><span class="browser-opera">Opera</span></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>较早版本</th>
+						<td class="unsupport">6.0-8.0</td>
+						<td rowspan="2" class="support">4.0</td>
+						<td rowspan="2" class="support">5.1</td>
+						<td rowspan="2" class="support">13.0</td>
+						<td rowspan="2" class="support">11.50</td>
+					</tr>
+					<tr>
+						<th>较新版本</th>
+						<td class="support">9.0</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+	<section id="example" class="gmodule gattr">
+		<h2 class="tit">示例：</h2>
+		<div class="cont">
+			<textarea cols="90" rows="10">
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>结构性伪类选择符 E:nth-last-of-type(n)_CSS参考手册_web前端开发参考手册系列</title>
+<meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com" />
+<meta name="copyright" content="www.doyoe.com" />
+<style>
+p:nth-last-of-type(1){color:#f00;}
+</style>
+</head>
+<body>
+<div class="test">
+	<p>我是一个p元素</p>
+	<div>我是一个div元素</div>
+	<p>我是一个p元素</p>
+	<p>我是一个p元素</p>
+</div>
+<!-- css199.com Baidu tongji analytics -->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ff93bd5d8aa4917a86cd8e59a65783744' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</body>
+</html>
+			</textarea>
+			<p><input type="button" value="运行" class="gbtn btn-sure" /></p>
+		</div>
+	</section>
+</section>
+<aside id="ft">
+	<div class="browser"><iframe id="bot-browser" frameborder="0" allowtransparency="true" src="../../global-browser.htm" tppabs="http://css.doyoe.com/global-browser.htm"></iframe></div>
+	
+</aside>
+<script src="../../js/doyoe.js" tppabs="http://css.doyoe.com/js/doyoe.js"></script>
+<script src="../../js/style.js" tppabs="http://css.doyoe.com/js/style.js"></script>
+</body>
+</html>

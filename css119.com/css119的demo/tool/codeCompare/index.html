@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>在线代码对比、代码比较、代码合并</title>
+<meta name="keywords" content="代码对比,代码比较,代码合并">
+<meta name="description" content="代码对比,代码比较,代码合并-WEB前端开发-关注常见的WEB前端开发问题、最新的WEB前端开发技术(webApp开发、移动网站开发)、最好的WEB前端开发工具和最全的WEB前端开发w3cschool手册">
+<link href="/wp-content/uploads/2012/11/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+<link rel="stylesheet" href="css/basic.css" type="text/css">
+<link rel="stylesheet" href="/book/css/skin/layout.css" type="text/css">
+<!--[if lte IE 8]>
+<script src="http://www.css119.com/iehtml5.js"></script>
+<![endif]-->
+</head>
+<body>
+<header id="hd">
+  <section id="mashead">
+    <hgroup class="sitename">
+      <h1>在线代码对比、代码比较、代码合并</h1>
+      <h2>web前端开发参考工具系列</h2>
+    </hgroup>
+    <nav class="related">
+      <ul class="gclearfix">
+        <li><a target="_blank" href="http://www.css119.com/book/css/">css手册(包含css3)</a></li>
+        <li><a target="_blank" href="http://www.css119.com/book/jQuery/">jQuery手册</a></li>
+        <li><a target="_blank" href="http://www.css119.com/book/RegExp">正则表达式手册</a></li>
+        <li><a target="_blank" href="http://www.css119.com/tool/codeCompare">代码比较器</a></li>
+        <li><a target="_blank" href="http://www.css119.com/tool/jsonFormat">JSON校验格式化</a></li>
+        <li><a target="_blank" href="http://www.css119.com/tool/jquery-code-viewer">jQuery源代码查看器</a></li>
+        <li><a target="_blank" href="http://www.css119.com/tool/cssJs">CSS/JS压缩美化加密</a></li>
+      </ul>
+    </nav>
+    <a class="return-index" title="返回WEB前端开发-关注常见的前端开发问题、最新的前端开发技术和最好的前端开发工具" target="_blank" href="http://www.css119.com">←返回前端开发首页</a> </section>
+</header>
+<div id="mainContent" class="wrapper">
+  <div class="toolName">代码对比、代码比较、代码合并</div>
+  <div>
+    <form class="form-inline well" style="margin:10px 0 0 0;">
+      <div style="float:left;">
+        <label>选择第一个文件：</label>
+        <input id="file" onchange="leftFileSelect(this.files)" single="" type="file">
+        <label>编码：</label>
+        <select id="l_encode" value="UTF-8" class="span1" onchange="setLeftCode();">
+          <option selected="selected" value="UTF-8">UTF-8</option>
+          <option value="GBK">GBK</option>
+          <option value="GB2312">GB2312</option>
+          <option value="GB18030">GB18030</option>
+          <option value="ISO-8859-2">ISO-8859-2</option>
+        </select>
+      </div>
+      <div style="float:right;">
+        <label>选择第二个文件：</label>
+        <input id="file" onchange="rightFileSelect(this.files)" single="" type="file">
+        <label>编码：</label>
+        <select id="r_encode" value="UTF-8" class="span1" onchange="setRightCode();">
+          <option selected="selected" value="UTF-8">UTF-8</option>
+          <option value="GBK">GBK</option>
+          <option value="GB2312">GB2312</option>
+          <option value="GB18030">GB18030</option>
+          <option value="ISO-8859-2">ISO-8859-2</option>
+        </select>
+      </div>
+    </form>
+    <div style="color:#C00;">由于IE全系列对HTML5的Canvas以及File API支持不好，推荐使用Chrome、Firefox浏览器，另外请选择正确的文件编码方式以免出现乱码或者显示错误。</div>
+  </div>
+  <div style="display: block; width: 1000px; height: 853px; margin-bottom:80px" id="diff" class="toolUsing"></div>
+</div>
+<script type="text/javascript" src="js/jquery-1.js"></script>
+<script type="text/javascript" src="js/codemirror.js"></script>
+<script type="text/javascript" src="js/mergely.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>

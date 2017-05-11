@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<a href="javascript:;" id="openApp">location方式，完整URI</a>
+	<br><br><br><br>
+	<a href="javascript:;" id="openApp2">iframe方式，完整URI</a>
+	<br><br><br><br>
+	<a href="javascript:;" id="openApp3">location方式，仅Scheme：bdvideo://</a>
+	<br><br><br><br>
+	<a href="javascript:;" id="openApp4">iframe方式，仅Scheme：bdvideo://</a>
+	<script type="text/javascript">
+		document.getElementById('openApp').onclick=function(){
+			window.location.href="tenvideo2://"
+		}
+
+		document.getElementById('openApp2').onclick=function(){
+			var iframe = document.createElement('iframe');
+            iframe.src = "bdvideo://?intent=%23Intent%3Baction%3Dcom.baidu.search.video%3BlaunchFlags%3D0x8000%3Bcomponent%3Dcom.baidu.video%2F.ui.ThirdInvokeActivtiy%3BS.title%3D%25E4%25BA%25BA%25E6%25B0%2591%25E7%259A%2584%25E5%2590%258D%25E4%25B9%2589%25E5%259B%25BD%25E8%25AF%25AD%3BS.vid%3D25372%3BS.vtype%3Dtvplay%3BS.site_url%3Dsohu.com%3BS.site%3D%E6%90%9C%E7%8B%90%3BS.refer%3Dhttp%253A%252F%252Ftv.sohu.com%252F20170405%252Fn486683758.shtml%253Ftxid%253D10ad708cb3c0cfcd5ea81608c0a558de%3BS.episode%3D14%3BS.openapp_log%3Dstp%253Djisu%2526bl%253Dplaybtn%2526cu%253D%3BS.openapp_from%3Dvideowebapp%3Bend";
+            iframe.style.display = 'none';
+            document.body.appendChild(iframe);
+		}
+
+		document.getElementById('openApp3').onclick=function(){
+			window.location.href="bdvideo://"
+		}
+
+		document.getElementById('openApp4').onclick=function(){
+			var iframe = document.createElement('iframe');
+            iframe.src = "bdvideo://";
+            iframe.style.display = 'none';
+            document.body.appendChild(iframe);
+		}
+	</script>
+</body>
+</html>

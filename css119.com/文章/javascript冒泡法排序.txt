@@ -1,0 +1,29 @@
+今天有个童鞋问我javascript怎么冒泡排序，其实冒泡的原理很简单，就是依次比较相邻的元素的大小，而后调换位置，一直循环这样比下去，就能得到结果。
+关于排序还有别的方法，参考我以前写的文章关于数组的排序sort方法的原理
+冒泡排序的代码如下：
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+</head>
+<body>
+<script type="text/javascript">
+function bubble(arr){
+    var temp,len=arr.length;
+    for(var i=0;i<len-1;i++){
+        for(j=i+1;j<len;j++){
+            if(arr[i]>=arr[j]){  //如果要按大到小排序，就把此改成arr[i]<=arr[j]即可
+                temp=arr[i];
+                arr[i]=arr[j];
+                arr[j]=temp;    
+            }
+        }    
+    }
+    return arr;
+}
+var arr=[4,7,2,5,76,23,72,6,9,12,5];
+console.log(bubble(arr))
+</script>
+</body>
+</html>

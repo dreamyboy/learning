@@ -1,0 +1,41 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>循环轮播图插件-WEB前端开发(www.css119.com)-关注常见的前端开发问题、最新的前端开发技术(前端移动开发)和最好的前端开发工具</title>
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<link rel="stylesheet" type="text/css" href="css/imgSlide.css">
+<style type="text/css">
+/*外框*/
+.imageSlide{width:800px;height:320px}
+.imageSlide li{height:293px}
+/*上一张下一张按钮样式*/
+.imageSlide .prev,.imageSlide .next,.imageSlide .prev-disable,.imageSlide .next-disable{margin-top:-48px}
+</style>
+</head>
+
+<body>
+<div class="imageSlide" id="imageSlide">
+  <ul>
+    <li><a href="#"><img src="http://www.css119.com/demo/img/imgSlide/i01.jpg"><p>我是图片说明1</p><b></b></a></li>
+    <li><a href="#"><img src="http://www.css119.com/demo/img/imgSlide/i02.jpg"><p>我是图片说明2</p><b></b></a></li>
+    <li><a href="#"><img src="http://www.css119.com/demo/img/imgSlide/i03.jpg"><p>我是图片说明3</p><b></b></a></li>
+    <li><a href="#"><img src="http://www.css119.com/demo/img/imgSlide/i04.jpg"><p>我是图片说明4</p><b></b></a></li>
+    <li><a href="#"><img src="http://www.css119.com/demo/img/imgSlide/i05.jpg"><p>我是图片说明5</p><b></b></a></li>
+    <li><a href="#"><img src="http://www.css119.com/demo/img/imgSlide/i06.jpg"><p>我是图片说明6</p><b></b></a></li>
+    <li><a href="#"><img src="http://www.css119.com/demo/img/imgSlide/i07.jpg"><p>我是图片说明7</p><b></b></a></li>
+    <li><a href="#"><img src="http://www.css119.com/demo/img/imgSlide/i08.jpg"><p>我是图片说明8</p><b></b></a></li>
+  </ul>
+  <div class="num"></div>
+  <a class="prev" href="javascript:;" title="上一张" hidefocus="true"></a>
+  <a class="next" href="javascript:;" title="上一张" hidefocus="true"></a>
+</div>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="js/jquery.imageSlide.js" charset="utf-8"></script>
+<script type="text/javascript">
+$(function(){
+	$("#imageSlide").imageSlide({evt:1,effect:1,autoTime:3000,slideType:1});
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,235 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>Pseudo-Classes Selectors index</title>
+<meta name="Description" content="CSS属性选择符" />
+<meta name="Keywords" content="CSS Pseudo-Classes Selectors,E:link,E:visited,E:hover,E:active,E:focus,E:first-child,E:last-child,E:only-child,E:nth-child(n),E:nth-last-child(n)" />
+<meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com" />
+<meta name="copyright" content="www.doyoe.com" />
+<meta name="robots" content="all" />
+<!--[if lte IE 8]>
+<script src="http://www.css119.com/iehtml5.js"></script>
+<![endif]-->
+<link rel="stylesheet" href="../../skin/article.css" tppabs="http://css.doyoe.com/skin/article.css" />
+</head>
+<body>
+<nav id="guide">
+	<div class="from">
+		<a href="../../index.htm" tppabs="http://css.doyoe.com/" target="_blank">CSS参考手册</a>
+		<span>&#187;</span>
+		<a href="../index.htm" tppabs="http://css.doyoe.com/selectors/index.htm">选择符列表</a>
+		<span>&#187;</span>
+		伪类选择符
+	</div>
+	<div class="to">
+		<span class="label">相关内容：</span>
+		<div id="topages" class="gcombobox">
+			<a href="index.htm-.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/index.htm?" class="target">
+				<strong>其它伪类选择符参考</strong>
+				<span>选择其它项<!--[if lte IE 7]><ins>IE7 and earlier, Get to die</ins><![endif]--></span>
+			</a>
+			<div class="list ghide">
+				<ul>
+					<li><a href="link.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/link.htm">E:link</a></li>
+					<li><a href="visited.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/visited.htm">E:visited</a></li>
+					<li><a href="hover.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/hover.htm">E:hover</a></li>
+					<li><a href="active.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/active.htm">E:active</a></li>
+					<li><a href="focus.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/focus.htm">E:focus</a></li>
+					<li><a href="lang().htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/lang().htm">E:lang()</a></li>
+					<li><a href="not().htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/not().htm">E:not()</a></li>
+					<li><a href="root.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/root.htm">E:root</a></li>
+					<li><a href="first-child.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/first-child.htm">E:first-child</a></li>
+					<li><a href="last-child.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/last-child.htm">E:last-child</a></li>
+					<li><a href="only-child.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/only-child.htm">E:only-child</a></li>
+					<li><a href="nth-child(n).htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/nth-child(n).htm">E:nth-child(n)</a></li>
+					<li><a href="nth-last-child(n).htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/nth-last-child(n).htm">E:nth-last-child(n)</a></li>
+					<li><a href="first-of-type.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/first-of-type.htm">E:first-of-type</a></li>
+					<li><a href="last-of-type.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/last-of-type.htm">E:last-of-type</a></li>
+					<li><a href="only-of-type.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/only-of-type.htm">E:only-of-type</a></li>
+					<li><a href="nth-of-type(n).htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/nth-of-type(n).htm">E:nth-of-type(n)</a></li>
+					<li><a href="nth-last-of-type(n).htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/nth-last-of-type(n).htm">E:nth-last-of-type(n)</a></li>
+					<li><a href="empty.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/empty.htm">E:empty</a></li>
+					<li><a href="checked.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/checked.htm">E:checked</a></li>
+					<li><a href="enabled.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/enabled.htm">E:enabled</a></li>
+					<li><a href="disabled.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/disabled.htm">E:disabled</a></li>
+					<li><a href="target.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/target.htm">E:target</a></li>
+					<li><a href="@page-first.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/@page-first.htm">@page:first</a></li>
+					<li><a href="@page-left.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/@page-left.htm">@page:left</a></li>
+					<li><a href="@page-right.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/@page-right.htm">@page:right</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</nav>
+<header id="hd">
+	<h1 class="tit">CSS Pseudo-Classes Selectors</h1>
+	<ul class="info">
+		<li>伪类选择符</li>
+	</ul>
+	<div id="browser" class="browser"><iframe id="top-browser" frameborder="0" allowtransparency="true" src="../../global-browser.htm" tppabs="http://css.doyoe.com/global-browser.htm"></iframe></div>
+</header>
+<section id="bd">
+	<section id="pseudo-classes-listing" class="gmodule gattr">
+		<h2 class="tit">伪类选择符 Pseudo-Classes Selectors</h2>
+		<div class="cont">
+			<table class="gdataform">
+				<thead>
+					<tr>
+						<th>Selectors<br />选择符</th>
+						<th>CSS Version<br />版本</th>
+						<th>Description<br />简介</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><a href="link.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/link.htm">E:link</a></th>
+						<td>CSS1</td>
+						<td>设置超链接a在未被访问前的样式。</td>
+					</tr>
+					<tr>
+						<td><a href="visited.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/visited.htm">E:visited</a></td>
+						<td>CSS1</td>
+						<td>设置超链接a在其链接地址已被访问过时的样式。</td>
+					</tr>
+					<tr>
+						<td><a href="hover.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/hover.htm">E:hover</a></td>
+						<td>CSS1/CSS2</td>
+						<td>设置元素在其鼠标悬停时的样式。</td>
+					</tr>
+					<tr>
+						<td><a href="active.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/active.htm">E:active</a></td>
+						<td>CSS1/CSS2</td>
+						<td>设置元素在被用户激活（在鼠标点击与释放之间发生的事件）时的样式。</td>
+					</tr>
+					<tr>
+						<td><a href="focus.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/focus.htm">E:focus</a></td>
+						<td>CSS1/CSS2</td>
+						<td>设置元素在成为输入焦点（该元素的onfocus事件发生）时的样式。</td>
+					</tr>
+					<tr>
+						<td><a href="lang().htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/lang().htm">E:lang()</a></td>
+						<td>CSS2</td>
+						<td>匹配使用特殊语言的E元素。</td>
+					</tr>
+					<tr>
+						<td><a href="not().htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/not().htm" class="linkcss3">E:not()</a></td>
+						<td>CSS3</td>
+						<td>匹配不含有s选择符的元素E。</td>
+					</tr>
+					<tr>
+						<td><a href="root.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/root.htm" class="linkcss3">E:root</a></td>
+						<td>CSS3</td>
+						<td>匹配E元素在文档的根元素。</td>
+					</tr>
+					<tr>
+						<td><a href="first-child.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/first-child.htm">E:first-child</a></th>
+						<td>CSS2</td>
+						<td>匹配父元素的第一个子元素E。</td>
+					</tr>
+					<tr>
+						<td><a href="last-child.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/last-child.htm" class="linkcss3">E:last-child</a></td>
+						<td>CSS3</td>
+						<td>匹配父元素的最后一个子元素E。</td>
+					</tr>
+					<tr>
+						<td><a href="only-child.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/only-child.htm" class="linkcss3">E:only-child</a></td>
+						<td>CSS3</td>
+						<td>匹配父元素仅有的一个子元素E。</td>
+					</tr>
+					<tr>
+						<td><a href="nth-child(n).htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/nth-child(n).htm" class="linkcss3">E:nth-child(n)</a></td>
+						<td>CSS3</td>
+						<td>匹配父元素的第n个子元素E。</td>
+					</tr>
+					<tr>
+						<td><a href="javascript:if(confirm('http://css.doyoe.com/selectors/pseudo-classes/nth-nth-child(n).htm  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ ����������δ�ҵ����ļ���  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://css.doyoe.com/selectors/pseudo-classes/nth-nth-child(n).htm'" tppabs="http://css.doyoe.com/selectors/pseudo-classes/nth-nth-child(n).htm" class="linkcss3">E:nth-last-child(n)</a></td>
+						<td>CSS3</td>
+						<td>匹配父元素的倒数第n个子元素E。</td>
+					</tr>
+					<tr>
+						<td><a href="first-of-type.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/first-of-type.htm" class="linkcss3">E:first-of-type</a></td>
+						<td>CSS3</td>
+						<td>匹配同类型中的第一个同级兄弟元素E。</td>
+					</tr>
+					<tr>
+						<td><a href="last-of-type.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/last-of-type.htm" class="linkcss3">E:last-of-type</a></th>
+						<td>CSS3</td>
+						<td>匹配同类型中的最后一个同级兄弟元素E。</td>
+					</tr>
+					<tr>
+						<td><a href="only-of-type.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/only-of-type.htm" class="linkcss3">E:only-of-type</a></td>
+						<td>CSS3</td>
+						<td>匹配同类型中的唯一的一个同级兄弟元素E。</td>
+					</tr>
+					<tr>
+						<td><a href="nth-of-type(n).htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/nth-of-type(n).htm" class="linkcss3">E:nth-of-type(n)</a></td>
+						<td>CSS3</td>
+						<td>匹配同类型中的第n个同级兄弟元素E。</td>
+					</tr>
+					<tr>
+						<td><a href="nth-last-of-type(n).htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/nth-last-of-type(n).htm" class="linkcss3">E:nth-last-of-type(n)</a></td>
+						<td>CSS3</td>
+						<td>匹配同类型中的倒数第n个同级兄弟元素E。</td>
+					</tr>
+					<tr>
+						<td><a href="empty.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/empty.htm" class="linkcss3">E:empty</a></td>
+						<td>CSS3</td>
+						<td>匹配没有任何子元素（包括text节点）的元素E。</td>
+					</tr>
+					<tr>
+						<td><a href="checked.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/checked.htm" class="linkcss3">E:checked</a></td>
+						<td>CSS3</td>
+						<td>匹配用户界面上处于选中状态的元素E。(用于input type为radio与checkbox时)</td>
+					</tr>
+					<tr>
+						<td><a href="enabled.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/enabled.htm" class="linkcss3">E:enabled</a></td>
+						<td>CSS3</td>
+						<td>匹配用户界面上处于可用状态的元素E。</td>
+					</tr>
+					<tr>
+						<td><a href="disabled.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/disabled.htm" class="linkcss3">E:disabled</a></td>
+						<td>CSS3</td>
+						<td>匹配用户界面上处于禁用状态的元素E。</td>
+					</tr>
+					<tr>
+						<td><a href="target.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/target.htm" class="linkcss3">E:target</a></td>
+						<td>CSS3</td>
+						<td>匹配相关URL指向的E元素。</td>
+					</tr>
+					<tr>
+						<td><a href="@page-first.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/@page-first.htm">@page:first</a></td>
+						<td>CSS2</td>
+						<td>设置页面容器第一页使用的样式。仅用于<a href="../../rules/@page.htm" tppabs="http://css.doyoe.com/rules/@page.htm">@page</a>规则</td>
+					</tr>
+					<tr>
+						<td><a href="@page-left.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/@page-left.htm">@page:left</a></td>
+						<td>CSS2</td>
+						<td>设置页面容器位于装订线左边的所有页面使用的样式。仅用于<a href="../../rules/@page.htm" tppabs="http://css.doyoe.com/rules/@page.htm">@page</a>规则</td>
+					</tr>
+					<tr>
+						<td><a href="@page-right.htm" tppabs="http://css.doyoe.com/selectors/pseudo-classes/@page-right.htm">@page:right</a></td>
+						<td>CSS2</td>
+						<td>设置页面容器位于装订线右边的所有页面使用的样式。仅用于<a href="../../rules/@page.htm" tppabs="http://css.doyoe.com/rules/@page.htm">@page</a>规则</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="related">
+			<p><strong class="linkcss3">这种颜色</strong> 的链接表示是CSS3选择符或原选择符被CSS3修改并赋予了新的特性</p>
+		</div>
+	</section>
+</section>
+<aside id="ft">
+	<div class="browser"><iframe id="bot-browser" frameborder="0" allowtransparency="true" src="../../global-browser.htm" tppabs="http://css.doyoe.com/global-browser.htm"></iframe></div>
+	
+</aside>
+<script src="../../js/doyoe.js" tppabs="http://css.doyoe.com/js/doyoe.js"></script>
+<script src="../../js/style.js" tppabs="http://css.doyoe.com/js/style.js"></script>
+<!-- css199.com Baidu tongji analytics -->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ff93bd5d8aa4917a86cd8e59a65783744' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</body>
+</html>

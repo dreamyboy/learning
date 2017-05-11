@@ -1,0 +1,30 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script type="text/javascript" src="jquery-1.6.2.min.js"></script>
+<script type="text/javascript">
+$(function(){
+    $(document).not($("#test2")).click(function(){
+        alert(0)
+        });
+    <!--防止事件冒泡-->
+    $("#test2").click(function(event){
+        event.stopPropagation();
+    })
+})
+</script>
+</head>
+<body>
+直接写成：<br>
+$(document).not($("#test2")).click(function(){
+        alert(0)
+        });
+<br>
+的话，用not已经排除了#test2，但是由于你test2嵌套在test1里面，所以点击的时候事件冒泡到了test1，所以还是会执行alert
+<div style="width:500px; height:200px; background:#ddd" id="test1">
+    <div style="width:300px; height:100px; background:#ccc" id="test2"></div>
+</div>
+</body>
+</html>

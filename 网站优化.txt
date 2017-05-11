@@ -1,0 +1,19 @@
+
+通过分析页面，发现页面遇到的问题有以下几点：
+
+
+
+
+针对发现的问题，做以下几点的优化：
+
+前端方面：
+一、由于页面用到的CDN域名有点多，大致有：
+对此前端可以增加DNS域名预解析dns-prefetch功能，如：
+<link rel="dns-prefetch" href=“//static.demo.cn”>
+
+CDN网络运维方面的优化：
+第一：所有静态资源(图片除外，图片gzip会变大)启用gzip压缩，例如：
+
+第二：静态资源设置缓存，如Cache-Control和Expires，我们网站from cache的资源太少，具体有：
+
+第三：设置缓存验证工具，指定 Last-Modified 或 ETag 标头，以便为这些资源启用缓存验证，涉及域名：

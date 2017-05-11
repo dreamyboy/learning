@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>delay(duration,[queueName])</title>
+<meta name="Keywords" content="jQuery中文参考手册,jQuery速查手册,jQuery最新版CHM下载,jQuery最新中文版,jQuery最新中文参考手册" />
+<meta name="Description" content="jQuery 1.7.2 CHM下载,jQuery中文参考手册,jQuery中文版1.7.2参考手册,jQuery 1.7.2 速查表,jQuery中文参考手册"/>
+<link type="text/css" rel="stylesheet" href="style/style.css" tppabs="http://www.css119.com/jquery/style/style.css"  />
+</head>
+<body id="split">
+<div id="content">
+  
+  <div rel="delay">
+    <h2><span>返回值:jQuery</span>delay(duration,<em class="optional">[queueName]</em>)</h2>
+    <h3>概述</h3>
+    <div class="desc">
+      <p>设置一个延时来推迟执行队列中之后的项目。</p>
+      <div class="longdesc">
+        <p>jQuery 1.4新增。用于将队列中的函数延时执行。他既可以推迟动画队列的执行，也可以用于自定义队列。</p>
+      </div>
+    </div>
+    <h3>参数</h3>
+    <div>
+      <h4><strong>duration,[queueName]</strong><span>Integer,String</span><em>V1.4</em></h4>
+      <p><strong>duration</strong>:延时时间，单位：毫秒</p>
+      <p><strong>queueName</strong>:队列名词，默认是Fx，动画队列。</p>
+    </div>
+    <div class="example">
+      <h3>示例</h3>
+      <span id="f_ad2"></span>
+      <h4>描述:</h4>
+      <p>在.slideUp() 和 .fadeIn()之间延时800毫秒。</p>
+      <h5>HTML 代码:</h5>
+      <pre><code>&lt;div id="foo /"&gt;</code></pre>
+      <h5>jQuery 代码:</h5>
+      <pre><code>$('#foo').slideUp(300).delay(800).fadeIn(400);</code></pre>
+    </div>
+  </div>
+</div>
+<!-- css199.com Baidu tongji analytics -->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ff93bd5d8aa4917a86cd8e59a65783744' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</body>
+</html>

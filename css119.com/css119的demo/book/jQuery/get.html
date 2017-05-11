@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>get([index])</title>
+<meta name="Keywords" content="jQuery中文参考手册,jQuery速查手册,jQuery最新版CHM下载,jQuery最新中文版,jQuery最新中文参考手册" />
+<meta name="Description" content="jQuery 1.7.2 CHM下载,jQuery中文参考手册,jQuery中文版1.7.2参考手册,jQuery 1.7.2 速查表,jQuery中文参考手册"/>
+<link type="text/css" rel="stylesheet" href="style/style.css" tppabs="http://www.css119.com/jquery/style/style.css"  />
+</head>
+<body id="split">
+<div id="content">
+  
+  <div rel="get">
+    <h2><span>返回值:Element</span>get([index])</h2>
+    <h3>概述</h3>
+    <div class="desc">
+      <p>取得其中一个匹配的元素。 num表示取得第几个匹配的元素。</p>
+      <div class="longdesc">
+        <p>这能够让你选择一个实际的DOM 元素并且对他直接操作，而不是通过 jQuery 函数。$(this).get(0)与$(this)[0]等价。</p>
+      </div>
+    </div>
+    <h3>参数</h3>
+    <div>
+      <h4><strong>[index]</strong><span>Number</span></h4>
+      <p>取得第 index 个位置上的元素</p>
+            <h4><strong>get()</strong></h4>
+      <p>取得所有匹配的 DOM 元素集合。</p>
+    </div>
+    <div class="example">
+      <h3>示例</h3>
+      <span id="f_ad2"></span>
+      <h4>描述:</h4>
+      <p></p>
+      <h5>HTML 代码:</h5>
+      <pre><code>&lt;img src="test1.jpg"/&gt; &lt;img src="test2.jpg"/&gt;</code></pre>
+      <h5>jQuery 代码:</h5>
+      <pre><code>$("img").get(0);</code></pre>
+      <h5>结果:</h5>
+      <pre><code>[ &lt;img src="test1.jpg"/&gt; ]</code></pre>
+            <h4>描述:</h4>
+      <p>选择文档中所有图像作为元素数组，并用数组内建的 reverse 方法将数组反向。</p>
+      <h5>HTML 代码:</h5>
+      <pre><code>&lt;img src="test1.jpg"/&gt; &lt;img src="test2.jpg"/&gt;</code></pre>
+      <h5>jQuery 代码:</h5>
+      <pre><code>$("img").get().reverse();</code></pre>
+      <h5>结果:</h5>
+      <pre><code>[ &lt;img src="test2.jpg"/&gt; &lt;img src="test1.jpg"/&gt; ]</code></pre>
+    </div>
+  </div>
+</div>
+<!-- css199.com Baidu tongji analytics -->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ff93bd5d8aa4917a86cd8e59a65783744' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</body>
+</html>

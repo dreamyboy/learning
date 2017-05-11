@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>counter-increment</title>
+<meta name="Description" content="" />
+<meta name="Keywords" content="" />
+<meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com" />
+<meta name="copyright" content="www.doyoe.com" />
+<meta name="robots" content="all" />
+<!--[if lte IE 8]>
+<script src="http://www.css119.com/iehtml5.js"></script>
+<![endif]-->
+<link rel="stylesheet" href="../../skin/article.css" tppabs="http://css.doyoe.com/skin/article.css" />
+</head>
+<body>
+<nav id="guide">
+	<div class="from">
+		<a href="../../index.htm" tppabs="http://css.doyoe.com/" target="_blank">CSS参考手册</a>
+		<span>&#187;</span>
+		<a href="../index.htm" tppabs="http://css.doyoe.com/properties/index.htm">属性列表</a>
+		<span>&#187;</span>
+		<a href="index.htm" tppabs="http://css.doyoe.com/properties/content/index.htm">内容属性</a>
+		<span>&#187;</span>
+	</div>
+	<div class="to">
+		<span class="label">相关内容：</span>
+		<div id="topages" class="gcombobox">
+			<a href="counter-increment.htm-.htm" tppabs="http://css.doyoe.com/properties/content/counter-increment.htm?" class="target">
+				<strong>其它内容属性参考</strong>
+				<span>选择其它项<!--[if lte IE 7]><ins>IE7 and earlier, Get to die</ins><![endif]--></span>
+			</a>
+			<div class="list ghide">
+				<ul>
+					<li><a href="content.htm" tppabs="http://css.doyoe.com/properties/content/content.htm">content</a></li>
+					<li><a href="counter-increment.htm" tppabs="http://css.doyoe.com/properties/content/counter-increment.htm">counter-increment</a></li>
+					<li><a href="counter-reset.htm" tppabs="http://css.doyoe.com/properties/content/counter-reset.htm">counter-reset</a></li>
+					<li><a href="quotes.htm" tppabs="http://css.doyoe.com/properties/content/quotes.htm">quotes</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</nav>
+<header id="hd">
+	<h1 class="tit">counter-increment</h1>
+	<ul class="info">
+		<li><strong>版本：CSS2</strong></li>
+		<li>继承性：无</li>
+	</ul>
+	<div id="browser" class="browser"><iframe id="top-browser" frameborder="0" allowtransparency="true" src="../../global-browser.htm" tppabs="http://css.doyoe.com/global-browser.htm"></iframe></div>
+</header>
+<section id="bd">
+	<section id="syntax" class="gmodule gattr">
+		<h2 class="tit">语法：</h2>
+		<div class="cont">
+			<p><strong>counter-increment</strong>：none | [<a href="../../values/textual/identifier.htm" tppabs="http://css.doyoe.com/values/textual/identifier.htm">&lt;identifier&gt;</a> <a href="../../values/numeric/integer.htm" tppabs="http://css.doyoe.com/values/numeric/integer.htm">&lt;integer&gt;</a>]+</p>
+			<p><strong>默认值</strong>：<mark class="defaultvalue">none</mark></p>
+		</div>
+	</section>
+	<section id="value" class="gmodule gattr">
+		<h2 class="tit">取值：</h2>
+		<div class="cont">
+			<dl>
+				<dt>none：</dt>
+				<dd>阻止计数器增加</dd>
+				<dt><a href="../../values/textual/identifier.htm" tppabs="http://css.doyoe.com/values/textual/identifier.htm">&lt;identifier&gt;</a>：</dt>
+				<dd>identifier定义一个或多个将被增加的selector，id，或者class</dd>
+				<dt><a href="../../values/numeric/integer.htm" tppabs="http://css.doyoe.com/values/numeric/integer.htm">&lt;integer&gt;</a>：</dt>
+				<dd>定义计算器每次增加的数值，可以为负值，默认值是1</dd>
+			</dl>
+		</div>
+	</section>
+	<section id="intro" class="gmodule gattr">
+		<h2 class="tit">说明：</h2>
+		<div class="cont">
+			<strong>设定当一个selector发生时计数器增加的值。</strong>
+			<ul>
+				<li>对应的脚本特性为<strong>counterIncrement</strong>。</li>
+			</ul>
+		</div>
+	</section>
+	<section id="compatible" class="gmodule gattr">
+		<h2 class="tit">兼容性：</h2>
+		<div class="cont">
+			<ul class="support-type">
+				<li><span class="support">浅绿</span> = 支持</li>
+				<li><span class="unsupport">红色</span> = 不支持</li>
+				<li><span class="partsupport">墨绿</span> = 部分支持</li>
+				<li><span class="experimentsupport">橙色</span> = 实验性质</li>
+			</ul>
+			<table class="gdataform">
+				<thead>
+					<tr>
+						<th><a href="#browser" title="查看本文档测试时所用浏览器版本">支持版本</a>\类型</th>
+						<th><span class="browser-ie">IE</span></th>
+						<th><span class="browser-firefox">Firefox</span></th>
+						<th><span class="browser-safari">Safari</span></th>
+						<th><span class="browser-chrome">Chrome</span></th>
+						<th><span class="browser-opera">Opera</span></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>版本</th>
+						<td class="unsupport">6.0-7.0</td>
+						<td rowspan="2" class="support">4.0</td>
+						<td rowspan="2" class="support">5.1</td>
+						<td rowspan="2" class="support">13.0</td>
+						<td rowspan="2" class="support">11.50</td>
+					</tr>
+					<tr>
+						<th>版本</th>
+						<td class="support">8.0</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+	<section id="example" class="gmodule gattr">
+		<h2 class="tit">示例：</h2>
+		<div class="cont">
+			<textarea cols="90" rows="10">
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>content-increment_CSS参考手册_web前端开发参考手册系列</title>
+<meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com" />
+<meta name="copyright" content="www.doyoe.com" />
+<style>
+.test ol{margin:16px 0;padding:0;list-style:none;}
+.test li li:before{color:#f00;font-family:georgia,serif,sans-serif;}
+.counter1 li{counter-increment:testname;}
+.counter1 li:before{content:counter(testname)".";}
+.counter2 li{counter-increment:testname2 2;}
+.counter2 li:before{content:counter(testname2)".";}
+.counter3 li{counter-increment:testname3 -1;}
+.counter3 li:before{content:counter(testname3)".";}
+</style>
+</head>
+<body>
+<ul class="test">
+	<li class="counter1">
+		<strong>默认时的计数器：</strong>
+		<ol>
+			<li>列表项</li>
+			<li>列表项</li>
+			<li>列表项</li>
+		</ol>
+	</li>
+	<li class="counter2">
+		<strong>修改计数器每次增加的值为2：</strong>
+		<ol>
+			<li>列表项</li>
+			<li>列表项</li>
+			<li>列表项</li>
+		</ol>
+	</li>
+	<li class="counter3">
+		<strong>修改计数器每次增加的值为-1：</strong>
+		<ol>
+			<li>列表项</li>
+			<li>列表项</li>
+			<li>列表项</li>
+		</ol>
+	</li>
+</ul>
+<!-- css199.com Baidu tongji analytics -->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ff93bd5d8aa4917a86cd8e59a65783744' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</body>
+</html>
+			</textarea>
+			<p><input type="button" value="运行" class="gbtn btn-sure" /></p>
+		</div>
+	</section>
+</section>
+<aside id="ft">
+	<div class="browser"><iframe id="bot-browser" frameborder="0" allowtransparency="true" src="../../global-browser.htm" tppabs="http://css.doyoe.com/global-browser.htm"></iframe></div>
+	
+</aside>
+<script src="../../js/doyoe.js" tppabs="http://css.doyoe.com/js/doyoe.js"></script>
+<script src="../../js/style.js" tppabs="http://css.doyoe.com/js/style.js"></script>
+</body>
+</html>

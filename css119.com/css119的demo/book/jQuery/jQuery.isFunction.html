@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery.isFunction(obj)</title>
+<meta name="Keywords" content="jQuery中文参考手册,jQuery速查手册,jQuery最新版CHM下载,jQuery最新中文版,jQuery最新中文参考手册" />
+<meta name="Description" content="jQuery 1.7.2 CHM下载,jQuery中文参考手册,jQuery中文版1.7.2参考手册,jQuery 1.7.2 速查表,jQuery中文参考手册"/>
+<link type="text/css" rel="stylesheet" href="style/style.css" tppabs="http://www.css119.com/jquery/style/style.css"  />
+</head>
+<body id="split">
+<div id="content">
+  
+  <div rel="jQuery.isFunction">
+    <h2><span>返回值:Boolean</span>jQuery.isFunction(obj)</h2>
+    <h3>概述</h3>
+    <div class="desc">
+      <p>测试对象是否为函数。</p>
+      <div class="longdesc">
+        <p><strong>注意：</strong>jQuery 1.3以后，在IE浏览器里，浏览器提供的函数比如'alert'还有 DOM 元素的方法比如 'getAttribute' 将不认为是函数</p>
+      </div>
+    </div>
+    <h3>参数</h3>
+    <div>
+      <h4><strong>obj</strong><span>Object</span><em>V1.2</em></h4>
+      <p>用于测试是否为函数的对象</p>
+    </div>
+    <div class="example">
+      <h3>示例</h3>
+      <span id="f_ad2"></span>
+      <h4>描述:</h4>
+      <p>检测是否为函数</p>
+      <h5>jQuery 代码:</h5>
+      <pre><code>function stub() {
+    }
+var objs = [
+            function () {},
+            { x:15, y:20 },
+            null,
+            stub,
+            "function"
+          ];
+        jQuery.each(objs, function (i) {
+        var isFunc = jQuery.isFunction(objs[i]);
+        $("span:eq( " + i + ")").text(isFunc);
+      });</code></pre>
+      <h5>结果:</h5>
+      <pre><code>[ true,false,false,true,false ]</code></pre>
+    </div>
+  </div>
+</div>
+<!-- css199.com Baidu tongji analytics -->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ff93bd5d8aa4917a86cd8e59a65783744' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</body>
+</html>

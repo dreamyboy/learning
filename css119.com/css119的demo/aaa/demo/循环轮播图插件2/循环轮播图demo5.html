@@ -1,0 +1,33 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>循环轮播图插件-WEB前端开发(www.css119.com)-关注常见的前端开发问题、最新的前端开发技术(前端移动开发)和最好的前端开发工具</title>
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<style type="text/css">
+/*外框*/
+.imageSlide{height:18px;position:relative; overflow:hidden}
+.box{position:absolute}
+.box a{display:block}
+</style>
+</head>
+
+<body>
+<div class="imageSlide" id="imageSlide">
+  <div class="box">
+    <a href="#">我是新闻一我是新闻一我是新闻一</a>
+    <a href="#">我是新闻二我是新闻二我是新闻二</a>
+    <a href="#">我是新闻三我是新闻三我是新闻三</a>
+    <a href="#">我是新闻四我是新闻四我是新闻四</a>
+    <a href="#">我是新闻五我是新闻五我是新闻五</a>
+  </div>
+</div>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.imageSlide.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#imageSlide").imageSlide({effect:2,ul:".box",li:"a",autoTime:1000});
+})
+</script>
+</body>
+</html>

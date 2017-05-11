@@ -1,0 +1,14 @@
+{
+  "name": "eslint-learn",
+  "version": "1.0.0",
+  "description": "<!-- http://fecs.baidu.com/ --> npm run eslint",
+  "main": "index.js",
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint *;exit 0"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^3.19.0"
+  }
+}

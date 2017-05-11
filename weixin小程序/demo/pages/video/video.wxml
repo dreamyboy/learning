@@ -1,0 +1,41 @@
+<!--video.wxml-->
+<view class="container">
+	<view class="video-box" style="background:url({{bg}}) no-repeat;background-size:cover">
+		<video id="myVideo" src="http://static.inke.com/web/act/201609/donghang/video/donghang-vertical.mp4" style="width:100%;height:100%" binderror="videoErrorCallback" autoplay></video>
+	</view>
+	<view class="num-box">
+		直播LIVE<text class="num">{{num}}人</text>
+	</view>
+	<view class="id-box">
+		映客号:{{id}}
+	</view>
+	<scroll-view scroll-y="true" class="msg-box" scroll-top="{{scrollTop}}">
+		<block wx:for="{{msg}}">
+			<view>
+				<text>{{item.name}}</text>{{item.txt}}
+			</view>
+		</block>
+	</scroll-view>
+	<view class="gift-box">
+		<view class="gift-li {{translate}}" wx:for="{{gift}}">
+			<image src="{{item.pic}}" mode="aspectFit" class="pic"></image>
+			<view class="name-box">
+				<view class="name">{{item.name}}</view>
+				<view class="gift-name">{{item.giftName}}</view>
+			</view>
+			<image src="{{item.giftPic}}" mode="aspectFit" class="gift-pic"></image>
+			<text class="gift-num {{zoom}}">X{{item.giftNum}}</text>
+		</view>
+		<!-- 测试用例开始 -->
+		<view class="gift-li">
+			<image src="http://img.meelive.cn/MTQ3NjY2NzA5NjA0MyM2NDAjanBn.jpg" mode="aspectFit" class="pic"></image>
+			<view class="name-box">
+				<view class="name">夜游子熙-夜狮烈爷</view>
+				<view class="gift-name">送一个小黄瓜</view>
+			</view>
+			<image src="http://img.meelive.cn/MTczNTgxNDUxODkzMTA3.jpg" mode="aspectFit" class="gift-pic"></image>
+			<text class="gift-num {{zoom}}">X{{textNum}}</text>
+		</view>
+		<!-- 测试用例结束 -->
+	</view>
+</view>

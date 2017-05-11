@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>stop([clearQueue],[jumpToEnd])</title>
+<meta name="Keywords" content="jQuery中文参考手册,jQuery速查手册,jQuery最新版CHM下载,jQuery最新中文版,jQuery最新中文参考手册" />
+<meta name="Description" content="jQuery 1.7.2 CHM下载,jQuery中文参考手册,jQuery中文版1.7.2参考手册,jQuery 1.7.2 速查表,jQuery中文参考手册"/>
+<link type="text/css" rel="stylesheet" href="style/style.css" tppabs="http://www.css119.com/jquery/style/style.css"  />
+</head>
+<body id="split">
+<div id="content">
+  
+  <div rel="stop">
+    <h2><span>返回值:jQuery</span>stop([clearQueue],[jumpToEnd])</h2>
+    <h3>概述</h3>
+    <div class="desc">
+      <p>停止所有在指定元素上正在运行的动画。</p>
+      <div class="longdesc">
+        <p>如果队列中有等待执行的动画(并且clearQueue没有设为true)，他们将被马上执行</p>
+      </div>
+    </div>
+    <h3>参数</h3>
+    <div>
+      <h4><strong>[clearQueue],[gotoEnd]<em> </em></strong><span>Boolean,Boolean</span><em>V1.2</em></h4>
+      <p><strong>clearQueue</strong>:如果设置成true，则清空队列。可以立即结束动画。</p>
+      <p><strong>gotoEnd</strong>:让当前正在执行的动画立即完成，并且重设show和hide的原始样式，调用回调函数等。</p>
+      <h4><strong>[queue],[clearQueue],[jumpToEnd]</strong><span>Boolean</span><em>V1.7</em></h4>
+      <p><strong>queue</strong>:用来停止动画的队列名称</p>
+      <p><strong>clearQueue</strong>:如果设置成true，则清空队列。可以立即结束动画。</p>
+      <p><strong>jumpToEnd</strong>:如果设置成true，则完成队列。可以立即完成动画。</p>
+    </div>
+    <div class="example">
+      <h3>示例</h3>
+      <span id="f_ad2"></span>
+            <h4>描述:</h4>
+      <p>停止当前正在运行的动画：</p>
+      <h5>HTML 代码:</h5>
+      <pre><code>$("#stop").click(function(){
+  $("#box").stop();
+});</code></pre>
+      <h4>描述:</h4>
+      <p>点击Go之后开始动画,点Stop之后会在当前位置停下来</p>
+      <h5>HTML 代码:</h5>
+      <pre><code>&lt;button id="go"&gt;Go&lt;/button&gt; &lt;button id="stop"&gt;STOP!&lt;/button&gt;
+&lt;div class="block"&gt;&lt;/div&gt;&lt;button id="go"&gt;Go&lt;/button&gt; &lt;button id="stop"&gt;STOP!&lt;/button&gt;
+&lt;div class="block"&gt;&lt;/div&gt;</code></pre>
+      <h5>jQuery 代码:</h5>
+      <pre><code>// 开始动画
+$("#go").click(function(){
+  $(".block").animate({left: '+200px'}, 5000);
+});
+
+// 当点击按钮后停止动画
+$("#stop").click(function(){
+  $(".block").stop();
+});</code></pre>
+    </div>
+  </div>
+</div>
+<!-- css199.com Baidu tongji analytics -->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ff93bd5d8aa4917a86cd8e59a65783744' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</body>
+</html>

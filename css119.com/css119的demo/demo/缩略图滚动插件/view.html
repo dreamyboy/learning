@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>循环轮播图插件-WEB前端开发(www.css119.com)-关注常见的前端开发问题、最新的前端开发技术(前端移动开发)和最好的前端开发工具</title>
+<style type="text/css">
+html,body,ul,li{margin:0;padding:0;list-style:none}
+a:focus{outline:none}
+img{border:none}
+/**/
+.thum-box{margin:0 auto}
+.thum-box .prev,.thum-box .next,.bigImg .prev,.bigImg .next{float:left;display:inline;width:32px;height:62px;margin-top:27px;background:url(img/btn2.png) no-repeat}
+.thum-box .next,.bigImg .next{background-position:-32px 0}
+.thum-box .prev-disable,.bigImg .prev-disable{background-position:0 -69px}
+.thum-box .next-disable,.bigImg .next-disable{background-position:-32px -69px}
+.thum-box .image-box{float:left;display:inline;overflow:hidden; position:relative;margin:0 10px;padding-top:20px}
+.thum-box .image-box ul{position:absolute; left:0;top:20px}
+.thum-box li{float:left; display:inline; width:120px; height:65px;cursor:pointer; position:relative; margin:0 4px; border:4px solid #fff;-moz-transition:all .2s linear 0s;-webkit-transition:all .2s linear 0s;-o-transition:all .2s linear 0s;transition:all .2s linear 0s}
+.thum-box .cur{border:4px solid #3376c3; border-radius:4px;}
+.thum-box .cur .arr{ width:0; height:0; overflow:hidden; border:8px dashed transparent; border-bottom:8px solid #3376c3; position:absolute; top:-20px; left:50%; margin-left:-4px}
+/**/
+.bigImg{margin:0 auto;position:relative;width:900px; height:500px; overflow:hidden}
+.bigImg img{width:100%}
+.bigImg .prev,.bigImg .next{ position:absolute; left:20px; top:50%; margin-top:-31px; z-index:20; display:none}
+.bigImg .next{ left:auto; right:20px}
+.bigImg:hover .prev,.bigImg:hover .next{ display:block}
+/*loading的样式*/
+.loading-cover{ position:absolute; left:0; top:0; background:url(img/loading-s2.gif) no-repeat center center #fff; z-index:10; width:100%; height:100%}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+  <div class="bigImg" id="bigImg">
+  	<a href="javascript:;" class="prev" hidefocus="true"></a>
+    <a href="javascript:;" class="next" hidefocus="true"></a>
+  </div>
+  <div class="thum-box" id="thumSlide">
+  	<a href="javascript:;" class="prev" hidefocus="true"></a>
+    <a href="javascript:;" class="next" hidefocus="true"></a>
+  </div>
+</div>
+<script type="text/javascript" src="http://zhanzhang.baidu.com/static/js/jquery-1.7.2.min.js"></script> 
+<script type="text/javascript" src="js/jquery.thumSlide2.min.js"></script> 
+<script type="text/javascript">
+$(function(){
+	var bigImg=$("#bigImg"),
+		bigImgPrev=bigImg.find(".prev"),
+		bigImgNext=bigImg.find(".next"),
+		thumSlide=$("#thumSlide"),
+		thumSlidePrev=thumSlide.find(".prev"),
+		thumSlideNext=thumSlide.find(".next");
+	//插入DOM
+	(function(){
+		var imgArr="";
+		for(var i=1;i<9;i++){
+			imgArr+="<li><a href='javascript:;' hidefocus='true'><img src='img/blank.gif' data-src='http://www.css119.com/demo/img/imgSlide3/i0"+i+".jpg'></a><b class='arr'></b></li>";	
+		}
+		imgArr="<div class='image-box'><ul>"+imgArr+"</ul></div>";
+		thumSlidePrev.after(imgArr);	
+	})();
+	var thumSlideLi=thumSlide.find("li");
+	//这里的0以及是否设置prev-disable都取决于插件的index
+	bigImgPrev.addClass("prev-disable");
+	bigImg.append("<img src=''>");
+	loadImg(thumSlideLi.eq(0));
+	//调用插件
+	thumSlide.thumSlide({
+		index:0,
+		showNum:6,
+		slideNum:1,
+		speed:200,
+		isLoop:false,
+		lazyLoad:true
+	});
+	//定义大图片lazyload
+	function loadImg(obj, callback) {
+		var att=null,objImg=obj.find("img");
+		bigImg.append("<div class='loading-cover'></div>");
+		var img = new Image();
+		img.onload = function() {
+			bigImg.find(".loading-cover").remove();
+			bigImg.find("img").attr("src",img.src);
+			callback && typeof callback == "function" && callback();
+		}
+		att=objImg.attr("data-src")?"data-src":"src";
+		img.src = objImg.attr(att).replace("imgSlide3/i0","imgSlide-big/");
+	}
+	//大图上一张下一张按钮样式
+	function changeClass(index){
+		bigImgPrev.removeClass("prev-disable");
+		bigImgNext.removeClass("next-disable");
+		if(index==0){
+			bigImgPrev.addClass("prev-disable");
+		}
+		else if(index==thumSlideLi.length-1){
+			bigImgNext.addClass("next-disable");
+		}
+	}
+	//切换大图
+	thumSlideLi.click(function(){
+		var index=$(this).index();
+		changeClass(index);
+		loadImg(thumSlideLi.eq(index));
+	});
+	//大图上一张下一张按钮
+	bigImgPrev.click(function(){
+		var index=thumSlide.find("li.cur").index();
+		if(index>0){
+			loadImg(thumSlideLi.eq(index-1));
+			thumSlideLi.removeClass("cur").eq(index-1).addClass("cur");
+			thumSlidePrev.click();
+			changeClass(index-1);
+		}
+	});
+	bigImgNext.click(function(){
+		var index=thumSlide.find("li.cur").index();
+		if(index<thumSlideLi.length-1){
+			loadImg(thumSlideLi.eq(index+1));
+			thumSlideLi.removeClass("cur").eq(index+1).addClass("cur");
+			thumSlideNext.click();
+			changeClass(index+1);
+		}
+	});
+})
+</script>
+</body>
+</html>

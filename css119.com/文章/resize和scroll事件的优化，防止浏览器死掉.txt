@@ -1,0 +1,18 @@
+原理是利用setTimeout让resize事件和scroll事件在一定的时间内只执行一次，如下代码执行的话，浏览器会执行多次，甚至死掉：
+(function(){
+window.onresize=function(){
+	alert(0);
+	}
+})()
+只要用户改变窗口大小，会对内部一些元素大小重新计算，可能导致整个页面重新渲染，最终导致大量消耗 CPU。比如调用 resize 方法，用户改变窗口大小时会不停的被触发， 低版本的IE 会可能陷入假死状态。window的scroll事件也是如此，鼠标滚动或拖动滚动条，就会不停的触发scroll事件，如果处理的东西多，低版本的IE也会陷入假死状态。
+优化代码如下：
+//解决方法
+var resizeTimer = null;
+window.onresize=function(){
+	 if (resizeTimer) {
+     	clearTimeout(resizeTimer)
+     }
+     resizeTimer = setTimeout(function(){
+     	alert(0);
+     }, 400);
+}

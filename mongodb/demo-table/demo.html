@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>table-mongodb</title>
+	<style type="text/css">
+		html,body{
+			height: 100%;
+		}
+		table,td{
+			border: 1px solid #000;
+			border-collapse: collapse;
+		}
+		td{
+			border-collapse: collapse;
+			padding: 15px;
+			text-align: center;
+		}
+		thead tr{
+			background: green
+		}
+		tbody tr:nth-child(even){
+			background: #eee
+		}
+		.add-box{
+			display: none;
+			position: fixed;
+			left: 0;
+			top: 0;
+			background: rgba(0,0,0,.5);
+			z-index: 100;
+			width: 100%;
+			height: 100%;
+		}
+		.add-box .inner{
+			position: fixed;
+			left: 50%;
+			top: 50%;
+			transform: translate3d(-50%,-50%,0);
+			background: #fff;
+			border: 1px solid #ccc;
+			z-index: 1000;
+			padding: 20px;
+		}
+		label{
+			display: inline-block;
+			width: 80px;
+			text-align: right;
+		}
+		input{
+			width: 160px;
+			border: 1px solid #ccc;
+			line-height: 26px;
+		}
+		p{
+			text-align: center;
+		}
+		.page a{
+			margin: 10px;
+		}
+		.cur{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<a href="javascript:;" id="btnAdd">add</a>
+	<a href="javascript:;" id="delAll">delAll</a>
+	<input type="text" name="" placeholder="输入name查找" id="findByName">
+	<div class="add-box" id="addBox">
+		<div class="inner">
+			<p>增加的数据在最后一页</p>
+			<label>name</label>
+			<input type="text" name="" id="inputName">
+			<br><br>
+			<label>age</label>
+			<input type="tel" name="" id="inputAge">
+			<br>
+			<p><a href="javascript:;" id="sure">sure</a></p>
+		</div>
+	</div>
+	<br><br>
+	<div id="container"></div>
+
+
+
+	<script id="tpl-user" type="text/html">
+		<table>
+			<thead>
+				<tr>
+					<td>index</td>
+					<td>_id</td>
+					<td>name</td>
+					<td>age</td>
+					<td>edit</td>
+				</tr>
+			</thead>
+			<tbody id="tbody">
+				<% for(var i=0,len=this.arr.length;i<len;i++){ %>
+					<tr>
+						<td><%= this.limit * (this.index-1)+i+1 %></td>
+						<td class="_id"><%= this.arr[i]._id %></td>
+						<td class="name"><%= this.arr[i].name %></td>
+						<td class="age"><%= this.arr[i].age %></td>
+						<td><a href="javascript:;" class="del">del</a> <a href="javascript:;" class="update">update</a></td>
+					</tr>
+				<% } %>
+			</tbody>
+		</table>
+		<div class="page">
+			<% for(var j=1;j<this.pages+1;j++){ %>
+				<a href="javascript:;" class="num <%= j==this.index ? 'cur' : '' %>"><%= j %></a>
+			<% } %>
+		</div>
+	</script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<!-- <script type="text/javascript" src="http://aui.github.io/art-template/lib/template.js"></script> -->
+	<script type="text/javascript" src="demo.js"></script>
+</body>
+</html>

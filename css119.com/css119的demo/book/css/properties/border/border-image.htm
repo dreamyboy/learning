@@ -1,0 +1,251 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>border-image</title>
+<meta name="Description" content="" />
+<meta name="Keywords" content="" />
+<meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com" />
+<meta name="copyright" content="www.doyoe.com" />
+<meta name="robots" content="all" />
+<!--[if lte IE 8]>
+<script src="http://www.css119.com/iehtml5.js"></script>
+<![endif]-->
+<link rel="stylesheet" href="../../skin/article.css" tppabs="http://css.doyoe.com/skin/article.css" />
+</head>
+<body>
+<nav id="guide">
+	<div class="from">
+		<a href="../../index.htm" tppabs="http://css.doyoe.com/" target="_blank">CSS参考手册</a>
+		<span>&#187;</span>
+		<a href="../index.htm" tppabs="http://css.doyoe.com/properties/index.htm">属性列表</a>
+		<span>&#187;</span>
+		<a href="index.htm" tppabs="http://css.doyoe.com/properties/border/index.htm">边框属性</a>
+		<span>&#187;</span>
+	</div>
+	<div class="to">
+		<span class="label">相关内容：</span>
+		<div id="topages" class="gcombobox">
+			<a href="border-image.htm-.htm" tppabs="http://css.doyoe.com/properties/border/border-image.htm?" class="target">
+				<strong>其它边框属性参考</strong>
+				<span>选择其它项<!--[if lte IE 7]><ins>IE7 and earlier, Get to die</ins><![endif]--></span>
+			</a>
+			<div class="list ghide">
+				<ul>
+					<li><a href="border.htm" tppabs="http://css.doyoe.com/properties/border/border.htm">border</a></li>
+					<li><a href="border-width.htm" tppabs="http://css.doyoe.com/properties/border/border-width.htm">border-width</a></li>
+					<li><a href="border-style.htm" tppabs="http://css.doyoe.com/properties/border/border-style.htm">border-style</a></li>
+					<li><a href="border-color.htm" tppabs="http://css.doyoe.com/properties/border/border-color.htm">border-color</a></li>
+					<li><a href="border-top.htm" tppabs="http://css.doyoe.com/properties/border/border-top.htm">border-top</a></li>
+					<li><a href="border-top-width.htm" tppabs="http://css.doyoe.com/properties/border/border-top-width.htm">border-top-width</a></li>
+					<li><a href="border-top-style.htm" tppabs="http://css.doyoe.com/properties/border/border-top-style.htm">border-top-style</a></li>
+					<li><a href="border-top-color.htm" tppabs="http://css.doyoe.com/properties/border/border-top-color.htm">border-top-color</a></li>
+					<li><a href="border-right.htm" tppabs="http://css.doyoe.com/properties/border/border-right.htm">border-right</a></li>
+					<li><a href="border-right-width.htm" tppabs="http://css.doyoe.com/properties/border/border-right-width.htm">border-right-width</a></li>
+					<li><a href="border-right-style.htm" tppabs="http://css.doyoe.com/properties/border/border-right-style.htm">border-right-style</a></li>
+					<li><a href="border-right-color.htm" tppabs="http://css.doyoe.com/properties/border/border-right-color.htm">border-right-color</a></li>
+					<li><a href="border-bottom.htm" tppabs="http://css.doyoe.com/properties/border/border-bottom.htm">border-bottom</a></li>
+					<li><a href="border-bottom-width.htm" tppabs="http://css.doyoe.com/properties/border/border-bottom-width.htm">border-bottom-width</a></li>
+					<li><a href="border-bottom-style.htm" tppabs="http://css.doyoe.com/properties/border/border-bottom-style.htm">border-bottom-style</a></li>
+					<li><a href="border-bottom-color.htm" tppabs="http://css.doyoe.com/properties/border/border-bottom-color.htm">border-bottom-color</a></li>
+					<li><a href="border-left.htm" tppabs="http://css.doyoe.com/properties/border/border-left.htm">border-left</a></li>
+					<li><a href="border-left-width.htm" tppabs="http://css.doyoe.com/properties/border/border-left-width.htm">border-left-width</a></li>
+					<li><a href="border-left-style.htm" tppabs="http://css.doyoe.com/properties/border/border-left-style.htm">border-left-style</a></li>
+					<li><a href="border-left-color.htm" tppabs="http://css.doyoe.com/properties/border/border-left-color.htm">border-left-color</a></li>
+					<li><a href="border-image.htm" tppabs="http://css.doyoe.com/properties/border/border-image.htm">border-image</a></li>
+					<li><a href="border-radius.htm" tppabs="http://css.doyoe.com/properties/border/border-radius.htm">border-radius</a></li>
+					<li><a href="border-top-left-radius.htm" tppabs="http://css.doyoe.com/properties/border/border-top-left-radius.htm">border-top-left-radius</a></li>
+					<li><a href="border-top-right-radius.htm" tppabs="http://css.doyoe.com/properties/border/border-top-right-radius.htm">border-top-right-radius</a></li>
+					<li><a href="border-bottom-right-radius.htm" tppabs="http://css.doyoe.com/properties/border/border-bottom-right-radius.htm">border-bottom-right-radius</a></li>
+					<li><a href="border-bottom-left-radius.htm" tppabs="http://css.doyoe.com/properties/border/border-bottom-left-radius.htm">border-bottom-left-radius</a></li>
+					<li><a href="box-shadow.htm" tppabs="http://css.doyoe.com/properties/border/box-shadow.htm">box-shadow</a></li>
+					<li><a href="box-reflect.htm" tppabs="http://css.doyoe.com/properties/border/box-reflect.htm">box-reflect</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</nav>
+<header id="hd">
+	<h1 class="tit">border-image</h1>
+	<ul class="info">
+		<li><strong>版本：CSS3</strong></li>
+		<li>继承性：无</li>
+	</ul>
+	<div id="browser" class="browser"><iframe id="top-browser" frameborder="0" allowtransparency="true" src="../../global-browser.htm" tppabs="http://css.doyoe.com/global-browser.htm"></iframe></div>
+</header>
+<section id="bd">
+	<section id="syntax" class="gmodule gattr">
+		<h2 class="tit">语法：</h2>
+		<div class="cont">
+			<p><strong>border-image</strong>：<a href="#border-image-source">&lt;border-image-source&gt;</a> || <a href="#border-image-slice">&lt;border-image-slice&gt;</a> [ / <a href="#border-image-width">&lt;border-image-width&gt;</a>? [ / <a href="#border-image-outset">&lt;border-image-outset&gt;</a> ]? ]? || <a href="#border-image-repeat">&lt;border-image-repeat&gt;</a></p>
+			<div class="gquote">
+				<p class="gquote-tit"><strong>为了方便理解border-image的取值，可将border-image理解成由以下5个伪属性组成：</strong></p>
+				<ul class="gquote-cont">
+					<li id="border-image-source" class="first">
+						<p><strong>border-image-source</strong> : none | <a href="../../values/textual/url.htm" tppabs="http://css.doyoe.com/values/textual/url.htm">&lt;url&gt;</a></p>
+						<p><strong>默认值</strong>：<mark class="defaultvalue">none</mark></p>
+						<p>该属性用于指定是否用图像定义边框样式或图像来源路径。</p>
+					</li>
+					<li id="border-image-slice">
+						<p><strong>border-image-slice</strong> : [ <a href="../../values/numeric/number.htm" tppabs="http://css.doyoe.com/values/numeric/number.htm">&lt;number&gt;</a> | <a href="../../values/other/percentage.htm" tppabs="http://css.doyoe.com/values/other/percentage.htm">&lt;percentage&gt;</a> ]{1,4} && fill?</p>
+						<p><strong>默认值</strong>：<mark class="defaultvalue">100%</mark></p>
+						<p>该属性用于指定对边框背景图的分割方式</p>
+						<p><em class="glight">写本文档时尚无浏览器支持参数值 fill 关键字</em></p>
+					</li>
+					<li id="border-image-width">
+						<p><strong>border-image-width</strong> : [ <a href="../../values/other/length.htm" tppabs="http://css.doyoe.com/values/other/length.htm">&lt;length&gt;</a> | <a href="../../values/other/percentage.htm" tppabs="http://css.doyoe.com/values/other/percentage.htm">&lt;percentage&gt;</a> | <a href="../../values/numeric/number.htm" tppabs="http://css.doyoe.com/values/numeric/number.htm">&lt;number&gt;</a> | auto ]{1,4}</p>
+						<p><strong>默认值</strong>：<mark class="defaultvalue">1</mark></p>
+						<p>该属性用于指定边框宽度。该属性可省略，由外部的<a href="border-width.htm" tppabs="http://css.doyoe.com/properties/border/border-width.htm">border-width</a>来定义</p>
+						<p><em class="glight">写本文档时所有浏览器只支持<a href="../../values/other/length.htm" tppabs="http://css.doyoe.com/values/other/length.htm">&lt;length&gt;</a>类型的参数值</em></p>
+						<p><em class="glight">也可以省略此属性，在外部用<a href="border-width.htm" tppabs="http://css.doyoe.com/properties/border/border-width.htm">border-width</a>属性来设置该值</em></p>
+					</li>
+					<li id="border-image-outset">
+						<p><strong>border-image-outset</strong> : [ <a href="../../values/other/length.htm" tppabs="http://css.doyoe.com/values/other/length.htm">&lt;length&gt;</a> | <a href="../../values/numeric/number.htm" tppabs="http://css.doyoe.com/values/numeric/number.htm">&lt;number&gt;</a> ]{1,4} </p>
+						<p><strong>默认值</strong>：<mark class="defaultvalue">0</mark></p>
+						<p>该属性用于指定对边框背景图的扩展</p>
+						<p><em class="glight">写本文档时尚无浏览器支持该属性</em></p>
+					</li>
+					<li id="border-image-repeat">
+						<p><strong>border-image-repeat</strong> : [ stretch | repeat | round | space ]{1,2}</p>
+						<p><strong>默认值</strong>：<mark class="defaultvalue">stretch</mark></p>
+						<p>该属性用于指定边框背景图的填充方式。可定义0-2个参数值，即水平和垂直方向。如果2个值相同，可合并成1个，表示水平和垂直方向都用相同的方式填充边框背景图；如果2个值都为stretch，则可省略不写。</p>
+						<p><em class="glight">写本文档时Opera尚不支持该属性，但却默认使用了stretch的效果</em></p>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+	<section id="value" class="gmodule gattr">
+		<h2 class="tit">取值：</h2>
+		<div class="cont">
+			<dl>
+				<dt>none：</dt>
+				<dd>无背景图片。</dd>
+				<dt><a href="../../values/textual/url.htm" tppabs="http://css.doyoe.com/values/textual/url.htm">&lt;url&gt;</a>：</dt>
+				<dd>使用绝对或相对地址指定图像。</dd>
+				<dt><a href="../../values/numeric/number.htm" tppabs="http://css.doyoe.com/values/numeric/number.htm">&lt;number&gt;</a>：</dt>
+				<dd>用浮点数指定宽度。不允许负值。</dd>
+				<dt><a href="../../values/other/percentage.htm" tppabs="http://css.doyoe.com/values/other/percentage.htm">&lt;percentage&gt;</a>：</dt>
+				<dd>用百分比指定宽度。不允许负值。</dd>
+				<dt><a href="../../values/other/length.htm" tppabs="http://css.doyoe.com/values/other/length.htm">&lt;length&gt;</a>：</dt>
+				<dd>用长度值指定宽度。不允许负值。</dd>
+				<dt>stretch：</dt>
+				<dd>指定用拉伸方式来填充边框背景图。</dd>
+				<dt>repeat：</dt>
+				<dd>指定用平铺方式来填充边框背景图。当图片碰到边界时，如果超过则被截断。</dd>
+				<dt>round：</dt>
+				<dd>指定用平铺方式来填充边框背景图。图片会根据边框的尺寸动态调整图片的大小直至正好可以铺满整个边框。<em class="glight">写本文档时仅Firefox能看到该效果</em></dd>
+			</dl>
+		</div>
+	</section>
+	<section id="intro" class="gmodule gattr">
+		<h2 class="tit">说明：</h2>
+		<div class="cont">
+			<strong>设置或检索对象的边框样式使用图像来填充。</strong>
+			<ul>
+				<li>使用图像替代<a href="border-style.htm" tppabs="http://css.doyoe.com/properties/border/border-style.htm">border-style</a>去定义边框样式。当border-image为none或图像不可见时，将会显示<a href="border-style.htm" tppabs="http://css.doyoe.com/properties/border/border-style.htm">border-style</a>所定义的边框样式效果。</li>
+				<li>对应的脚本特性为<strong>borderImage</strong>。</li>
+			</ul>
+		</div>
+	</section>
+	<section id="compatible" class="gmodule gattr">
+		<h2 class="tit">兼容性：</h2>
+		<div class="cont">
+			<ul class="support-type">
+				<li><span class="support">浅绿</span> = 支持</li>
+				<li><span class="unsupport">红色</span> = 不支持</li>
+				<li><span class="partsupport">墨绿</span> = 部分支持</li>
+				<li><span class="experimentsupport">橙色</span> = 实验性质</li>
+			</ul>
+			<table class="gdataform">
+				<thead>
+					<tr>
+						<th><a href="#browser" title="查看本文档测试时所用浏览器版本">支持版本</a>\类型</th>
+						<th><span class="browser-ie">IE</span></th>
+						<th><span class="browser-firefox">Firefox</span></th>
+						<th><span class="browser-safari">Safari</span></th>
+						<th><span class="browser-chrome">Chrome</span></th>
+						<th><span class="browser-opera">Opera</span></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>版本</th>
+						<td class="unsupport">6.0-10.0</td>
+						<td class="experimentsupport">4.0-9.0</td>
+						<td class="experimentsupport">5.1</td>
+						<td class="experimentsupport">13.0-16.0</td>
+						<td class="experimentsupport">11.50-11.60</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+	<section id="way" class="gmodule gattr">
+		<h2 class="tit">写法：</h2>
+		<div class="cont">
+			<table class="gdataform">
+				<thead>
+					<tr>
+						<th>内核类型</th>
+						<th>写法(border-image)</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>Webkit(Chrome/Safari)</th>
+						<td>-webkit-border-image</td>
+					</tr>
+					<tr>
+						<th>Gecko(Firefox)</th>
+						<td>-moz-border-image</td>
+					</tr>
+					<tr>
+						<th>Presto(Opera)</th>
+						<td>-o-border-image</td>
+					</tr>
+					<tr>
+						<th>Trident(IE)</th>
+						<td>&nbsp;</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+	<section id="example" class="gmodule gattr">
+		<h2 class="tit">示例：</h2>
+		<div class="cont">
+			<textarea cols="90" rows="10">
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>border-image_CSS参考手册_web前端开发参考手册系列</title>
+<meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com" />
+<meta name="copyright" content="www.doyoe.com" />
+<style>
+.test{padding:10px;-moz-border-image:url(skin/border.png) 27/27px stretch;-webkit-border-image:url(skin/border.png) 27/27px stretch;-o-border-image:url(skin/border.png) 27/27px stretch;border-image:url(skin/border.png) 27/27px;}
+</style>
+</head>
+<body>
+<div class="test">用图片来做边框<br />border-image:url(skin/border.png) 27/27px stretch;</div>
+<!-- css199.com Baidu tongji analytics -->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ff93bd5d8aa4917a86cd8e59a65783744' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</body>
+</html>
+			</textarea>
+			<p><input type="button" value="运行" class="gbtn btn-sure" /></p>
+		</div>
+	</section>
+</section>
+<aside id="ft">
+	<div class="browser"><iframe id="bot-browser" frameborder="0" allowtransparency="true" src="../../global-browser.htm" tppabs="http://css.doyoe.com/global-browser.htm"></iframe></div>
+	
+</aside>
+<script src="../../js/doyoe.js" tppabs="http://css.doyoe.com/js/doyoe.js"></script>
+<script src="../../js/style.js" tppabs="http://css.doyoe.com/js/style.js"></script>
+</body>
+</html>

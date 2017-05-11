@@ -1,0 +1,280 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>transition-property</title>
+<meta name="Description" content="" />
+<meta name="Keywords" content="" />
+<meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com" />
+<meta name="copyright" content="www.doyoe.com" />
+<meta name="robots" content="all" />
+<!--[if lte IE 8]>
+<script src="http://www.css119.com/iehtml5.js"></script>
+<![endif]-->
+<link rel="stylesheet" href="../../skin/article.css" tppabs="http://css.doyoe.com/skin/article.css" />
+</head>
+<body>
+<nav id="guide">
+	<div class="from">
+		<a href="../../index.htm" tppabs="http://css.doyoe.com/" target="_blank">CSS参考手册</a>
+		<span>&#187;</span>
+		<a href="../index.htm" tppabs="http://css.doyoe.com/properties/index.htm">属性列表</a>
+		<span>&#187;</span>
+		<a href="index.htm" tppabs="http://css.doyoe.com/properties/transition/index.htm">过渡属性</a>
+		<span>&#187;</span>
+	</div>
+	<div class="to">
+		<span class="label">相关内容：</span>
+		<div id="topages" class="gcombobox">
+			<a href="transition-property.htm-.htm" tppabs="http://css.doyoe.com/properties/transition/transition-property.htm?" class="target">
+				<strong>其它过渡属性参考</strong>
+				<span>选择其它项<!--[if lte IE 7]><ins>IE7 and earlier, Get to die</ins><![endif]--></span>
+			</a>
+			<div class="list ghide">
+				<ul>
+					<li><a href="transition.htm" tppabs="http://css.doyoe.com/properties/transition/transition.htm">transition</a></li>
+					<li><a href="transition-property.htm" tppabs="http://css.doyoe.com/properties/transition/transition-property.htm">transition-property</a></li>
+					<li><a href="transition-duration.htm" tppabs="http://css.doyoe.com/properties/transition/transition-duration.htm">transition-duration</a></li>
+					<li><a href="transition-timing-function.htm" tppabs="http://css.doyoe.com/properties/transition/transition-timing-function.htm">transition-timing-function</a></li>
+					<li><a href="transition-delay.htm" tppabs="http://css.doyoe.com/properties/transition/transition-delay.htm">transition-delay</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</nav>
+<header id="hd">
+	<h1 class="tit">transition-property</h1>
+	<ul class="info">
+		<li><strong>版本：CSS3</strong></li>
+		<li>继承性：无</li>
+	</ul>
+	<div id="browser" class="browser"><iframe id="top-browser" frameborder="0" allowtransparency="true" src="../../global-browser.htm" tppabs="http://css.doyoe.com/global-browser.htm"></iframe></div>
+</header>
+<section id="bd">
+	<section id="syntax" class="gmodule gattr">
+		<h2 class="tit">语法：</h2>
+		<div class="cont">
+			<p><strong>transition-property</strong>：all | none | <a href="#dfn-syntax">&lt;property&gt;</a>[ ,<a href="#dfn-syntax">&lt;property&gt;</a> ]*</p>
+			<p><strong>默认值</strong>：<mark class="defaultvalue">all</mark></p>
+		</div>
+	</section>
+	<section id="value" class="gmodule gattr">
+		<h2 class="tit">取值：</h2>
+		<div class="cont">
+			<dl>
+				<dt>all：</dt>
+				<dd>所有可以进行过渡的css属性</dd>
+				<dt>none：</dt>
+				<dd>不指定过渡的css属性</dd>
+				<dt>&lt;property&gt;：</dt>
+				<dd>指定要进行过渡的css属性</dd>
+			</dl>
+		</div>
+	</section>
+	<section id="intro" class="gmodule gattr">
+		<h2 class="tit">说明：</h2>
+		<div class="cont">
+			<strong>检索或设置对象中的参与过渡的属性。</strong>
+			<ul>
+				<li>默认值为：all。默认为所有可以进行过渡的css属性。</li>
+				<li>如果提供多个属性值，以逗号进行分隔。</li>
+				<li>对应的脚本特性为<strong>transitionProperty</strong>。</li>
+			</ul>
+		</div>
+	</section>
+	<section id="compatible" class="gmodule gattr">
+		<h2 class="tit">兼容性：</h2>
+		<div class="cont">
+			<ul class="support-type">
+				<li><span class="support">浅绿</span> = 支持</li>
+				<li><span class="unsupport">红色</span> = 不支持</li>
+				<li><span class="partsupport">墨绿</span> = 部分支持</li>
+				<li><span class="experimentsupport">橙色</span> = 实验性质</li>
+			</ul>
+			<table class="gdataform">
+				<thead>
+					<tr>
+						<th><a href="#browser" title="查看本文档测试时所用浏览器版本">支持版本</a>\类型</th>
+						<th><span class="browser-ie">IE</span></th>
+						<th><span class="browser-firefox">Firefox</span></th>
+						<th><span class="browser-safari">Safari</span></th>
+						<th><span class="browser-chrome">Chrome</span></th>
+						<th><span class="browser-opera">Opera</span></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>版本</th>
+						<td class="unsupport">6.0-9.0</td>
+						<td rowspan="2" class="experimentsupport">4.0-9.0</td>
+						<td rowspan="2" class="experimentsupport">5.1</td>
+						<td rowspan="2" class="experimentsupport">13.0-16.0</td>
+						<td rowspan="2" class="experimentsupport">11.50-11.60</td>
+					</tr>
+					<tr>
+						<th>版本</th>
+						<td class="experimentsupport">10.0</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+	<section id="way" class="gmodule gattr">
+		<h2 class="tit">写法：</h2>
+		<div class="cont">
+			<table class="gdataform">
+				<thead>
+					<tr>
+						<th>内核类型</th>
+						<th>写法</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>Webkit(Chrome/Safari)</th>
+						<td>-webkit-transition-property</td>
+					</tr>
+					<tr>
+						<th>Gecko(Firefox)</th>
+						<td>-moz-transition-property</td>
+					</tr>
+					<tr>
+						<th>Presto(Opera)</th>
+						<td>-o-transition-property</td>
+					</tr>
+					<tr>
+						<th>Trident(IE)</th>
+						<td>-ms-transition-property</td>
+					</tr>
+					<tr>
+						<th>W3C</th>
+						<td>transition-property</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+	<section id="example" class="gmodule gattr">
+		<h2 class="tit">示例：</h2>
+		<div class="cont">
+			<textarea cols="90" rows="10">
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>transition-property_CSS参考手册_web前端开发参考手册系列</title>
+<meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com" />
+<meta name="copyright" content="www.doyoe.com" />
+<style>
+h1{font-size:16px;}
+.test{overflow:hidden;width:100%;margin:0;padding:0;list-style:none;}
+.test li{float:left;width:170px;height:100px;margin:0 5px;padding:10px;border:1px solid #ddd;background-color:#eee;color:#000;
+	-moz-transition-property:border-color,background-color,color;
+	-moz-transition-duration:.5s;
+	-moz-transition-timing-function:ease-in;
+	-webkit-transition-property:border-color,background-color,color;
+	-webkit-transition-duration:.5s;
+	-webkit-transition-timing-function:ease-in;
+	-o-transition-property:border-color,background-color,color;
+	-o-transition-duration:.5s;
+	-o-transition-timing-function:ease-in;
+	-ms-transition-property:border-color,background-color,color;
+	-ms-transition-duration:.5s;
+	-ms-transition-timing-function:ease-in;
+	transition-property:border-color,background-color,color;
+	transition-duration:.5s;
+	transition-timing-function:ease-in;
+}
+.test li:hover{border-color:#999;background-color:#bbb;color:#999;}
+</style>
+</head>
+<body>
+<h1>请将鼠标移动到下面的矩形上：</h1>
+<ul class="test">
+	<li>本次设置过渡的属性： border-color, background-color, color</li>
+</ul>
+<!-- css199.com Baidu tongji analytics -->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ff93bd5d8aa4917a86cd8e59a65783744' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</body>
+</html>
+			</textarea>
+			<p><input type="button" value="运行" class="gbtn btn-sure" /></p>
+		</div>
+	</section>
+	<section id="dfn-syntax" class="gmodule gattr">
+		<h2 class="tit">有过渡效果的属性：</h2>
+		<div class="cont">
+			<table class="gdataform">
+				<thead>
+					<tr>
+						<th>属性名称</th>
+						<th>类型</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr><td>background-color</td><td>color</td></tr>
+					<tr><td>background-image</td><td>only gradients</td></tr>
+					<tr><td>background-position</td><td>percentage, length</td></tr>
+					<tr><td>border-bottom-color</td><td>color</td></tr>
+					<tr><td>border-bottom-width</td><td>length</td></tr>
+					<tr><td>border-color</td><td>color</td></tr>
+					<tr><td>border-left-color</td><td>color</td></tr>
+					<tr><td>border-left-width</td><td>length</td></tr>
+					<tr><td>border-right-color</td><td>color</td></tr>
+					<tr><td>border-right-width</td><td>length</td></tr>
+					<tr><td>border-spacing</td><td>length</td></tr>
+					<tr><td>border-top-color</td><td>color</td></tr>
+					<tr><td>border-top-width</td><td>length</td></tr>
+					<tr><td>border-width</td><td>length</td></tr>
+					<tr><td>bottom</td><td>length, percentage</td></tr>
+					<tr><td>color</td><td>color</td></tr>
+					<tr><td>crop</td><td>rectangle</td></tr>
+					<tr><td>font-size</td><td>length, percentage</td></tr>
+					<tr><td>font-weight</td><td>number</td></tr>
+					<tr><td>grid-*</td><td>various</td></tr>
+					<tr><td>height</td><td>length, percentage</td></tr>
+					<tr><td>left</td><td>length, percentage</td></tr>
+					<tr><td>letter-spacing</td><td>length</td></tr>
+					<tr><td>line-height</td><td>number, length, percentage</td></tr>
+					<tr><td>margin-bottom</td><td>length</td></tr>
+					<tr><td>margin-left</td><td>length</td></tr>
+					<tr><td>margin-right</td><td>length</td></tr>
+					<tr><td>margin-top</td><td>length</td></tr>
+					<tr><td>max-height</td><td>length, percentage</td></tr>
+					<tr><td>max-width</td><td>length, percentage</td></tr>
+					<tr><td>min-height</td><td>length, percentage</td></tr>
+					<tr><td>min-width</td><td>length, percentage</td></tr>
+					<tr><td>opacity</td><td>number</td></tr>
+					<tr><td>outline-color</td><td>color</td></tr>
+					<tr><td>outline-offset</td><td>integer</td></tr>
+					<tr><td>outline-width</td><td>length</td></tr>
+					<tr><td>padding-bottom</td><td>length</td></tr>
+					<tr><td>padding-left</td><td>length</td></tr>
+					<tr><td>padding-right</td><td>length</td></tr>
+					<tr><td>padding-top</td><td>length</td></tr>
+					<tr><td>right</td><td>length, percentage</td></tr>
+					<tr><td>text-indent</td><td>length, percentage</td></tr>
+					<tr><td>text-shadow</td><td>shadow</td></tr>
+					<tr><td>top</td><td>length, percentage</td></tr>
+					<tr><td>vertical-align</td><td>keywords, length, percentage</td></tr>
+					<tr><td>visibility</td><td>visibility</td></tr>
+					<tr><td>width</td><td>length, percentage</td></tr>
+					<tr><td>word-spacing</td><td>length, percentage</td></tr>
+					<tr><td>z-index</td><td>integer</td></tr>
+					<tr><td>zoom</td><td>number</td></tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+</section>
+<aside id="ft">
+	<div class="browser"><iframe id="bot-browser" frameborder="0" allowtransparency="true" src="../../global-browser.htm" tppabs="http://css.doyoe.com/global-browser.htm"></iframe></div>
+	
+</aside>
+<script src="../../js/doyoe.js" tppabs="http://css.doyoe.com/js/doyoe.js"></script>
+<script src="../../js/style.js" tppabs="http://css.doyoe.com/js/style.js"></script>
+</body>
+</html>

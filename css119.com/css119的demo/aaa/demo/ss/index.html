@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>循环轮播图插件-WEB前端开发(www.css119.com)-关注常见的前端开发问题、最新的前端开发技术(前端移动开发)和最好的前端开发工具</title>
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<link rel="stylesheet" type="text/css" href="css/imgSlide.css">
+<style type="text/css">
+/*外框*/
+.imageSlide{width:800px;height:293px}
+/*小按钮样式*/
+.imageSlide .num{ position:absolute; right:0; bottom:0;text-align:right; width:100%; z-index:100}
+.imageSlide .num b{display:inline-block;*display:inline;*zoom:1; width:25%; height:32px; line-height:32px; text-align:center; cursor:pointer; color:#fff; background:#999;font-weight:400; font-size:12px; position:relative; margin:0}
+.imageSlide .num .cur{background:#fff; color:#000}
+.imageSlide .num .cur i{ width:0; height:0;overflow:hidden;font-size:0; position:absolute; border:6px dashed transparent; border-bottom:6px solid #fff; left:50%; top:-12px; margin-left:-3px}
+</style>
+</head>
+
+<body>
+<a href="javascript:;" id="btn">click</a>
+<div class="imageSlide" id="imageSlide">
+  <ul>
+    <li><a href="#"><img src="http://www.css119.com/demo/img/imgSlide/i01.jpg" alt="www.css119.com" title="www.css119.com"><p>我是图片说明1</p><b></b></a></li>
+    <li><a href="#"><img src="http://www.css119.com/demo/img/imgSlide/i02.jpg" alt="www.css119.com" title="www.css119.com"><p>我是图片说明2</p><b></b></a></li>
+    <li><a href="#"><img src="http://www.css119.com/demo/img/imgSlide/i03.jpg" alt="www.css119.com" title="www.css119.com"><p>我是图片说明3</p><b></b></a></li>
+    <li><a href="#"><img src="http://www.css119.com/demo/img/imgSlide/i04.jpg" alt="www.css119.com" title="www.css119.com"><p>我是图片说明4</p><b></b></a></li>
+  </ul>
+  <div class="num"><b>我是图片说明1<i></i></b><b>我是图片说明2<i></i></b><b>我是图片说明3<i></i></b><b>我是图片说明4<i></i></b></div>
+</div>
+<script type="text/javascript" src="js/sea.js"></script>
+<script type="text/javascript">
+seajs.use('main')
+</script>
+</body>
+</html>

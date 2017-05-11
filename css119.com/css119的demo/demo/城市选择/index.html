@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="css/citySelect.css">
+<title>城市选择</title>
+</head>
+
+<body>
+<input id="citySelectInput" class="city-select-input" type="text">
+<input id="citySelectInput2" class="city-select-input" type="text">
+<script type="text/javascript" src="js/citySelect.js"></script>
+<script type="text/javascript">
+$("citySelectInput").onfocus=function(){
+	showCity("citySelectInput");
+}
+$("citySelectInput").onblur=hideCity;
+$("citySelectInput2").onfocus=function(){
+	showCity("citySelectInput2");
+}
+$("citySelectInput2").onblur=hideCity;
+</script>
+</body>
+</html>

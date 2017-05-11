@@ -1,0 +1,28 @@
+/*
+@company: baidu.com
+@author: xudeming@baidu.com
+@data: 2014-03-05
+@info
+*/
+/*base*/
+html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{margin:0;padding:0}
+body{font:400 12px/1.5 \5b8b\4f53,Arial,Helvetica,sans-serif}
+h1,h2,h3,h4,h5,h6,i{font-weight:400;font-style:normal}
+select,input,img,th{vertical-align:middle}
+img{border:none}
+ul,ol,li,dl,dt,dd{list-style-type:none}
+a{text-decoration:none}
+a:hover{text-decoration:underline}
+a:focus,input[type="button"]:focus,input[type="submit"]:focus,button,textarea:focus{outline:none}
+table{border-collapse:collapse;border-spacing:0}
+textarea{overflow:auto;resize:none}
+.clearfix{*zoom:1}
+.clearfix:after{display:block;visibility:hidden;clear:both;height:0;content:'.';font-size:0}
+.fl{float:left;display:inline}
+.fr{float:right;display:inline}
+.pr{position:relative}
+.pa{position:absolute}
+.display-i-b{display:inline-block;*display:inline;*zoom:1}
+header,footer,article,aside,section,nav,menu,hgroup{display:block}
+/*city-select*/
+.city-select-input{width:200px;padding:5px 10px;border:1px solid #ccc; margin:100px}

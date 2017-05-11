@@ -1,0 +1,60 @@
+javascript原生的方法设置cookie和读取cookie都非常的麻烦，所以我整合了下常用的操作cookie的方法，包含设置cookie，读取cookie和删除cookie，代码如下：
+ <!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+</head>
+<body>
+<script type="text/javascript">
+var cookieFun={
+    //设置cookie，ex为天数，比如设置cookie为30天。
+    set:function(name,value,ex,path,domain){
+        if(isNaN(ex)){
+            alert("时间必须为数字");
+        }
+        else{
+            var d=new Date();
+            d.setTime(d.getTime()+parseInt(ex)*24*60*60*1000);
+            var expString=ex ? d.toUTCString() : "";  //ie必须用toUTCString()转换过期时间
+            //在cookie的名或值中不能使用分号（;）、逗号（,）、等号（=）以及空格。在cookie的名中做到这点很容易，但要保存的值是不确定的。如何来存储这些值呢？方法是用escape()函数进行编码，它能将一些特殊符号使用十六进制表示，例如空格将会编码为"20%"，从而可以存储于cookie值中，而且使用此种方案还可以避免中文乱码的出现。
+            document.cookie=name+"="+escape(value)+";expires="+expString+";path="+path+";domain="+domain;
+        }
+    },
+    //读取cookie
+    read:function(name){
+        var arr = document.cookie.split("; ");
+        for (var i = 0; i < arr.length; i++) {
+            var arr2 = arr[i].split("=");
+            if (arr2[0] == name) {
+                return unescape(arr2[1]);
+            }
+        }
+        //没找到返回空
+        return "";
+    },
+    //删除cookie
+    del:function(name,path,domain){
+        //原理是把cookie的保存时间设置为过去
+        this.set(name,"",-1,path,domain);
+    }
+};
+//firefox查看cookie的方法，打开选项中的隐私，然后点击"删除个人cookie"，然后选中相应的文件夹中的值就能查看了
+cookieFun.set("name","xudeming",30,"/","www.css119.com");  //ie下设置path为"/"根目录
+cookieFun.set("name","xudeming208",30,"/","www.css119.com");  //如果名字相同的话，会覆盖前面设置的cookie
+cookieFun.set("sex","male",30,"/","www.css119.com");
+cookieFun.set("blog","http://www.css119.com",30,"/","www.css119.com");
+//cookieFun.del("name","/","www.css119.com");
+//cookieFun.del("sex","/","www.css119.com");
+//cookieFun.del("blog","/","www.css119.com");
+alert(cookieFun.read("name"))  
+//虽然读取cookie的时候，没有设置域名和路径，但是读取的时候是根据此文件的域名和路径来读取的，如：http://www.css119.com/demo/cookie.html,读取的是http://www.css119.com下面的cookie，所以不必担心不同域名下的cookie的name相同.document.cookie返回的永远是此域名下cookie，不会返回其他的域名下的cookie的。
+alert(document.cookie);
+alert(cookieFun.read("sex"))
+alert(cookieFun.read("blog"))
+</script>
+</body>
+</html>
+设置cookie的例子请访问：http://www.css119.com/demo/cookie.html，成功后，可以在浏览器中查看到刚设置cookie，具体方法请咨询度娘。
+当然，设置成功后，你也可以在浏览器中打开http://www.css119.com/demo/remove-cookie.html来清除刚才设置的cookie，成功后，你再次查询浏览器缓存的时候，就会发现已经找不到这些cookie了。
+PS:由于浏览器的安全策略，测试cookie的时候最好能有在线地址。

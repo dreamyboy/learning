@@ -1,0 +1,106 @@
+最近一直有童鞋问我关于表单提交的问题，其实ajax表单提交非常简单，我贴下我的代码，供参考：
+html:
+<form id="formLogin" method="post" action="">
+    <div>
+        <label>百度邮箱地址：</label>
+        <span><em></em></span>
+        <input type="text" value="" placeholder="请输入邮件账号" name="lusername">
+    </div>
+   <button type="submit">发送邮件</button>
+</form>
+javascript:
+$(function(){
+    var isPass=false;
+    var obj=$("#formLogin").find("input");
+    var error=$(".field-validation-error");
+    /*验证*/
+    function validate(){
+        var reg=/@baidu\.com$/g;
+        var status = reg.test(obj.val());
+        if(obj.val()==""){
+            error.html("邮箱地址不能为空<em></em>").show();
+            obj.addClass("error").focus();
+            isPass=false;
+            return false;
+        }
+        else if(!status){
+            error.html("必须为百度邮箱<em></em>").show();
+            obj.addClass("error").focus();
+            isPass=false;
+            return false;
+        }
+        else{
+            error.hide();
+            obj.removeClass("error")
+            isPass=true;
+        }
+    }
+    obj.blur(function(){
+        validate();
+    });
+    /*提交表单*/
+    $("#formLogin").submit(function(){
+        validate();
+        if(isPass){
+            $.ajax({
+                url: basePathJs+"user/sendResetPasswordEmail",
+                dataType:"json",
+                type:"post",
+                data:{"name":obj.val()},
+                success: function(data){
+                    if(data.status==false){
+                        error.html(data.message+"<em></em>").show();
+                        return false;
+                        }
+                    else{
+                        alert("邮件已发送成功！");
+                        //成功后跳转到首页
+                        window.location=basePathJs;
+                        }
+                   }
+            });
+        }
+        //阻止默认提交,一定不能少了这句，否则提交不了,如果不加这句，表单默认提交的URL为action中的值，而这里的action的值为空，所以提交不了；加了这句就是阻止了默认提交，即提交的URL为AJAX指定的，而不是action中的值
+        return false;
+    });
+})
+当然是用表单的默认提交，代码就更简单了：
+<form id="formLogin" method="post" action="<%=basePath%>user/sendResetPasswordEmail">
+        <div>
+          <label>百度邮箱地址：</label>
+          <span><em></em></span>
+          <input type="text" value="" placeholder="请输入邮件账号" name="name">
+        </div>
+        <button type="submit" id="submit">发送邮件</button>
+      </form>
+$("#form-login").submit()
+但是默认提交的话，需要设定input的name值，其值必须为提交到后台数据的属性名，即ajax提交方式中的data:{“name”:obj.val()}的name，比如如果是修改密码表单，即代码须下面这样：
+如果AJAX提交的数据是：data:{“oldPassword”:oldPassword.val(),”newPassword”:password1.val()}
+则HTML中的input的name属性值必须为oldPassword和newPassword：
+<form id="formLogin" method="post" action="<%=basePath%>user/modifyPassword">
+        <div>
+          <label>旧密码：</label>
+          <span><em></em></span>
+          <input type="password" value="" placeholder="请输入旧密码" name="oldPassword">
+        </div>
+        <div>
+          <label>新密码：</label>
+          <span><em></em></span>
+          <input type="password" value="" placeholder="请输入新密码" name="newPassword">
+        </div>
+        <div>
+          <label>确认新密码：</label>
+          <span><em></em></span>
+          <input type="password" value="" placeholder="请再次输入新密码" name="newPassword2">
+        </div>
+        <button type="submit" id="submit">确定修改</button>
+      </form>
+$("#formLogin").submit(function(){
+      validateOldPassword();
+      validatePassword1();
+      validatePassword2();
+      //验证不通过时，不提交表单
+      if(!isPass){
+          return false;
+      }
+ });

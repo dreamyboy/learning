@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery.fx.off</title>
+<meta name="Keywords" content="jQuery中文参考手册,jQuery速查手册,jQuery最新版CHM下载,jQuery最新中文版,jQuery最新中文参考手册" />
+<meta name="Description" content="jQuery 1.7.2 CHM下载,jQuery中文参考手册,jQuery中文版1.7.2参考手册,jQuery 1.7.2 速查表,jQuery中文参考手册"/>
+<link type="text/css" rel="stylesheet" href="style/style.css" tppabs="http://www.css119.com/jquery/style/style.css"  />
+</head>
+<body id="split">
+<div id="content">
+  
+  <div rel="jQuery.fx.off">
+    <h2><span>返回值:Boolean</span>jQuery.fx.off</h2>
+    <h3><em>V1.3</em>概述</h3>
+    <div class="desc">
+      <p>关闭页面上所有的动画。</p>
+      <div class="longdesc">
+        <p>把这个属性设置为true可以立即关闭所有动画(所有效果会立即执行完毕)。有些情况下可能需要这样，比如：</p>
+
+<p>* 你在配置比较低的电脑上使用jQuery。</p>
+
+<p>* 你的一些用户由于动画效果而遇到了 <a href="http://www.jdeegan.phlegethon.org/turn_off_animation.html" tppabs="http://www.jdeegan.phlegethon.org/turn_off_animation.html">可访问性问题</a></p>
+
+<p>当把这个属性设成false之后，可以重新开启所有动画。</p>
+      </div>
+    </div>
+    <div class="example">
+      <h3>示例</h3>
+      <span id="f_ad2"></span>
+      <h4>描述:</h4>
+      <p>执行一个禁用的动画</p>
+      <h5>jQuery 代码:</h5>
+      <pre><code>  jQuery.fx.off = true;
+  $("input").click(function(){
+      $("div").toggle("slow");
+  });</code></pre>
+    </div>
+  </div>
+</div>
+<!-- css199.com Baidu tongji analytics -->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ff93bd5d8aa4917a86cd8e59a65783744' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+在实际应用中，考虑到seo，很多button，icon都要用到inline-block和text-indent来处理，例如：
+<a href="#">Button</a>
+css我习惯写成这样
+.btn{display:inline-block;*display:inline;*zoom:1; width:100px; height:23px; text-indent:-9999px;background-image:url(img.jpg);}
+在标准浏览器下是没问题的，但是在IE6和7下会触发A标签消失的bug。
+解决方法1：
+display:inline-block;
+改为
+display:block;
+然后再做布局处理。
+解决方法2：
+text-indent:-9999px
+改为
+font-size:0; line-height:0;
+或者各种可以隐藏掉内容元素的方法。此中方法在safari中有点问题，见我的文章http://www.css119.com/archives/1618
+解决方法3：
+text-indent:-9999px
+改为
+line-height:10000px;然后overflow:hidden
+或者各种可以隐藏掉内容元素的方法。
+解决方法4：
+&nbsp;<a href="#">Button</a>
+在按钮前面增加任何元素，都可以让消失的按钮重新出现。
+解决方法5：
+给元素加 position:absolute;
+PS：inline或inline-block元素设置text-indent在IE6/IE7中显示不正常的bug致使text-indent会传递到父及元素，也就出现了上文中的结果。
+造成这种情况的原因应该是IE6/IE7并没有真正实现inline-block,而是通过设置display:inline-block触发了IE的layout,从而使内联元素拥有了inline-block属性的表症。
+考察元素的默认样式，可知：input、select、button、textarea的默认display皆为inline-block,所以在布局时应加以注意…

@@ -1,0 +1,101 @@
+今天在技术群中有位同学问了个关于javascript原生做的tab选项卡的问题，他的代码并不像网上其他的选项卡代码，此代码体现了MVC的思想，而且扩展性也非常好。他的代码如下：
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+*{margin:0;padding:0}
+a{ display:inline-block;*display:inline;zoom:1;padding:5px 15px; background:#ccc; margin-right:10px}
+.hide{ display:none}
+.show{ display:block}
+</style>
+</head>
+<body>
+<a href="javascript:;">1</a>
+<a href="javascript:;">2</a>
+<a href="javascript:;">3</a>
+<div>我是内容1</div>
+<div>我是内容2</div>
+<div>我是内容3</div>
+<script type="text/javascript">
+var btn=document.getElementsByTagName("a"),
+    box=document.getElementsByTagName("div");
+for(var i=0;i<btn.length;i++){
+    btn[i].index=i;
+    btn[i].onclick=function(){
+        for(var j=0;j<box.length;j++){
+            box[j].setAttribute("class","hide");
+        }
+        box[this.index].setAttribute("class","show");
+    }
+}
+</script>
+</body>
+</html>
+这代码在ie8、ie9、firefox、chrome、safari和opera中运行都没有问题，但是在ie7和ie6中就不能正常运行了，原因就是其运用了setAttribute，这个方法在ie7和ie6中是有兼容问题的，设置修改样式的方法有很多种，具体参考我以前写的文章javascript动态改变样式的5种方法。
+PS：关于setAttribute的兼容问题，请咨询度娘或者谷歌哥哥。
+对于上面同学的代码，其实还可以利用闭包来解决，代码如下：
+ <!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+*{margin:0;padding:0}
+a{ display:inline-block;*display:inline;zoom:1;padding:5px 15px; background:#ccc; margin-right:10px}
+.hide{ display:none}
+.show{ display:block}
+</style>
+</head>
+<body>
+<a href="javascript:;">1</a><a href="javascript:;">2</a><a href="javascript:;">3</a>
+<div>我是内容1</div><div>我是内容2</div><div>我是内容3</div>
+<script type="text/javascript">
+var btn=document.getElementsByTagName("a"),box=document.getElementsByTagName("div");
+for(var i=0;i<btn.length;i++){
+    //利用闭包
+    (function(_i){
+        btn[_i].onclick=function(){
+            for(var j=0;j<box.length;j++){
+                box[j].className="hide";
+            }
+            box[_i].className="show";    
+        }    
+    })(i);
+}
+</script>
+</body>
+</html>
+写选项卡tab的第三种方法：
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+*{margin:0;padding:0}
+a{ display:inline-block;*display:inline;zoom:1;padding:5px 15px; background:#ccc; margin-right:10px}
+.hide{ display:none}
+.show{ display:block}
+</style>
+</head>
+<body>
+<a href="javascript:;">1</a><a href="javascript:;">2</a><a href="javascript:;">3</a>
+<div>我是内容1</div><div>我是内容2</div><div>我是内容3</div>
+<script type="text/javascript">
+var btn=document.getElementsByTagName("a"),box=document.getElementsByTagName("div");
+for(var i=0;i<btn.length;i++){
+    function tab(n){
+        btn[n].onclick=function(){
+            for(var j=0;j<box.length;j++){
+                box[j].className="hide";
+            }
+            box[n].className="show";
+        }    
+    }
+    tab(i);
+}
+</script>
+</body>
+</html>

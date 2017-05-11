@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>The Use Guides Of CSS Manual</title>
+<meta name="Description" content="CSS参考手册使用指引" />
+<meta name="Keywords" content="CSS,CSS参考手册,指引,帮助" />
+<meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com" />
+<meta name="copyright" content="www.doyoe.com" />
+<meta name="robots" content="all" />
+<!--[if lte IE 8]>
+<script src="http://www.css119.com/iehtml5.js"></script>
+<![endif]-->
+<link rel="stylesheet" href="../skin/article.css" tppabs="http://css.doyoe.com/skin/article.css" />
+</head>
+<body>
+<nav id="guide">
+	<div class="from">
+		<a href="../index.htm" tppabs="http://css.doyoe.com/" target="_blank">CSS参考手册</a>
+		<span>&#187;</span>
+		<a href="index.htm" tppabs="http://css.doyoe.com/introduction/index.htm">简介</a>
+		<span>&#187;</span>
+	</div>
+	<div class="to">
+		<span class="label">相关内容：</span>
+		<div id="topages" class="gcombobox">
+			<a href="guide.htm-.htm" tppabs="http://css.doyoe.com/introduction/guide.htm?" class="target">
+				<strong>其它简介条目</strong>
+				<span>选择其它项<!--[if lte IE 7]><ins>IE7 and earlier, Get to die</ins><![endif]--></span>
+			</a>
+			<div class="list ghide">
+				<ul>
+					<li><a href="about-this-handbook.htm" tppabs="http://css.doyoe.com/introduction/about-this-handbook.htm">关于本手册</a></li>
+					<li><a href="what-is-css.htm" tppabs="http://css.doyoe.com/introduction/what-is-css.htm">关于样式表</a></li>
+					<li><a href="about-me.htm" tppabs="http://css.doyoe.com/introduction/about-me.htm">关于作者</a></li>
+					<li><a href="guide.htm" tppabs="http://css.doyoe.com/introduction/guide.htm">阅读及使用指引</a></li>
+					<li><a href="thanks.htm" tppabs="http://css.doyoe.com/introduction/thanks.htm">鸣谢</a></li>
+					<li><a href="contribute.htm" tppabs="http://css.doyoe.com/introduction/contribute.htm">捐赠</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</nav>
+<header id="hd">
+	<h1 class="tit">The Use Guides</h1>
+	<ul class="info">
+		<li>阅读及使用指引</li>
+	</ul>
+	<div id="browser" class="browser"><iframe id="top-browser" frameborder="0" allowtransparency="true" src="../global-browser.htm" tppabs="http://css.doyoe.com/global-browser.htm"></iframe></div>
+</header>
+<section id="bd">
+	<section id="use-guides" class="gmodule gaboutlist">
+		<h2>手册使用说明 The Instruction</h2>
+		<ul>
+			<li>关于本手册一些特定阅读方式的说明</li>
+			<li>关于本手册存在的一些问题说明及解决方法</li>
+		</ul>
+	</section>
+	<section id="read-guides" class="gmodule gaboutlist">
+		<h2>阅读指引 The Read Guides</h2>
+		<ul>
+			<li>
+				<h3>兼容性：</h3>
+				<ul class="gitem">
+					<li>手册在所有参考页的头部和底部都有对浏览器兼容性测试基础环境的说明。<em class="glight">如无特别说明，所有文档页均不考虑IE6以下版本。</em></li>
+					<li>兼容性表格解读：
+						<div class="cont">
+							<ul class="support-type">
+								<li><span class="support">浅绿</span> = 支持</li>
+								<li><span class="unsupport">红色</span> = 不支持</li>
+								<li><span class="partsupport">墨绿</span> = 部分支持</li>
+								<li><span class="experimentsupport">橙色</span> = 实验性质</li>
+							</ul>
+							<table class="gdataform">
+								<thead>
+									<tr>
+										<th><a href="#browser" title="查看本文档测试时所用浏览器版本">支持版本</a>\类型</th>
+										<th><span class="browser-ie">IE</span></th>
+										<th><span class="browser-firefox">Firefox</span></th>
+										<th><span class="browser-safari">Safari</span></th>
+										<th><span class="browser-chrome">Chrome</span></th>
+										<th><span class="browser-opera">Opera</span></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th>较早版本</th>
+										<td class="unsupport">6.0-7.0</td>
+										<td rowspan="3" class="experimentsupport">4.0-6.0</td>
+										<td rowspan="3" class="support">5.1</td>
+										<td rowspan="3" class="support">13.0</td>
+										<td rowspan="3" class="support">11.50</td>
+									</tr>
+									<tr>
+										<th>较新版本</th>
+										<td class="experimentsupport">8.0</td>
+									</tr>
+									<tr>
+										<th>最近版本</th>
+										<td class="support">9.0</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<p>假设上述表格是对某属性x的兼容性说明：那即表示IE6和IE7不支持该属性，IE8对该属性的支持还处在实验性质阶段，IE9及后续版本已支持该属性；Firefox4.0-6.0对该属性的支持还处在实验性质阶段；Safari、Chrome、Opera支持该属性。</p>
+						<p>如果是处在“实验性质”状态，则各浏览器的私有写法为：IE加 <strong class="glight">-ms-</strong>；Firefox加 <strong class="glight">-moz-</strong>；Safari和Chrome加 <strong class="glight">-webkit-</strong>；Opera加 <strong class="glight">-o-</strong></p>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<h3>脚本特性：</h3>
+				<ul class="gitem">
+					<li>
+						<p>每个CSS属性参考页所指定的该属性的脚本特性，是指js如何访问该CSS属性。如：float属性的脚本特性为styleFloat或cssFloat，那么js这样写：</p>
+						<div class="gquote">
+							<p class="gquote-tit"><strong>js代码：</strong></p>
+							<blockquote class="gquote-cont"><pre>IE：　<code>DOM.style.styleFloat</code>
+非IE：<code>DOM.style.cssFloat</code>
+</pre></blockquote>
+						</div>
+					</li>
+				</ul>	
+			</li>
+			<li>
+				<h3>示例：</h3>
+				<ul class="gitem">
+					<li>每个CSS参考页的示例都可以点击“运行”按钮，直接查看效果。</li>
+					<li>目前已知在win7下，本手册的chm版下的示例点击“运行”会出错，在未修复该问题前，如需查看某个示例，请将该示例代码拷贝到本地进行浏览。</li>
+				</ul>	
+			</li>
+		</ul>
+	</section>
+	<section id="question-guides" class="gmodule gaboutlist">
+		<h2>问题指引 The Question Guides</h2>
+		<ul class="gitem">
+			<li>
+				<h3>在win7下，本手册的chm版下的示例点击“运行”出错</h3>
+				<p>问题未被修复。在未修复该问题前，如需查看某个示例，请将该示例代码拷贝到本地进行浏览。</p>
+			</li>
+			<li>
+				<h3>chm版下载后打开出现网页无法访问的情况</h3>
+				<p>在chm上右键选择“属性”，勾选最下面的“解除锁定”并应用确定，再次打开就可以了。</p>
+			</li>
+		</ul>
+	</section>
+</section>
+<aside id="ft">
+	<div class="browser"><iframe id="bot-browser" frameborder="0" allowtransparency="true" src="../global-browser.htm" tppabs="http://css.doyoe.com/global-browser.htm"></iframe></div>
+	
+</aside>
+<script src="../js/doyoe.js" tppabs="http://css.doyoe.com/js/doyoe.js"></script>
+<script src="../js/style.js" tppabs="http://css.doyoe.com/js/style.js"></script>
+<!-- css199.com Baidu tongji analytics -->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ff93bd5d8aa4917a86cd8e59a65783744' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</body>
+</html>

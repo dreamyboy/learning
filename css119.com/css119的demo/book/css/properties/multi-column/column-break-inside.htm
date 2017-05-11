@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>column-break-inside</title>
+<meta name="Description" content="" />
+<meta name="Keywords" content="" />
+<meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com" />
+<meta name="copyright" content="www.doyoe.com" />
+<meta name="robots" content="all" />
+<!--[if lte IE 8]>
+<script src="http://www.css119.com/iehtml5.js"></script>
+<![endif]-->
+<link rel="stylesheet" href="../../skin/article.css" tppabs="http://css.doyoe.com/skin/article.css" />
+</head>
+<body>
+<nav id="guide">
+	<div class="from">
+		<a href="../../index.htm" tppabs="http://css.doyoe.com/" target="_blank">CSS参考手册</a>
+		<span>&#187;</span>
+		<a href="../index.htm" tppabs="http://css.doyoe.com/properties/index.htm">属性列表</a>
+		<span>&#187;</span>
+		<a href="index.htm" tppabs="http://css.doyoe.com/properties/multi-column/index.htm">多栏属性</a>
+		<span>&#187;</span>
+	</div>
+	<div class="to">
+		<span class="label">相关内容：</span>
+		<div id="topages" class="gcombobox">
+			<a href="column-break-inside.htm-.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-break-inside.htm?" class="target">
+				<strong>其它多栏属性参考</strong>
+				<span>选择其它项<!--[if lte IE 7]><ins>IE7 and earlier, Get to die</ins><![endif]--></span>
+			</a>
+			<div class="list ghide">
+				<ul>
+					<li><a href="columns.htm" tppabs="http://css.doyoe.com/properties/multi-column/columns.htm">columns</a></li>
+					<li><a href="column-width.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-width.htm">column-width</a></li>
+					<li><a href="column-count.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-count.htm">column-count</a></li>
+					<li><a href="column-gap.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-gap.htm">column-gap</a></li>
+					<li><a href="column-rule.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-rule.htm">column-rule</a></li>
+					<li><a href="column-rule-width.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-rule-width.htm">column-rule-width</a></li>
+					<li><a href="column-rule-style.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-rule-style.htm">column-rule-style</a></li>
+					<li><a href="column-rule-color.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-rule-color.htm">column-rule-color</a></li>
+					<li><a href="column-span.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-span.htm">column-span</a></li>
+					<li><a href="column-fill.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-fill.htm">column-fill</a></li>
+					<li><a href="column-break-before.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-break-before.htm">column-break-before</a></li>
+					<li><a href="column-break-after.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-break-after.htm">column-break-after</a></li>
+					<li><a href="column-break-inside.htm" tppabs="http://css.doyoe.com/properties/multi-column/column-break-inside.htm">column-break-inside</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</nav>
+<header id="hd">
+	<h1 class="tit">column-break-inside</h1>
+	<ul class="info">
+		<li><strong>版本：CSS3</strong></li>
+		<li>继承性：无</li>
+	</ul>
+	<div id="browser" class="browser"><iframe id="top-browser" frameborder="0" allowtransparency="true" src="../../global-browser.htm" tppabs="http://css.doyoe.com/global-browser.htm"></iframe></div>
+</header>
+<section id="bd">
+	<section id="syntax" class="gmodule gattr">
+		<h2 class="tit">语法：</h2>
+		<div class="cont">
+			<p><strong>column-break-inside</strong>：auto | avoid | avoid-page | avoid-column</p>
+			<p><strong>默认值</strong>：<mark class="defaultvalue">auto</mark></p>
+		</div>
+	</section>
+	<section id="value" class="gmodule gattr">
+		<h2 class="tit">取值：</h2>
+		<div class="cont">
+			<dl>
+				<dt>auto：</dt>
+				<dd>既不强迫也不禁止在元素内部断行并产生新列</dd>
+				<dt>avoid：</dt>
+				<dd>避免在元素内部断行并产生新列</dd>
+			</dl>
+		</div>
+	</section>
+	<section id="intro" class="gmodule gattr">
+		<h2 class="tit">说明：</h2>
+		<div class="cont">
+			<strong>设置或检索对象内部是否断行。</strong>
+			<ul>
+				<li>对应的脚本特性为<strong>columnBreakInside</strong>。</li>
+			</ul>
+		</div>
+	</section>
+	<section id="compatible" class="gmodule gattr">
+		<h2 class="tit">兼容性：</h2>
+		<div class="cont">
+			<ul class="support-type">
+				<li><span class="support">浅绿</span> = 支持</li>
+				<li><span class="unsupport">红色</span> = 不支持</li>
+				<li><span class="partsupport">墨绿</span> = 部分支持</li>
+				<li><span class="experimentsupport">橙色</span> = 实验性质</li>
+			</ul>
+			<table class="gdataform">
+				<thead>
+					<tr>
+						<th><a href="#browser" title="查看本文档测试时所用浏览器版本">支持版本</a>\类型</th>
+						<th><span class="browser-ie">IE</span></th>
+						<th><span class="browser-firefox">Firefox</span></th>
+						<th><span class="browser-safari">Safari</span></th>
+						<th><span class="browser-chrome">Chrome</span></th>
+						<th><span class="browser-opera">Opera</span></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>版本</th>
+						<td class="unsupport">6.0-9.0</td>
+						<td rowspan="2" class="unsupport">4.0-9.0</td>
+						<td rowspan="2" class="experimentsupport">5.1</td>
+						<td rowspan="2" class="experimentsupport">13.0-16.0</td>
+						<td rowspan="2" class="unsupport">11.50-11.60</td>
+					</tr>
+					<tr>
+						<th>版本</th>
+						<td class="support">10.0</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+	<section class="gmodule gattr" id="way">
+		<h2 class="tit">写法：</h2>
+		<div class="cont">
+			<table class="gdataform">
+				<thead>
+					<tr>
+						<th>内核类型</th>
+						<th>写法</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>Webkit(Chrome/Safari)</th>
+						<td>-webkit-column-break-inside</td>
+					</tr>
+					<tr>
+						<th>Gecko(Firefox)</th>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<th>Presto(Opera)</th>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<th>Trident(IE)</th>
+						<td>column-break-inside</td>
+					</tr>
+					<tr>
+						<th>W3C</th>
+						<td>column-break-inside</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+</section>
+<aside id="ft">
+	<div class="browser"><iframe id="bot-browser" frameborder="0" allowtransparency="true" src="../../global-browser.htm" tppabs="http://css.doyoe.com/global-browser.htm"></iframe></div>
+	
+</aside>
+<script src="../../js/doyoe.js" tppabs="http://css.doyoe.com/js/doyoe.js"></script>
+<script src="../../js/style.js" tppabs="http://css.doyoe.com/js/style.js"></script>
+<!-- css199.com Baidu tongji analytics -->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ff93bd5d8aa4917a86cd8e59a65783744' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</body>
+</html>

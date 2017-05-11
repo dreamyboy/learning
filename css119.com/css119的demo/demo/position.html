@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<div id="test" style="width:100%;height:30px;background:red;position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -o-sticky;
+  position: -ms-sticky;
+  position: sticky;top:10px;z-index:1"></div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<script>
+	function hasSticky() {
+		var element = document.createElement('div');
+		if ('position' in element.style) {
+			element.style['position'] = '-webkit-sticky';
+			element.style['position'] = '-moz-sticky';
+			element.style['position'] = '-o-sticky';
+			element.style['position'] = '-ms-sticky';
+			element.style['position'] = 'sticky';
+			return element.style['position'] === '-webkit-sticky'||element.style['position'] === '-moz-sticky'||element.style['position'] === '-o-sticky'||element.style['position'] === '-ms-sticky'||element.style['position'] === 'sticky'
+		} else {
+			return false;
+		}
+	}
+	alert(hasSticky())
+	</script>
+</body>
+</html>

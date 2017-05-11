@@ -1,0 +1,5 @@
+ie6 position:fixed防止抖动的方法：
+第一，html body{_background-image:url(about:blank);_background-attachment:fixed}
+如果body本身有背景设置的话，也可以用下面的方法代替：
+* html,* html body { _text-overflow:ellipsis; }
+可以用这个代替 background-image:url(about:blank);来防抖动

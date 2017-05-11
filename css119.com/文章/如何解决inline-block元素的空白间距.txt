@@ -1,0 +1,19 @@
+解决方法：
+第一：去掉html标签中的空格和回车；
+例如：
+<ul><li>web前端开发</li><li>前端开发</li><li>前端开发:http://www.css119.com</li></ul>
+第二：改变html标签的结构(下面只展示出了一种，还有其他的类似方法)；
+例如：
+<ul>
+  <li>WEB前端开发</li
+  ><li>前端开发</li
+  ><li>前端开发:http://www.css119.com</li>
+</ul>
+第三：利用负margin解决（不推荐，具体负margin多少取决于字体的大小）；
+第四：设置父元素font-size:0;子元素重新设置自己的font-size；
+例如：
+ul{font-size:0}
+li{ display:inline-block;*display:inline;*zoom:1;background:green; padding:5px;font-size:12px}
+可以看到在 ie8，firefox，chrome 和 opera 浏览器下已经没有问题了，但是在 低版本safari 浏览器下还是有问题。
+关于 低版本safari 浏览器的兼容。
+可以利用letter-space:-N px或者word-spacing:-N px来解决。

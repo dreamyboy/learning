@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+@-moz-keyframes move {
+0% {
+left:20%
+}
+20% {
+left:40%
+}
+40% {
+left:60%
+}
+60% {
+left:80%
+}
+80% {
+left:90%
+}
+100% {
+left:100%
+}
+}
+.cloud {
+	width:580px;
+	height:250px;
+	 background:red;
+	position:fixed;
+	_position:absolute;
+	top:100px;
+	z-index:100;
+	animation:move 100s linear 0s infinite;
+	-webkit-animation:move 100s linear 0s infinite;
+	-moz-animation:move 100s linear 0s infinite;
+	-o-animation:move 100s linear 0s infinite;
+	-ms-animation:move 100s linear 0s infinite
+}
+</style>
+</head>
+
+<body>
+<div class="cloud"></div>
+</body>
+</html>
